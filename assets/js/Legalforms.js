@@ -26,5 +26,37 @@
     }
 
     window.ractive = ractive;
+
+    $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
+
+        ractive.refreshListItems('remove');
+        var values = ractive.get();
+        delete values.meta;
+        delete values.$;
+
+        for (var name in computedCache) {
+            delete values[escapeDots(name)];
+        }
+
+        var $content = $('#doc-content');
+        var parsedContent = $content.html();
+
+        $.ajax({
+            url: legalforms.response_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                values: JSON.stringify(values),
+                step: 'finished'
+            }
+        }).done(function(data) {
+            if (data.redirect) {
+                window.location.href = data.redirect;
+                return;
+            } else if (legalforms.redirect_page) {
+                window.location.href = data.redirect_page;
+            }
+        });
+    });
 })(jQuery);
     

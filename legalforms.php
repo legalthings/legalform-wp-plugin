@@ -158,7 +158,7 @@ class LegalForms
         }
 
         // Added material design if need 
-        if ($attrs->useMaterial) {
+        if ($attrs['material']  === 'true') {
             wp_register_style( 'bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css');
             wp_enqueue_style( 'bootstrap-material-design' );
             wp_register_script('bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js'); 
@@ -205,7 +205,7 @@ class LegalForms
         wp_enqueue_style( 'datepicker' );
         wp_register_script('datepicker', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js'); 
         wp_enqueue_script( 'datepicker' );
-        
+
         //Legalthings scripts and styles
         wp_register_style('legalform-wizard', '//s3-eu-west-1.amazonaws.com/legalthings-cdn/bootstrap-wizard/bootstrap-wizard.css');
         wp_enqueue_style( 'legalform-wizard' );
@@ -224,7 +224,9 @@ class LegalForms
             'id' => $form->id,
             'definition' => $form->definition,
             'useMaterial' => $attrs['material'],
-            'legalform_respond_url' => '10'
+            'legalform_respond_url' => '10',
+            'response_url' => $attrs['response_url'],
+            'redirect_page' => $attrs['redirect_page']
         );
 
         wp_localize_script( LF, LF, $form_array );
