@@ -60,10 +60,12 @@ class LegalForms
     public function addAdminScriptsCss()
     {
         wp_enqueue_script('jquery-ui', "//code.jquery.com/ui/1.10.4/jquery-ui.min.js");
-        wp_enqueue_script(LF . "-js", plugins_url('/assets/js/Legalforms.js', __FILE__));
-        wp_enqueue_style(LF . "-css", plugins_url('/assets/css/Legalforms.css', __FILE__));
     }
-
+    /**
+     * Load configuration page in admin area
+     * 
+     * @return [strin] output of config page
+     */
     public function configPage()
     {
 
@@ -83,13 +85,16 @@ class LegalForms
 
             update_option(LF, $this->config);
         }
-        include dirname(__FILE__).'includes/legalforms-options-page.php';
+        include dirname(__FILE__).'/includes/legalforms-options-page.php';
     }
 
     /**
-    * Main function to change shortcode to create legalform
-    */
-
+     * Main function to change shortcode to create legalform
+     *  
+     * @param  [array] Input attributes for form
+     * @param  [string] inside text of shortcut
+     * @return [string] final output of form shortcode
+      */
     public function doLegalformShortcode($attrs, $content = null)
     {
         $a = shortcode_atts([
@@ -115,30 +120,115 @@ class LegalForms
         }
 
         $form = json_decode($form);
-
-        $this->appendAssets($form);
+        $this->appendAssets($attrs, $form);
         ob_start();
         include dirname(__FILE__).'./includes/legalforms.php';
         $output = ob_get_clean();
         return $output;
     }
 
-    public function appendAssets($form) {
+    /**
+     *  Function to append legalform-js assets to the page with form
+     * 
+     * @param  [object]
+     */
+    public function appendAssets($attrs, $form) {
 
-        // Register the script
-        wp_register_script( LF.$a['reference'], 'path/to/myscript.js' );
+        // Register jQuery
+        if ((bool)$this->config['useJQuery']) {
+            wp_register_script('jquery', '//code.jquery.com/jquery.js');  
+            wp_enqueue_script( 'jquery' );
+        } 
 
+        // Add bootstrap to the page 
+        if ((bool)$this->config['useBootstrap']) {
+            wp_register_style('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+            wp_enqueue_style( 'bootstrap' );
+            wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'); 
+            wp_enqueue_script( 'bootstrap' );
+        }
+
+
+        // Add selectize 
+        if ((bool)$this->config['useSelectize']) {
+            wp_register_style('selectize', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+            wp_enqueue_style( 'selectize' );
+            wp_register_script('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js'); 
+            wp_enqueue_script( 'selectize' );
+        }
+
+        // Added material design if need 
+        if ($attrs->useMaterial) {
+            wp_register_style( 'bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css');
+            wp_enqueue_style( 'bootstrap-material-design' );
+            wp_register_script('bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js'); 
+            wp_enqueue_script( 'bootstrap-material-design' );
+        } else {
+            wp_register_style( 'selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.min.css');
+            wp_enqueue_style( 'selectize' );
+            wp_register_style( 'selectize-bootstrap', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.bootstrap3.min.css');
+            wp_enqueue_style( 'selectize-bootstrap' );
+        }
+        
+        // Added font awensome fonts for labels
+        wp_register_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        wp_enqueue_style('font-awesome');
+
+
+        // Add moment-js to the fom 
+        wp_register_script( 'moment', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js'); 
+        wp_enqueue_script( 'moment' );
+        wp_register_script( 'moment-nl', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/nl.js'); 
+        wp_enqueue_script( 'moment-nl' );
+        wp_register_script( 'moment-en', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/en-gb.js'); 
+        wp_enqueue_script( 'moment-en' );
+
+        // Add Ractive for form
+        wp_register_script( 'ractive', '//cdnjs.cloudflare.com/ajax/libs/ractive/0.9.0-build-117/ractive.min.js'); 
+        wp_enqueue_script( 'ractive' ); 
+
+        // Add perfect Scrollbar to form
+        wp_register_style('perfect-scrollbar', '//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css');
+        wp_enqueue_style( 'perfect-scrollbar' );
+        wp_register_script('perfect-scrollbar', '//cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.jquery.js'); 
+        wp_enqueue_script( 'perfect-scrollbar' );
+
+
+        wp_register_script( 'validator', '//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js'); 
+        wp_enqueue_script( 'validator' );
+
+        wp_register_script( 'jespath', '//cdn.rawgit.com/jmespath/jmespath.js/master/jmespath.js');
+        wp_enqueue_script( 'jespath' );
+
+        //Add Datetimepicker
+        wp_register_style('datepicker', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker-standalone.min.css');
+        wp_enqueue_style( 'datepicker' );
+        wp_register_script('datepicker', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js'); 
+        wp_enqueue_script( 'datepicker' );
+        
+        //Legalthings scripts and styles
+        wp_register_style('legalform-wizard', '//s3-eu-west-1.amazonaws.com/legalthings-cdn/bootstrap-wizard/bootstrap-wizard.css');
+        wp_enqueue_style( 'legalform-wizard' );
+        wp_register_script('legalform-wizard', '//s3-eu-west-1.amazonaws.com/legalthings-cdn/bootstrap-wizard/bootstrap-wizard.js'); 
+        wp_enqueue_script( 'legalform-wizard' );
+
+
+        wp_register_style( 'legalform-css', '//rawgit.com/legalthings/legalform-js/master/dist/legalform.css');
+        wp_enqueue_style( 'legalform-css' );
+        wp_register_script( 'legalform-js', '//rawgit.com/legalthings/legalform-js/master/dist/legalform.js', array('jquery', 'ractive'));
+        wp_enqueue_script( 'legalform-js' );
+        
+        wp_register_script( LF,  plugins_url('/assets/js/Legalforms.js', __FILE__), array( 'jquery', 'ractive'), false, true);
         // Localize the script with new data
-        $translation_array = array(
-            'some_string' => __( 'Some string to translate', 'plugin-domain' ),
-            'a_value' => '10'
+        $form_array = array(
+            'id' => $form->id,
+            'definition' => $form->definition,
+            'useMaterial' => $attrs['material'],
+            'legalform_respond_url' => '10'
         );
 
-        wp_localize_script( 'some_handle', 'object_name', $translation_array );
-
-        if ($this->config['useJQuery']) {
-            wp_enqueue_script('jquery', "//code.jquery.com/ui/1.10.4/jquery-ui.min.js");
-        }
+        wp_localize_script( LF, LF, $form_array );
+        wp_enqueue_script( LF );
     }
 
     /**
@@ -152,10 +242,10 @@ class LegalForms
         }
 
         //Add a callback to regiser our tinymce plugin
-        add_filter("mce_external_plugins", [$this, "registerMCEPlugin"]);
+        add_filter("mce_external_plugins", array($this, "registerMCEPlugin"));
 
         // Add a callback to add our button to the TinyMCE toolbar
-        add_filter('mce_buttons', [$this, 'addButtonTinyMCE']);
+        add_filter('mce_buttons', array($this, 'addButtonTinyMCE'));
     }
 
     public function registerMCEPlugin($plugin_array)
