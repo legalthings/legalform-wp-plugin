@@ -33,14 +33,21 @@
         var values = ractive.get();
         delete values.meta;
         delete values.$;
+        delete values.today;
+        delete values.vandaag;
+        console.log(values);
 
         $.ajax({
-            url: legalforms.response_url,
+            url: legalforms.ajaxurl,
             type: 'POST',
-            dataType: 'json',
             data: {
-                values: values,
-                step: 'finished'
+                action: 'legalforms_apply_form',
+                form_referense: legalforms.id,  
+                response_url: legalforms.response_url,
+                data: {
+                    values: values,
+                    step: 'finished'
+                }
             }
         }).done(function(data) {
             if (data.redirect) {

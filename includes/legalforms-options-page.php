@@ -14,6 +14,22 @@
                 </tr>
                 <tr>
                     <td scope="row">
+                        <?php _e('Please enter LegalDocx server url', LF) ?>:
+                    </td>
+                    <td>
+                        <input class="regular-text" type="text" value="<?php echo $this->config['legaldocx'];?>" name="legaldocx" />
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">
+                        <?php _e('Please enter LegalDocx Api Key', LF) ?>:
+                    </td>
+                    <td>
+                        <input class="regular-text" type="text" value="<?php echo $this->config['apiKey'];?>" name="apiKey" />
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="row">
                         <?php _e('Load jQuery from CDN on form page', LF) ?>:
                     </td>
                     <td>
@@ -49,7 +65,7 @@
                         <label><?php _e('no');?>
                             <input class="regular-text" <?php echo $this->config['useSelectize'] ? '' : 'checked="checked"';?> type="radio" value="0" name="useSelectize" />
                         </label>
-                    </td>W
+                    </td>
                 </tr>
             </tbody>
         </table>   

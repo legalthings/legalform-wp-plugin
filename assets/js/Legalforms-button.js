@@ -25,14 +25,6 @@ jQuery(document).ready(function($) {
                          },
                           {
                               type: 'textbox',
-                              name: 'response_url',
-                              id: 'response_url',
-                              label: 'Type the response url of form here',
-                              multiline: false,
-                              width: 500
-                          },
-                          {
-                              type: 'textbox',
                               name: 'redirect_page',
                               label: 'Type the redirect page here',
                               multiline: false
