@@ -34,19 +34,12 @@
         delete values.meta;
         delete values.$;
 
-        for (var name in computedCache) {
-            delete values[escapeDots(name)];
-        }
-
-        var $content = $('#doc-content');
-        var parsedContent = $content.html();
-
         $.ajax({
             url: legalforms.response_url,
             type: 'POST',
             dataType: 'json',
             data: {
-                values: JSON.stringify(values),
+                values: values,
                 step: 'finished'
             }
         }).done(function(data) {
@@ -56,6 +49,8 @@
             } else if (legalforms.redirect_page) {
                 window.location.href = data.redirect_page;
             }
+        }).fail(function(data) {
+            
         });
     });
 })(jQuery);
