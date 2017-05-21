@@ -1,4 +1,6 @@
 (function($) { 
+
+    $('#legalforms-name').html(legalforms.name);
     var builder = new LegalForm();
 
     var template = builder.build(legalforms.definition);

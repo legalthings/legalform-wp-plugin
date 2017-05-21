@@ -222,6 +222,7 @@ class LegalForms
         // Localize the script with new data
         $form_array = array(
             'id'                    => $form->id,
+            'name'                  => $form->name,
             'definition'            => $form->definition,
             'useMaterial'           => $attrs['material'],
             'legalform_respond_url' => '10',

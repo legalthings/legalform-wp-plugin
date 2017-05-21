@@ -1,5 +1,5 @@
 
 <div class="row">
-    <h1><?php echo $form->name;?></h1>
+    <h1 id="legalforms-name"></h1>
     <div id="doc-wizard" class="wizard"></div>
 </div>
