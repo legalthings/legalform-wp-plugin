@@ -52,12 +52,8 @@
                 }
             }
         }).done(function(data) {
-            if (data.redirect) {
-                window.location.href = data.redirect;
-                return;
-            } else if (legalforms.redirect_page) {
-                window.location.href = data.redirect_page;
-            }
+            return console.log('redirect_page is ', legalforms.redirect_page);
+                window.location.href = legalforms.redirect_page;
         }).fail(function(data) {
             
         });

@@ -18,9 +18,7 @@ class LegalForms
 {
     public $config   = [];
     public $defaults = [
-        'legalforms'   => 'http://legalform.com/',
-        'legaldocx'    => 'http://legaldocx.localhost/',
-        'apiKey'       => '',
+        'legalforms'   => 'http://legalthings.legaldocx.nl/',
         'useJQuery'    => false,
         'useBootstrap' => true,
         'useSelectize' => true,
@@ -224,9 +222,10 @@ class LegalForms
             'id'                    => $form->id,
             'name'                  => $form->name,
             'definition'            => $form->definition,
-            'useMaterial'           => $attrs['material'],
+            'attrs'                 => $attrs['material'],
             'legalform_respond_url' => '10',
             'ajaxurl'               => admin_url( 'admin-ajax.php' ),
+            'response_url'          => $attrs['response_url'],
             'redirect_page'         => $attrs['redirect_page'],
         );
 
@@ -247,17 +246,12 @@ class LegalForms
             wp_die();
         }
         //Exit if not seted request url
-        if (empty($this->config['legaldocx'])) {
-            $response['message'] = __('Server for legaldocx not defined', LF);
+        if (empty($_POST['response_url'])) {
+            $response['message'] = __('Server for response url not defined', LF);
             echo json_encode($response);
             wp_die();
         }
-        //Exit if not seted request url
-        if (empty($this->config['apiKey'])) {
-            $response['message'] = __('Api key for legaldocx not defined', LF);
-            echo json_encode($response);
-            wp_die();
-        }
+
         //If data not have value - return fill
         if (empty($_POST['data'])) {
             $response['message'] = __('Form not filled', LF);
@@ -268,14 +262,13 @@ class LegalForms
         $data_string = json_encode($_POST['data']);       
         $s = curl_init();
 
-        curl_setopt($s, CURLOPT_URL, $this->config['legaldocx'].'/'.$_POST['data']['form_referense'].'/');
+        curl_setopt($s, CURLOPT_URL, $_POST['response_url']);
         curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($s, CURLOPT_POST, true);
         curl_setopt($s, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
             'Content-Type: application/json',                                                                                
-            'Content-Length: ' . strlen($data_string)),
-            'HTTP_AUTHORIZATION: bearer '+$this->config['apiKey']                                                                
+            'Content-Length: ' . strlen($data_string))                                           
         );
 
         $curl = curl_exec($s);
@@ -284,8 +277,8 @@ class LegalForms
 
         $info = curl_getinfo($s);
 
-        if ($error || $info['content_type'] !== 'application/json' || $info['http_code'] !== 200) {
-            $response['message'] = __('Can not fill form for legaldocx server', LF);
+        if ($error || $info['http_code'] !== 200) {
+            $response['message'] = __('Can not fill form for response server', LF);
             $response['data'] = $info;
             echo json_encode($response);
         } else {

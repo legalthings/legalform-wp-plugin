@@ -23,6 +23,12 @@ jQuery(document).ready(function($) {
                               label: 'Put form reference here',
                               multiline: false
                          },
+                         {
+                              type: 'textbox',
+                              name: 'response_url',
+                              label: 'Type the response url for form',
+                              multiline: false
+                          },
                           {
                               type: 'textbox',
                               name: 'redirect_page',
