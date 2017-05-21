@@ -1,1 +1,0 @@
-"# legalform-wp-plugin" 

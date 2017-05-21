@@ -1,18 +1,19 @@
 === LegalForm ===
-Contributors: Andrii Cherytsya
+Contributors: Legal Things
 Donate link:
 Tags:
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: MIT
+License URI: https://raw.githubusercontent.com/legalthings/legalform-wp-plugin/master/LICENSE
 Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 0.1
 
-Legaldocx form create
+LegalForms plugin
 
 == Description ==
 
-Legaldocx form create
+Load a definition from your LegalForms installation and show it on a WordPress site. After the form is filled out, the
+result will be posted to an endpoint of your choice.
 
 == Installation ==
 
