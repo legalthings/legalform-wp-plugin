@@ -49,7 +49,7 @@
                         <label><?php _e('no');?>
                             <input class="regular-text" <?php echo $this->config['useSelectize'] ? '' : 'checked="checked"';?> type="radio" value="0" name="useSelectize" />
                         </label>
-                    </td>W
+                    </td>
                 </tr>
             </tbody>
         </table>   

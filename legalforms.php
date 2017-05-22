@@ -8,6 +8,7 @@
  */
 
 define('LF', 'legalforms');
+define('LF_PATH', plugin_dir_path( __FILE__ ));
 load_plugin_textdomain(LF, false, basename(dirname(__FILE__)) . '/langs');
 
 if (!defined('LF_LOG')) {
@@ -86,7 +87,8 @@ class LegalForms
 
             update_option(LF, $this->config);
         }
-        include dirname(__FILE__) . '/includes/legalforms-options-page.php';
+
+        include 'legalforms-options-page.php';
     }
 
     /**
@@ -123,7 +125,8 @@ class LegalForms
         $form = json_decode($form);
         $this->appendAssets($attrs, $form);
         ob_start();
-        include dirname(__FILE__) . './includes/legalforms.php';
+        
+        include LF_PATH.'legalforms-shortcode-html.php';
         $output = ob_get_clean();
         return $output;
     }
