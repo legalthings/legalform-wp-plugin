@@ -47,10 +47,7 @@
                 action: 'legalforms_apply_form',
                 form_referense: legalforms.id,  
                 response_url: legalforms.response_url,
-                data: {
-                    values: values,
-                    step: 'finished'
-                }
+                data: values
             })
         }).done(function(data) {
             console.log('redirect_page is ', legalforms.redirect_page);

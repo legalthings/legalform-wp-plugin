@@ -31,7 +31,7 @@ class LegalForms
         $this->config = array_merge($this->defaults, get_option(LF));
         add_action('admin_menu', array($this, 'addAdminMenu'));
         add_action('admin_init', array($this, 'initTinyMCEButton'));
-        add_action('wp_ajax_legalforms_apply_form', array($this, 'apply_form'));
+        //add_action('wp_ajax_legalforms_apply_form', array($this, 'apply_form'));
         add_shortcode(LF, array($this, 'doLegalformShortcode'));
 
         /* End init */
@@ -125,7 +125,7 @@ class LegalForms
         $form = json_decode($form);
         $this->appendAssets($attrs, $form);
         ob_start();
-        
+
         include LF_PATH.'legalforms-shortcode-html.php';
         $output = ob_get_clean();
         return $output;
