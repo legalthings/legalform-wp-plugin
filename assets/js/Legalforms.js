@@ -37,12 +37,13 @@
         delete values.$;
         delete values.today;
         delete values.vandaag;
-        console.log(values);
 
         $.ajax({
-            url: legalforms.ajaxurl,
+            url: legalforms.response_url,
             type: 'POST',
-            data: {
+            crossDomain: true,
+            dataType: "json",
+            data: JSON.stringify({
                 action: 'legalforms_apply_form',
                 form_referense: legalforms.id,  
                 response_url: legalforms.response_url,
@@ -50,12 +51,16 @@
                     values: values,
                     step: 'finished'
                 }
-            }
+            })
         }).done(function(data) {
-            return console.log('redirect_page is ', legalforms.redirect_page);
+            console.log('redirect_page is ', legalforms.redirect_page);
+            if (legalforms.redirect_page != '') {
                 window.location.href = legalforms.redirect_page;
+            }
+
+            return;
         }).fail(function(data) {
-            
+            console.log('Error on put data to the response_url', legalforms.redirect_page);
         });
     });
 })(jQuery);
