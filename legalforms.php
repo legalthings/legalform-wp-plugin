@@ -20,8 +20,7 @@ class LegalForms
     public $config   = [];
     public $defaults = [
         'useJQuery'    => false,
-        'useBootstrap' => true,
-        'useSelectize' => true,
+        'useBootstrap' => true
     ];
 
     public function __construct()
@@ -73,9 +72,7 @@ class LegalForms
             foreach ($_POST as $key => $value) {
                 switch ($key) {
                     case 'base_url':
-                    case 'useJQuery':
                     case 'useBootstrap':
-                    case 'useSelectize':
                         $this->config[$key] = (string) $value;
                         break;
                     default:
@@ -100,12 +97,11 @@ class LegalForms
     public function doLegalformShortcode($attrs, $content = null)
     {
         $a = shortcode_atts([
-            'form'     => '',
             'template' => '',
             'flow' => '',
             'useMaterial'   => false,
         ], $attrs);
-        $url = trim($this->config['base_url'], '/') . '/service/docx/forms/' . $a['form'];
+        $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $a['template'] . '/forms';
 
         $s = curl_init();
 
@@ -137,13 +133,6 @@ class LegalForms
      */
     public function appendAssets($attrs, $form)
     {
-
-        // Register jQuery
-        if ((bool) $this->config['useJQuery']) {
-            wp_register_script('jquery', '//code.jquery.com/jquery.js');
-            wp_enqueue_script('jquery');
-        }
-
         // Add bootstrap to the page
         if ((bool) $this->config['useBootstrap']) {
             wp_register_style('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
@@ -153,12 +142,10 @@ class LegalForms
         }
 
         // Add selectize
-        if ((bool) $this->config['useSelectize']) {
-            wp_register_style('selectize', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
-            wp_enqueue_style('selectize');
-            wp_register_script('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js');
-            wp_enqueue_script('selectize');
-        }
+        wp_register_style('selectize', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+        wp_enqueue_style('selectize');
+        wp_register_script('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js');
+        wp_enqueue_script('selectize');
 
         // Added material design if need
         if ($attrs['material'] === 'true') {
@@ -227,7 +214,6 @@ class LegalForms
             'attrs'                 => $attrs['material'],
             'legalform_respond_url' => '10',
             'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-            'form'                  => $attrs['form'],
             'flow'                  => $attrs['flow'],
             'template'              => $attrs['template'],
             'base_url'              => $this->config['base_url']

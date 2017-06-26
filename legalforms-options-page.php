@@ -14,19 +14,6 @@
                 </tr>
                 <tr>
                     <td scope="row">
-                        <?php _e('Load jQuery from CDN on form page', LF) ?>:
-                    </td>
-                    <td>
-                        <label><?php _e('yes');?>
-                            <input class="regular-text" <?php echo $this->config['useJQuery'] ? 'checked="checked"' : '';?> type="radio" value="1" name="useJQuery" />
-                        </label>
-                        <label><?php _e('no');?>
-                            <input class="regular-text" <?php echo $this->config['useJQuery'] ? '' : 'checked="checked"';?> type="radio" value="0" name="useJQuery" />
-                        </label>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">
                         <?php _e('Load bootstrap from CDN on form page', LF) ?>:
                     </td>
                     <td>
@@ -38,18 +25,6 @@
                         </label>
                     </td>
                 </tr>
-                <tr>
-                    <td scope="row">
-                        <?php _e('Load selectize from CDN on form page', LF) ?>:
-                    </td>
-                    <td>
-                        <label><?php _e('yes');?>
-                            <input class="regular-text" <?php echo $this->config['useSelectize'] ? 'checked="checked"' : '';?> type="radio" value="1" name="useSelectize" />
-                        </label>
-                        <label><?php _e('no');?>
-                            <input class="regular-text" <?php echo $this->config['useSelectize'] ? '' : 'checked="checked"';?> type="radio" value="0" name="useSelectize" />
-                        </label>
-                    </td>
                 </tr>
             </tbody>
         </table>
