@@ -19,7 +19,6 @@ class LegalForms
 {
     public $config   = [];
     public $defaults = [
-        'legalforms'   => 'http://legalthings.legaldocx.nl/',
         'useJQuery'    => false,
         'useBootstrap' => true,
         'useSelectize' => true,
@@ -31,7 +30,6 @@ class LegalForms
         $this->config = array_merge($this->defaults, get_option(LF));
         add_action('admin_menu', array($this, 'addAdminMenu'));
         add_action('admin_init', array($this, 'initTinyMCEButton'));
-        //add_action('wp_ajax_legalforms_apply_form', array($this, 'apply_form'));
         add_shortcode(LF, array($this, 'doLegalformShortcode'));
 
         /* End init */
@@ -74,6 +72,7 @@ class LegalForms
         if (isset($_POST) && !empty($_POST)) {
             foreach ($_POST as $key => $value) {
                 switch ($key) {
+                    case 'base_url':
                     case 'useJQuery':
                     case 'useBootstrap':
                     case 'useSelectize':
@@ -101,12 +100,12 @@ class LegalForms
     public function doLegalformShortcode($attrs, $content = null)
     {
         $a = shortcode_atts([
-            'reference'     => '',
-            'response_url'  => '',
-            'redirect_page' => '',
+            'form'     => '',
+            'template' => '',
+            'flow' => '',
             'useMaterial'   => false,
         ], $attrs);
-        $url = trim($this->config['legalforms'], '/') . '/forms/' . $a['reference'];
+        $url = trim($this->config['base_url'], '/') . '/service/docx/forms/' . $a['form'];
 
         $s = curl_init();
 
@@ -228,67 +227,16 @@ class LegalForms
             'attrs'                 => $attrs['material'],
             'legalform_respond_url' => '10',
             'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-            'response_url'          => $attrs['response_url'],
-            'redirect_page'         => $attrs['redirect_page'],
+            'form'                  => $attrs['form'],
+            'flow'                  => $attrs['flow'],
+            'template'              => $attrs['template'],
+            'base_url'              => $this->config['base_url']
         );
 
         wp_localize_script(LF, LF, $form_array);
         wp_enqueue_script(LF);
     }
 
-    /**
-     * Ajax action after user apply some form
-     */
-    public function apply_form()
-    {
-        $response = array('message' => '', 'status' => 'error', 'data' => array());
-        // Exit if emty request
-        if (empty($_POST)) {
-            $response['message'] = __('Wrong type of request', LF);
-            echo json_encode($response);
-            wp_die();
-        }
-        //Exit if not seted request url
-        if (empty($_POST['response_url'])) {
-            $response['message'] = __('Server for response url not defined', LF);
-            echo json_encode($response);
-            wp_die();
-        }
-
-        //If data not have value - return fill
-        if (empty($_POST['data'])) {
-            $response['message'] = __('Form not filled', LF);
-            echo json_encode($response);
-            wp_die();
-        }
-
-        $data_string = json_encode($_POST['data']);       
-        $s = curl_init();
-
-        curl_setopt($s, CURLOPT_URL, $_POST['response_url']);
-        curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($s, CURLOPT_POST, true);
-        curl_setopt($s, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-            'Content-Type: application/json',                                                                                
-            'Content-Length: ' . strlen($data_string))                                           
-        );
-
-        $curl = curl_exec($s);
-
-        $error = curl_errno($s);
-
-        $info = curl_getinfo($s);
-
-        if ($error || $info['http_code'] !== 200) {
-            $response['message'] = __('Can not fill form for response server', LF);
-            $response['data'] = $info;
-            echo json_encode($response);
-        } else {
-            echo $curl;
-        }
-        wp_die();
-    }
     /**
      * Add shorcode button to the TinyMCE text editor
      */
