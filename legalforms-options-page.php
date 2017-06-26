@@ -3,13 +3,13 @@
     <div class="soeasy" id="legalform-scripts">
         <form name="<?php echo LF;?>" method="post" action="">
         <table class="form-table">
-            <tbody> 
+            <tbody>
                 <tr>
                     <td scope="row">
-                        <?php _e('Please enter LegalForms url to get form reference', LF) ?>:
+                        <?php _e('Please enter Legalthings base url', LF) ?>:
                     </td>
                     <td>
-                        <input class="regular-text" type="text" value="<?php echo $this->config['legalforms'];?>" name="legalforms" />
+                        <input class="regular-text" type="text" value="<?php echo $this->config['base_url'];?>" name="base_url" />
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>   
+        </table>
     </div>
     <?php submit_button(); ?>
 </form>

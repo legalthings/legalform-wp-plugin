@@ -1,4 +1,4 @@
-(function($) { 
+(function($) {
 
     $('#legalforms-name').html(legalforms.name);
     var builder = new LegalForm();
@@ -33,32 +33,54 @@
 
         ractive.refreshListItems('remove');
         var values = ractive.get();
-        delete values.meta;
         delete values.$;
         delete values.today;
         delete values.vandaag;
+        delete values.meta;
+        for (var key in values) {
+            if (key.indexOf('\\') > -1) {
+                delete values[key];
+            }
+        }
 
         $.ajax({
-            url: legalforms.response_url,
-            type: 'POST',
-            crossDomain: true,
-            dataType: "json",
-            data: JSON.stringify({
-                action: 'legalforms_apply_form',
-                form_referense: legalforms.id,  
-                response_url: legalforms.response_url,
-                data: values
-            })
-        }).done(function(data) {
-            console.log('redirect_page is ', legalforms.redirect_page);
-            if (legalforms.redirect_page != '') {
-                window.location.href = legalforms.redirect_page;
-            }
-
-            return;
-        }).fail(function(data) {
-            console.log('Error on put data to the response_url', legalforms.redirect_page);
-        });
+              url: legalforms.base_url + '/service/iam/users',
+              type: 'POST',
+              crossDomain: true,
+              dataType: 'json',
+              contentType: 'application/json',
+              data: JSON.stringify(values.account)
+          }).always(function(user) {
+              $.ajax({
+                  url: legalforms.base_url + '/service/iam/sessions',
+                  type: 'POST',
+                  crossDomain: true,
+                  dataType: 'json',
+                  contentType: 'application/json',
+                  data: JSON.stringify(values.account)
+              }).done(function(session) {
+                  $.ajax({
+                      url: legalforms.base_url + '/service/flow/processes',
+                      type: 'POST',
+                      crossDomain: true,
+                      dataType: 'json',
+                      contentType: 'application/json',
+                      headers: {'X-Session': session.id},
+                      data: JSON.stringify({
+                        scenario: legalforms.flow,
+                        data: {
+                            values: values,
+                            template: legalforms.template,
+                            name: legalforms.template,
+                            organization: session.user.employment[0].organization.id
+                        }
+                      })
+                  }).done(function(data) {
+                      window.top.location.href = legalforms.base_url + '/processes/' + data.id;
+                  });
+              }).fail(function(data) {
+                  $('#email-error').removeClass('hidden');
+              });
+          });
     });
 })(jQuery);
-    
