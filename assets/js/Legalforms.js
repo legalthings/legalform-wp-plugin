@@ -13,9 +13,11 @@
         defaults: options.defaults,
         computed: options.computed,
         meta: options.meta,
-        locale: 'en',
+        locale: 'nl',
         resolveInstanceMembers: false //prevent autocreation of `data` value, containing all ractive values
     });
+
+    var values;
 
     var helptext = builder.buildHelpText(legalforms.definition);
 
@@ -30,9 +32,8 @@
     window.ractive = ractive;
 
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
-
         ractive.refreshListItems('remove');
-        var values = ractive.get();
+        values = ractive.get();
         delete values.$;
         delete values.today;
         delete values.vandaag;
@@ -43,13 +44,25 @@
             }
         }
 
+        $('#doc-wizard').hide();
+        $('#doc-wizard-login').show();
+    });
+
+    $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
+        $('#doc-wizard-login ')
+        var account = {
+            name: $('#doc-wizard-login [name="account.name"]').val(),
+            email: $('#doc-wizard-login [name="account.email"]').val(),
+            password: $('#doc-wizard-login [name="account.password"]').val(),
+        }
+
         $.ajax({
               url: legalforms.base_url + '/service/iam/users',
               type: 'POST',
               crossDomain: true,
               dataType: 'json',
               contentType: 'application/json',
-              data: JSON.stringify(values.account)
+              data: JSON.stringify(account)
           }).always(function(user) {
               $.ajax({
                   url: legalforms.base_url + '/service/iam/sessions',
@@ -57,7 +70,7 @@
                   crossDomain: true,
                   dataType: 'json',
                   contentType: 'application/json',
-                  data: JSON.stringify(values.account)
+                  data: JSON.stringify(account)
               }).done(function(session) {
                   $.ajax({
                       url: legalforms.base_url + '/service/flow/processes',
