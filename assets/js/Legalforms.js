@@ -76,7 +76,7 @@
                         }
                       })
                   }).done(function(data) {
-                      window.top.location.href = legalforms.base_url + '/processes/' + data.id;
+                      window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true';
                   });
               }).fail(function(data) {
                   $('#email-error').removeClass('hidden');
