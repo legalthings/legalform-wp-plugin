@@ -3,9 +3,8 @@
     <h1 id="legalforms-name"></h1>
     <div class="alert alert-danger hidden" role="alert" id="email-error">Ongeldige inloggegevens</div>
     <div id="doc-wizard" class="wizard"></div>
-    <div id="doc-wizard-login" class="wizard" style="display:none">
+    <div id="doc-wizard-login" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
         <div class="wizard-step active">
-            <h3>Accountgegevens</h3>
             <form class="form navmenu-form" novalidate="true">
                 <div class="form-group has-error has-danger" data-role="wrapper">
                     <label for="field:account.name">

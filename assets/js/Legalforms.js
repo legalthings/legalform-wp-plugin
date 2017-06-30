@@ -25,7 +25,7 @@
         el: $('#doc-help-'+legalforms.id)[0],
         template: helptext
     });
-    if (legalforms.useMaterial === 'true') {
+    if (legalforms.material !== 'false') {
         $('#doc-wizard').toMaterial();
     }
 
@@ -84,12 +84,12 @@
                         data: {
                             values: values,
                             template: legalforms.template,
-                            name: legalforms.template,
+                            name: legalforms.name,
                             organization: session.user.employment[0].organization.id
                         }
                       })
                   }).done(function(data) {
-                      window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true';
+                      window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
                   });
               }).fail(function(data) {
                   $('#email-error').removeClass('hidden');

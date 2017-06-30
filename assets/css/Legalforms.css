@@ -1,0 +1,21 @@
+.wizard.material input[type="text"],
+.wizard.material input[type="password"],
+.wizard.material input[type="email"],
+.wizard.material textarea {
+    padding: 0;
+    border-radius: 0 !important;
+}
+
+.wizard.material input[type="text"]:focus,
+.wizard.material input[type="password"]:focus,
+.wizard.material input[type="email"]:focus,
+.wizard.material textarea:focus {
+    border: none;
+    color: inherit;
+    box-shadow: none;
+}
+
+#doc-wizard-login :before,
+#doc-wizard-login :after {
+    display: none;
+}

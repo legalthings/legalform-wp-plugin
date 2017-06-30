@@ -20,7 +20,7 @@ class LegalForms
     public $config   = [];
     public $defaults = [
         'useJQuery'    => false,
-        'useBootstrap' => true
+        'useBootstrap' => false
     ];
 
     public function __construct()
@@ -96,12 +96,12 @@ class LegalForms
      */
     public function doLegalformShortcode($attrs, $content = null)
     {
-        $a = shortcode_atts([
+        $attrs = shortcode_atts(array(
             'template' => '',
             'flow' => '',
-            'useMaterial'   => false,
-        ], $attrs);
-        $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $a['template'] . '/forms';
+            'material' => true,
+        ), $attrs);
+        $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
 
         $s = curl_init();
 
@@ -114,13 +114,12 @@ class LegalForms
 
         $info = curl_getinfo($s);
         if ($error || $info['content_type'] !== 'application/json' || $info['http_code'] !== 200) {
-            return sprintf(__('Can not load form with reference: <a href="%s">%s</a>', LF), $url, $a['reference']);
+            return sprintf(__('Can not load form with reference: <a href="%s">%s</a>', LF), $url, $attrs['reference']);
         }
 
         $form = json_decode($form);
         $this->appendAssets($attrs, $form);
         ob_start();
-
         include LF_PATH.'legalforms-shortcode-html.php';
         $output = ob_get_clean();
         return $output;
@@ -148,7 +147,7 @@ class LegalForms
         wp_enqueue_script('selectize');
 
         // Added material design if need
-        if ($attrs['material'] === 'true') {
+        if ($attrs['material'] !== 'false') {
             wp_register_style('bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css');
             wp_enqueue_style('bootstrap-material-design');
             wp_register_script('bootstrap-material-design', '//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js');
@@ -164,7 +163,7 @@ class LegalForms
         wp_register_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
         wp_enqueue_style('font-awesome');
 
-        // Add moment-js to the fom
+        // Add moment-js to the form
         wp_register_script('moment', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js');
         wp_enqueue_script('moment');
         wp_register_script('moment-nl', '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/locale/nl.js');
@@ -206,12 +205,14 @@ class LegalForms
         wp_enqueue_script('legalform-js');
 
         wp_register_script(LF, plugins_url('/assets/js/Legalforms.js', __FILE__), array('jquery', 'ractive'), false, true);
+        wp_register_style(LF, plugins_url('/assets/css/Legalforms.css', __FILE__));
+
         // Localize the script with new data
         $form_array = array(
             'id'                    => $form->id,
             'name'                  => $form->name,
             'definition'            => $form->definition,
-            'attrs'                 => $attrs['material'],
+            'material'              => $attrs['material'],
             'legalform_respond_url' => '10',
             'ajaxurl'               => admin_url( 'admin-ajax.php' ),
             'flow'                  => $attrs['flow'],
@@ -221,6 +222,7 @@ class LegalForms
 
         wp_localize_script(LF, LF, $form_array);
         wp_enqueue_script(LF);
+        wp_enqueue_style(LF);
     }
 
     /**
