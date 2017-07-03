@@ -19,8 +19,7 @@ class LegalForms
 {
     public $config   = [];
     public $defaults = [
-        'useJQuery'    => false,
-        'useBootstrap' => false
+        'useJQuery'    => false
     ];
 
     public function __construct()
@@ -72,7 +71,6 @@ class LegalForms
             foreach ($_POST as $key => $value) {
                 switch ($key) {
                     case 'base_url':
-                    case 'useBootstrap':
                         $this->config[$key] = (string) $value;
                         break;
                     default:
@@ -133,16 +131,12 @@ class LegalForms
     public function appendAssets($attrs, $form)
     {
         // Add bootstrap to the page
-        if ((bool) $this->config['useBootstrap']) {
-            wp_register_style('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
-            wp_enqueue_style('bootstrap');
-            wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js');
-            wp_enqueue_script('bootstrap');
-        }
+        wp_register_style('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
+        wp_enqueue_style('bootstrap');
+        wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js');
+        wp_enqueue_script('bootstrap');
 
         // Add selectize
-        wp_register_style('selectize', '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css');
-        wp_enqueue_style('selectize');
         wp_register_script('selectize', '//cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js');
         wp_enqueue_script('selectize');
 

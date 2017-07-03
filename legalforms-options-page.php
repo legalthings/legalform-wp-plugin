@@ -12,20 +12,6 @@
                         <input class="regular-text" type="text" value="<?php echo $this->config['base_url'];?>" name="base_url" />
                     </td>
                 </tr>
-                <tr>
-                    <td scope="row">
-                        <?php _e('Load bootstrap from CDN on form page', LF) ?>:
-                    </td>
-                    <td>
-                        <label><?php _e('yes');?>
-                            <input class="regular-text" <?php echo $this->config['useBootstrap'] ? 'checked="checked"' : '';?> type="radio" value="1" name="useBootstrap" />
-                        </label>
-                        <label><?php _e('no');?>
-                            <input class="regular-text" <?php echo $this->config['useBootstrap'] ? '' : 'checked="checked"';?> type="radio" value="0" name="useBootstrap" />
-                        </label>
-                    </td>
-                </tr>
-                </tr>
             </tbody>
         </table>
     </div>
