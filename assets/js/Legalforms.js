@@ -17,8 +17,6 @@
         resolveInstanceMembers: false //prevent autocreation of `data` value, containing all ractive values
     });
 
-    var values;
-
     var helptext = builder.buildHelpText(legalforms.definition);
 
     new Ractive({
@@ -31,9 +29,42 @@
 
     window.ractive = ractive;
 
-    $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
+    var storedValues = localStorage.getItem('values');
+    if (storedValues) {
+        storedValues = JSON.parse(storedValues);
+        setTimeout(useSaved, 2000);
+    }
+
+    function useSaved() {
+        $('#doc-saved-modal').modal({
+            backdrop: true
+        });
+
+        $('#doc-saved-continue').on('click', function() {
+            ractive.set(storedValues);
+
+            /* Manually set all selectize fields */
+            var els = jQuery('select.selectized');
+            for (var i = 0; i < els.length; i++) {
+                var id = els.eq(i).attr('id').replace('field:', '');
+                var val = storedValues[id.split('.')[0]][id.split('.')[1]];
+                els.eq(i).selectize()[0].selectize.setValue(val);
+            }
+            $('.form-control').each(function () {
+                if ($(this).val()) {
+                    $(this).parents('.form-group').removeClass('is-empty');
+                }
+            })
+        })
+
+        $('#doc-saved-discard').on('click', function() {
+            localStorage.removeItem('values');
+        })
+    }
+
+    function getValues() {
         ractive.refreshListItems('remove');
-        values = ractive.get();
+        var values = ractive.get();
         delete values.$;
         delete values.today;
         delete values.vandaag;
@@ -43,13 +74,16 @@
                 delete values[key];
             }
         }
+        return values;
+    }
 
+    $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         $('#doc-wizard').hide();
         $('#doc-wizard-login').show();
     });
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
-        $('#doc-wizard-login ')
+        var values = getValues();
         var account = {
             name: $('#doc-wizard-login [name="account.name"]').val(),
             email: $('#doc-wizard-login [name="account.email"]').val(),
@@ -63,7 +97,7 @@
               dataType: 'json',
               contentType: 'application/json',
               data: JSON.stringify(account)
-          }).always(function(user) {
+        }).always(function(user) {
               $.ajax({
                   url: legalforms.base_url + '/service/iam/sessions',
                   type: 'POST',
@@ -92,8 +126,14 @@
                       window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
                   });
               }).fail(function(data) {
-                  $('#email-error').removeClass('hidden');
+                  $('#doc-email-error').removeClass('hidden');
               });
-          });
+        });
+    });
+
+    $(document).on('click', '#doc-save', function() {
+        var values = getValues();
+        localStorage.setItem('values', JSON.stringify(values));
+        $('#doc-save-alert').removeClass('hidden');
     });
 })(jQuery);

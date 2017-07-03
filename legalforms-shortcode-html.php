@@ -1,7 +1,15 @@
 
 <div class="row">
     <h1 id="legalforms-name"></h1>
-    <div class="alert alert-danger hidden" role="alert" id="email-error">Ongeldige inloggegevens</div>
+    <button id="doc-save" class="btn btn-info btn-rounded btn-outline pull-right">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        Bewaar voor later
+    </button>
+    <div class="clearfix"></div>
+    <div class="alert alert-info hidden" role="alert" id="doc-save-alert">
+        Voortgang succesvol opgeslagen
+    </div>
+    <div class="alert alert-danger hidden" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
     <div id="doc-wizard" class="wizard"></div>
     <div id="doc-wizard-login" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
         <div class="wizard-step active">
@@ -35,4 +43,20 @@
           </div>
         </div>
     </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="doc-saved-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Opgeslagen invoer gevonden</h4>
+      </div>
+      <div class="modal-body">
+        <p>Verder gaan met opgeslagen invoer?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="doc-saved-discard">Begin opnieuw</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="doc-saved-continue">Ga door</button>
+      </div>
+    </div><
+  </div>
 </div>
