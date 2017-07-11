@@ -1,6 +1,27 @@
+var decodeEntities = (function() {
+    // this prevents any overhead from creating the object each time
+    var element = document.createElement('div');
+
+    function decodeHTMLEntities (str) {
+        if(str && typeof str === 'string') {
+            // strip script/html tags
+            str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+            str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+            element.innerHTML = str;
+            str = element.textContent;
+            element.textContent = '';
+        }
+
+        return str;
+    }
+
+    return decodeHTMLEntities;
+})();
+
 (function($) {
 
     $('#legalforms-name').html(legalforms.name);
+
     var builder = new LegalForm();
 
     var template = builder.build(legalforms.definition);
@@ -18,14 +39,25 @@
     });
 
     var helptext = builder.buildHelpText(legalforms.definition);
+    helptext = decodeEntities(helptext);
 
     new Ractive({
         el: $('#doc-help-'+legalforms.id)[0],
         template: helptext
     });
+
     if (legalforms.material !== 'false') {
         $('#doc-wizard').toMaterial();
+        $('#doc-wizard .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
+    } else {
+        $('#doc-wizard .btn-default').addClass('btn-secondary');
     }
+
+    $('button[data-step=done]').after([
+        '<button class="btn btn-default btn-raised doc-save pull-right">',
+        'Bewaar voor later',
+        '</button>'
+    ].join(''));
 
     window.ractive = ractive;
 
@@ -131,9 +163,27 @@
         });
     });
 
-    $(document).on('click', '#doc-save', function() {
+    $(document).on('click', '.doc-save', function() {
         var values = getValues();
         localStorage.setItem('values', JSON.stringify(values));
-        $('#doc-save-alert').removeClass('hidden');
+        $('.wizard-step.active .wizards-actions').after([
+            '<div class="clearfix"></div>',
+            '<div class="alert alert-info" id="doc-save-alert">',
+            'Voortgang succesvol opgeslagen',
+            '</div>'
+        ].join(''));
+    });
+
+    $(document).on('click', 'button[data-step=next], button[data-step=prev]', function() {
+      var headerHight = $('header').outerHeight(true);
+      if (!headerHight) {
+          headerHight = $('div[class*=nav]').filter(function() {
+              return $(this).css('position') == 'fixed';
+          }).outerHeight(true);
+      }
+
+      $('html, body').animate({
+          scrollTop: $('.wizard-step.active').offset().top - headerHight - 10
+      }, 500);
     });
 })(jQuery);

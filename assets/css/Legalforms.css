@@ -19,3 +19,29 @@
 #doc-wizard-login :after {
     display: none;
 }
+
+.material {
+    margin-top: 0;
+}
+
+.material .wizard-step > form {
+    display: none;
+}
+
+.material .wizard-step.active > form,
+.material .wizard-step.active > .wizards-actions {
+    padding: 10px 50px;
+    display: block;
+}
+
+.doc-save {
+    margin-right: 5px;
+}
+
+div.wizard:not(.material) #doc-save-alert {
+    margin-top: 10px;
+}
+
+div.wizard:not(.material) .btn-default {
+    border: 1px solid #ccc;
+}

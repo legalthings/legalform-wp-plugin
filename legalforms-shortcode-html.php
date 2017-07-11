@@ -1,14 +1,6 @@
 
 <div class="row">
     <h1 id="legalforms-name"></h1>
-    <button id="doc-save" class="btn btn-info btn-rounded btn-outline pull-right">
-        <i class="fa fa-floppy-o" aria-hidden="true"></i>
-        Bewaar voor later
-    </button>
-    <div class="clearfix"></div>
-    <div class="alert alert-info hidden" role="alert" id="doc-save-alert">
-        Voortgang succesvol opgeslagen
-    </div>
     <div class="alert alert-danger hidden" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
     <div id="doc-wizard" class="wizard"></div>
     <div id="doc-wizard-login" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
