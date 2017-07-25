@@ -6,7 +6,7 @@ License: MIT
 License URI: https://raw.githubusercontent.com/legalthings/legalform-wp-plugin/master/LICENSE
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.1
+Stable tag: 1.0
 
 LegalForms plugin
 
@@ -26,5 +26,5 @@ result will be posted to an endpoint of your choice.
 
 == Changelog ==
 
-= 0.1 =
+= 1.0 =
 - Initial Revision
