@@ -38,8 +38,9 @@
     margin-right: 5px;
 }
 
-div.wizard:not(.material) #doc-save-alert {
-    margin-top: 10px;
+#doc-save-alert {
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 div.wizard:not(.material) .btn-default {
