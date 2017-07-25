@@ -8,9 +8,9 @@ jQuery(document).ready(function($) {
                     tinymce.execCommand('mceInsertContent', false, '[legalforms]');
                 });
             // Register buttons - trigger above command when clicked
-            ed.addButton('legalforms_button', 
+            ed.addButton('legalforms_button',
                {
-                  title : 'Insert Legal Form',  
+                  title : 'Insert Legal Form',
                   image: url + '/../img/legalforms.png',
                   onclick: function (e) {
                       ed.windowManager.open( {
@@ -18,21 +18,16 @@ jQuery(document).ready(function($) {
                           body: [
                           {
                              type: 'textbox',
-                              name: 'reference',
-                              id: 'reference',
-                              label: 'Put form reference here',
+                              name: 'template',
+                              id: 'template',
+                              label: 'Put form template here',
                               multiline: false
                          },
                          {
                               type: 'textbox',
-                              name: 'response_url',
-                              label: 'Type the response url for form',
-                              multiline: false
-                          },
-                          {
-                              type: 'textbox',
-                              name: 'redirect_page',
-                              label: 'Type the redirect page here',
+                              name: 'flow',
+                              id: 'flow',
+                              label: 'Type the legalthings flow here',
                               multiline: false
                           },
                           {
@@ -43,15 +38,14 @@ jQuery(document).ready(function($) {
                               text: 'Yes',
                               }],
                           onsubmit: function( e ) {
-                              ed.insertContent( '[legalforms reference="' + e.data.reference
-                                 + '" response_url="' + e.data.response_url 
-                                 + '"  redirect_page="' + e.data.redirect_page
+                              ed.insertContent( '[legalforms template="' + e.data.template
+                                 + '"  flow="' + e.data.flow
                                  + '" material="' + e.data.useMaterial + '"]');
                           }
                       });
                   }
                });
-        },   
+        },
     });
 
     // Register our TinyMCE plugin
