@@ -109,6 +109,16 @@ var decodeEntities = (function() {
         return values;
     }
 
+    function getHeaderHeight() {
+      var headerHight = $('header').outerHeight(true);
+      if (!headerHight) {
+          headerHight = $('div[class*=nav]').filter(function() {
+              return $(this).css('position') == 'fixed';
+          }).outerHeight(true);
+      }
+      return headerHight;
+    }
+
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         $('#doc-wizard').hide();
         $('#doc-wizard-login').show();
@@ -175,15 +185,14 @@ var decodeEntities = (function() {
     });
 
     $(document).on('click', 'button[data-step=next], button[data-step=prev]', function() {
-      var headerHight = $('header').outerHeight(true);
-      if (!headerHight) {
-          headerHight = $('div[class*=nav]').filter(function() {
-              return $(this).css('position') == 'fixed';
-          }).outerHeight(true);
-      }
-
       $('html, body').animate({
-          scrollTop: $('.wizard-step.active').offset().top - headerHight - 10
+          scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
+      }, 500);
+    });
+
+    $(document).on('click', 'button[data-step=done]', function () {
+      $('html, body').animate({
+          scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
       }, 500);
     });
 })(jQuery);
