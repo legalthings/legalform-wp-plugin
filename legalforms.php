@@ -57,7 +57,7 @@ class LegalForms
 
     public function addAdminScriptsCss()
     {
-        wp_enqueue_script('jquery-ui', "//code.jquery.com/ui/1.10.4/jquery-ui.min.js");
+        wp_enqueue_script('jquery-ui', "//code.jquery.com/ui/1.11.2/jquery-ui.min.js");
     }
     /**
      * Load configuration page in admin area
