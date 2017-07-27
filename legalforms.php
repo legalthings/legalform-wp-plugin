@@ -18,7 +18,9 @@ if (!class_exists('LegalThingsLegalForms')) {
     class LegalThingsLegalForms
     {
         public $config   = [];
-        public $defaults = [];
+        public $defaults = [
+          'base_url' => ''
+        ];
 
         public function __construct()
         {
