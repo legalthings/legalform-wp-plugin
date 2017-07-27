@@ -12,8 +12,15 @@ LegalForms plugin
 
 == Description ==
 
-Load a definition from your LegalForms installation and show it on a WordPress site. After the form is filled out, the
-result will be posted to an endpoint of your choice.
+Create a shortcode to load a LegalDocx template from a given LegalThings installation and show it on your WordPress site. After the form is filled out, it will be posted to a LegalThings LegalFlow of your choice.
+The URL to a LegalThings installation is set in the LegalForms settings.
+
+Note: This plugin sends form data to LegalThings, a third party.
+
+Usage:
+```
+[legalforms template="template_name" flow="flow_name" material="true"]
+```
 
 == Installation ==
 
