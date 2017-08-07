@@ -1,19 +1,18 @@
-=== LegalForm ===
-Contributors: Legal Things
+=== LegalForms ===
+Contributors: legalthings
 Donate link:
 Tags:
 License: MIT
 License URI: https://raw.githubusercontent.com/legalthings/legalform-wp-plugin/master/LICENSE
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 LegalForms plugin
 
 == Description ==
 
 Create a shortcode to load a LegalDocx template from a given LegalThings installation and show it on your WordPress site. After the form is filled out, it will be posted to a LegalThings LegalFlow of your choice.
-The URL to a LegalThings installation is set in the LegalForms settings.
 
 Note: This plugin sends form data to LegalThings, a third party.
 
@@ -24,6 +23,7 @@ Usage:
 
 == Installation ==
 
+Upload the LegalForms plugin to your blog, activate it, then enter your LegalThings installation URL in the settings.
 
 == Frequently Asked Questions ==
 
@@ -32,6 +32,10 @@ Usage:
 
 
 == Changelog ==
+
+= 1.0.1 =
+- fix dropdown
+- fix datepicker
 
 = 1.0 =
 - Initial Revision

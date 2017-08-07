@@ -3,8 +3,8 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.0
- *   Author: Andrii Cherytsya & Jurre Wolsink (jurre@legalthings.io)
+ *   Version: 1.0.1
+ *   Author: LegalThings
  */
 
 define('LT_LFP', 'legalforms');
