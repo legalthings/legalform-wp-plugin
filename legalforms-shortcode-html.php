@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" id="doc-form">
     <h1 id="legalforms-name"></h1>
     <div class="alert alert-danger hidden" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
     <div id="doc-wizard" class="wizard"></div>
