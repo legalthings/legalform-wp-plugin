@@ -1001,7 +1001,10 @@ function ltriToUrl(url) {
         onChangeLegalForm: function (newValue, oldValue, keypath) {
             if (this.isCondition(keypath)) {
                 this.onChangeCondition(newValue, oldValue, keypath);
-                return;
+
+                if ($(this.el).hasClass('material')) {
+                    $(this.el).toMaterial();
+                }
             }
 
             this.updateExpressions(newValue, oldValue, keypath);
@@ -1721,7 +1724,7 @@ function ltriToUrl(url) {
          */
         isExpression: function(keypath) {
             return endsWith(keypath, this.suffix.expression);
-        }
+        },
     });
 
     /**
@@ -1884,6 +1887,7 @@ function ltriToUrl(url) {
  */
 (function($) {
     $.fn.toMaterial = function() {
+        console.log('materializing');
         var $docWizard = $(this);
 
         // Add class to the material design to prevent another styles for it.
@@ -1893,14 +1897,17 @@ function ltriToUrl(url) {
         var $wizardSteps = $docWizard.find('.wizard-step');
 
         $wizardSteps.each(function(index, value) {
-            var $wizardForm = $('<div>').appendTo(this);
-            $wizardForm.addClass('wizzard-form');
-            $wizardForm.append($(this).find('form'));
-            $wizardForm.append($(this).find('.wizards-actions'));
+            if (!$(this).children('.wizzard-form').length) {
+                var $wizardForm = $('<div>').appendTo(this);
+                $wizardForm.addClass('wizzard-form');
+                $wizardForm.append($(this).find('form'));
+                $wizardForm.append($(this).find('.wizards-actions'));
+            }
         });
 
         // Change checkboxes to the bootstrap material
         $docWizard.find('.form-group .option').each(function() {
+            console.log('checkbox');
             var $div = $(this);
             var type = 'radio';
             $div.addClass($div.find('input').attr('type'));
@@ -1909,9 +1916,12 @@ function ltriToUrl(url) {
 
         // Change likert-view on bootstrap material
         $docWizard.find('.likert-answer').each(function(){
-            var $div = $('<div>').appendTo(this).addClass('radio');
-            var $label = $('<label>').appendTo($div);
-            $(this).find('input').appendTo($label);
+            console.log('likert');
+            if (!$(this).children('.radio').length) {
+                var $div = $('<div>').appendTo(this).addClass('radio');
+                var $label = $('<label>').appendTo($div);
+                $(this).find('input').appendTo($label);
+            }
         });
 
         // Do all labels floating for nice view

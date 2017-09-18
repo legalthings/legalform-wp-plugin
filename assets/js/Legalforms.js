@@ -119,17 +119,55 @@ var decodeEntities = (function() {
       return headerHight;
     }
 
+    function sendToTemplate(account) {
+        $.ajax({
+            url: legalforms.base_url + '/service/iam/sessions',
+            type: 'POST',
+            crossDomain: true,
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(account)
+        }).done(function(session) {
+            $.ajax({
+                url: legalforms.base_url + '/service/flow/processes',
+                type: 'POST',
+                crossDomain: true,
+                dataType: 'json',
+                contentType: 'application/json',
+                headers: {'X-Session': session.id},
+                data: JSON.stringify({
+                  scenario: legalforms.flow,
+                  data: {
+                      values: getValues(),
+                      template: legalforms.template,
+                      name: legalforms.name,
+                      organization: session.user.employment[0].organization.id
+                  }
+                })
+            }).done(function(data) {
+                window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
+            });
+        }).fail(function(data) {
+            $('#doc-email-error').removeClass('hidden');
+        });
+    }
+
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         $('#doc-wizard').hide();
-        $('#doc-wizard-login').show();
+        $('#doc-wizard-register').show();
     });
 
-    $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
-        var values = getValues();
+    $(document).on('click', '#switch-login', function() {
+        $('#doc-wizard-register').hide();
+        $('#doc-wizard-login').show();
+
+    });
+
+    $(document).on('click', '#doc-wizard-register button[data-step="register"]', function() {
         var account = {
-            name: $('#doc-wizard-login [name="account.name"]').val(),
-            email: $('#doc-wizard-login [name="account.email"]').val(),
-            password: $('#doc-wizard-login [name="account.password"]').val(),
+            name: $('#doc-wizard-register [name="account.name"]').val(),
+            email: $('#doc-wizard-register [name="account.email"]').val(),
+            password: $('#doc-wizard-register [name="account.password"]').val(),
         }
 
         $.ajax({
@@ -139,39 +177,19 @@ var decodeEntities = (function() {
               dataType: 'json',
               contentType: 'application/json',
               data: JSON.stringify(account)
-        }).always(function(user) {
-              $.ajax({
-                  url: legalforms.base_url + '/service/iam/sessions',
-                  type: 'POST',
-                  crossDomain: true,
-                  dataType: 'json',
-                  contentType: 'application/json',
-                  data: JSON.stringify(account)
-              }).done(function(session) {
-                  $.ajax({
-                      url: legalforms.base_url + '/service/flow/processes',
-                      type: 'POST',
-                      crossDomain: true,
-                      dataType: 'json',
-                      contentType: 'application/json',
-                      headers: {'X-Session': session.id},
-                      data: JSON.stringify({
-                        scenario: legalforms.flow,
-                        data: {
-                            values: values,
-                            template: legalforms.template,
-                            name: legalforms.name,
-                            organization: session.user.employment[0].organization.id
-                        }
-                      })
-                  }).done(function(data) {
-                      window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
-                  });
-              }).fail(function(data) {
-                  $('#doc-email-error').removeClass('hidden');
-              });
+        }).done(function() {
+            sendToTemplate(account);
         });
     });
+
+    $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
+        var account = {
+            email: $('#doc-wizard-login [name="account.email"]').val(),
+            password: $('#doc-wizard-login [name="account.password"]').val(),
+        }
+        sendToTemplate(account);
+    });
+
 
     $(document).on('click', '.doc-save', function() {
         var values = getValues();
