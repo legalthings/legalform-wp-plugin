@@ -119,7 +119,7 @@ var decodeEntities = (function() {
       return headerHight;
     }
 
-    function sendToTemplate(account) {
+    function sendToFlow(account) {
         $.ajax({
             url: legalforms.base_url + '/service/iam/sessions',
             type: 'POST',
@@ -145,7 +145,12 @@ var decodeEntities = (function() {
                   }
                 })
             }).done(function(data) {
-                window.top.location.href = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
+                if (legalforms.done_url != '') {
+                    var url = legalforms.done_url;
+                } else {
+                    var url = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
+                }
+                window.top.location.href = url;
             });
         }).fail(function(data) {
             $('#doc-email-error').removeClass('hidden');
@@ -153,8 +158,19 @@ var decodeEntities = (function() {
     }
 
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
-        $('#doc-wizard').hide();
-        $('#doc-wizard-register').show();
+        if (legalforms.standard_login === 'true') {
+            var account = {
+                email: legalforms.standard_email,
+                password: legalforms.standard_password
+            }
+            sendToFlow(account);
+        } else {
+            $('#doc-wizard').hide();
+            $('#doc-wizard-register').show();
+            $('html, body').animate({
+                scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
+            }, 500);
+        }
     });
 
     $(document).on('click', '#switch-login', function() {
@@ -178,7 +194,7 @@ var decodeEntities = (function() {
               contentType: 'application/json',
               data: JSON.stringify(account)
         }).done(function() {
-            sendToTemplate(account);
+            sendToFlow(account);
         });
     });
 
@@ -187,7 +203,7 @@ var decodeEntities = (function() {
             email: $('#doc-wizard-login [name="account.email"]').val(),
             password: $('#doc-wizard-login [name="account.password"]').val(),
         }
-        sendToTemplate(account);
+        sendToFlow(account);
     });
 
 
@@ -208,12 +224,6 @@ var decodeEntities = (function() {
     $(document).on('click', 'button[data-step=next], button[data-step=prev]', function() {
       $('html, body').animate({
           scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
-      }, 500);
-    });
-
-    $(document).on('click', 'button[data-step=done]', function () {
-      $('html, body').animate({
-          scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
       }, 500);
     });
 })(jQuery);

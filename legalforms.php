@@ -89,6 +89,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'template' => '',
                 'flow' => '',
                 'material' => true,
+                'standard_login' => false,
+                'done_url' => ''
             ), $attrs);
 
             $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
@@ -192,13 +194,23 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'id'                    => $form->id,
                 'name'                  => $form->name,
                 'definition'            => $form->definition,
-                'material'              => $attrs['material'],
                 'legalform_respond_url' => '10',
-                'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-                'flow'                  => $attrs['flow'],
-                'template'              => $attrs['template'],
-                'base_url'              => $this->config['base_url']
+                'ajaxurl'               => admin_url( 'admin-ajax.php' )
             );
+
+            foreach ($this->config as $key => $value) {
+                $form_array[sanitize_key($key)] = (string) sanitize_text_field($value);
+            }
+            foreach ($attrs as $key => $value) {
+                switch ($key) {
+                    case 'done_url':
+                        $form_array[sanitize_key($key)] = (string) esc_url_raw($value);
+                        break;
+                    default:
+                        $form_array[sanitize_key($key)] = (string) sanitize_text_field($value);
+                        break;
+                }
+            }
 
             wp_localize_script(LT_LFP, LT_LFP, $form_array);
             wp_enqueue_script(LT_LFP);
