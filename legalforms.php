@@ -24,7 +24,13 @@ if (!class_exists('LegalThingsLegalForms')) {
 
         public function __construct()
         {
-            $this->config = array_merge($this->defaults, get_option(LT_LFP));
+            $options = get_option(LT_LFP);
+            if (!empty($options)) {
+                $this->config = array_merge($this->defaults, $options);
+            } else {
+                $this->config = $this->defaults;
+            }
+
             add_action('admin_menu', array($this, 'addAdminMenu'));
             add_action('admin_init', array($this, 'initTinyMCEButton'));
             add_shortcode(LT_LFP, array($this, 'doLegalformShortcode'));
