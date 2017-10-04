@@ -100,7 +100,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             ), $attrs);
 
             $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
-            $response = wp_remote_get($url);
+            $response = wp_remote_get($url, array('timeout' => 10));
 
             if (wp_remote_retrieve_response_code($response) !== 200 ||
                 wp_remote_retrieve_header($response, 'content-type') !== 'application/json') {
