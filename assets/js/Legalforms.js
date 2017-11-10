@@ -1,3 +1,5 @@
+var version = '1.2.1';
+
 var decodeEntities = (function() {
     // this prevents any overhead from creating the object each time
     var element = document.createElement('div');
@@ -19,6 +21,7 @@ var decodeEntities = (function() {
 })();
 
 (function($) {
+    console.log('LegalForms v' + version + ' initiated');
 
     $('#legalforms-name').html(legalforms.name);
 
@@ -128,6 +131,23 @@ var decodeEntities = (function() {
             contentType: 'application/json',
             data: JSON.stringify(account)
         }).done(function(session) {
+            var flowData = {
+              scenario: legalforms.flow,
+              data: {
+                  values: getValues(),
+                  template: legalforms.template,
+                  name: legalforms.name,
+                  organization: session.user.employment[0].organization.id
+              }
+            }
+
+            if (legalforms.alias_key && legalforms.alias_value) {
+                flowData.data.alias = {
+                    key: legalforms.alias_key,
+                    value: legalforms.alias_value
+                }
+            }
+
             $.ajax({
                 url: legalforms.base_url + '/service/flow/processes',
                 type: 'POST',
@@ -135,15 +155,7 @@ var decodeEntities = (function() {
                 dataType: 'json',
                 contentType: 'application/json',
                 headers: {'X-Session': session.id},
-                data: JSON.stringify({
-                  scenario: legalforms.flow,
-                  data: {
-                      values: getValues(),
-                      template: legalforms.template,
-                      name: legalforms.name,
-                      organization: session.user.employment[0].organization.id
-                  }
-                })
+                data: JSON.stringify(flowData)
             }).done(function(data) {
                 if (legalforms.done_url != '') {
                     var url = legalforms.done_url;

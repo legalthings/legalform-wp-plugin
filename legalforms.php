@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.2
+ *   Version: 1.2.1
  *   Author: LegalThings
  */
 
@@ -96,7 +96,9 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'flow' => '',
                 'material' => true,
                 'standard_login' => false,
-                'done_url' => ''
+                'done_url' => '',
+                'alias_key' => '',
+                'alias_value' => ''
             ), $attrs);
 
             $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
