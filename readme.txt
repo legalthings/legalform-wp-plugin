@@ -33,6 +33,10 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 == Changelog ==
 
+= 1.2.1 =
+ - Add support for LegalFlow aliases
+
+
 = 1.2 =
 - Support for standard login credentials
 - fix datetimepicker
