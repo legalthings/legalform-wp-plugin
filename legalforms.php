@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.2.1
+ *   Version: 1.2.2
  *   Author: LegalThings
  */
 
@@ -126,7 +126,7 @@ if (!class_exists('LegalThingsLegalForms')) {
         {
             // Add bootstrap to the page
             if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done'))) {
-                wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/bootstrap.css', __FILE__));
+                wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/legalforms-bootstrap.css', __FILE__));
                 wp_enqueue_style('bootstrap');
                 wp_register_script('bootstrap', plugins_url('/vendor/bootstrap/bootstrap.js', __FILE__));
                 wp_enqueue_script('bootstrap');
@@ -138,7 +138,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             // Added material design if need
             if ($attrs['material'] !== 'false') {
-                wp_register_style('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.css', __FILE__));
+                wp_register_style('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/legalforms-bootstrap-material-design.css', __FILE__));
                 wp_enqueue_style('bootstrap-material-design');
                 wp_register_script('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.js', __FILE__));
                 wp_enqueue_script('bootstrap-material-design');
@@ -184,12 +184,12 @@ if (!class_exists('LegalThingsLegalForms')) {
             wp_enqueue_script('datepicker');
 
             //Legalthings scripts and styles
-            wp_register_style('legalform-wizard', plugins_url('/vendor/legalform-wizard/legalform-wizard.css', __FILE__));
+            wp_register_style('legalform-wizard', plugins_url('/vendor/legalform-wizard/legalforms-legalform-wizard.css', __FILE__));
             wp_enqueue_style('legalform-wizard');
             wp_register_script('legalform-wizard', plugins_url('/vendor/legalform-wizard/legalform-wizard.js', __FILE__));
             wp_enqueue_script('legalform-wizard');
 
-            wp_register_style('legalform-css', plugins_url('/vendor/legalform/legalform.css', __FILE__));
+            wp_register_style('legalform-css', plugins_url('/vendor/legalform/legalforms-legalform.css', __FILE__));
             wp_enqueue_style('legalform-css');
             wp_register_script('legalform-js', plugins_url('/vendor/legalform/legalform.js', __FILE__), array('jquery', 'ractive'));
             wp_enqueue_script('legalform-js');
