@@ -33,6 +33,9 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 == Changelog ==
 
+= 1.2.3 =
+- Temporarily disable finish button when POSTing and fix checkbox issue
+
 = 1.2.2 =
 - Isolate css
 

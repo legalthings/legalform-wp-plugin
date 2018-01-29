@@ -1,4 +1,5 @@
-var version = '1.2.1';
+var version = '1.2.3';
+var isLoading = false
 
 var decodeEntities = (function() {
     // this prevents any overhead from creating the object each time
@@ -123,6 +124,9 @@ var decodeEntities = (function() {
     }
 
     function sendToFlow(account) {
+        isLoading = true;
+        $('.loading-msg').text('Logging in...');
+
         $.ajax({
             url: legalforms.base_url + '/service/iam/sessions',
             type: 'POST',
@@ -148,6 +152,8 @@ var decodeEntities = (function() {
                 }
             }
 
+            $('.loading-msg').text('Creating process...');
+
             $.ajax({
                 url: legalforms.base_url + '/service/flow/processes',
                 type: 'POST',
@@ -157,6 +163,8 @@ var decodeEntities = (function() {
                 headers: {'X-Session': session.id},
                 data: JSON.stringify(flowData)
             }).done(function(data) {
+                isLoading = false;
+
                 if (legalforms.done_url != '') {
                     var url = legalforms.done_url;
                 } else {
@@ -165,12 +173,16 @@ var decodeEntities = (function() {
                 window.top.location.href = url;
             });
         }).fail(function(data) {
+            isLoading = false;
             $('#doc-email-error').removeClass('hidden');
         });
     }
 
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         if (legalforms.standard_login === 'true') {
+            var _this = $(this);
+            disableUntilCompleted(_this);
+
             var account = {
                 email: legalforms.standard_email,
                 password: legalforms.standard_password
@@ -192,6 +204,9 @@ var decodeEntities = (function() {
     });
 
     $(document).on('click', '#doc-wizard-register button[data-step="register"]', function() {
+        var _this = $(this);
+        disableUntilCompleted(_this);
+
         var account = {
             name: $('#doc-wizard-register [name="account.name"]').val(),
             email: $('#doc-wizard-register [name="account.email"]').val(),
@@ -211,6 +226,9 @@ var decodeEntities = (function() {
     });
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
+        var _this = $(this);
+        disableUntilCompleted(_this);
+
         var account = {
             email: $('#doc-wizard-login [name="account.email"]').val(),
             password: $('#doc-wizard-login [name="account.password"]').val(),
@@ -238,4 +256,18 @@ var decodeEntities = (function() {
           scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
       }, 500);
     });
+
+    function disableUntilCompleted(_this) {
+        _this.attr('disabled', 'disabled');
+        $('.wizard-step.active .wizards-actions').append('<p class="loading-msg" style="display: inline-block; text-align: right; margin: 0px; line-height: 3.5;">Please wait...</p>');
+
+        setInterval(function() {
+            if (isLoading) {
+                return;
+            }
+
+            _this.removeAttr('disabled');
+            $('.loading-msg').remove();
+        }, 500);
+    }
 })(jQuery);

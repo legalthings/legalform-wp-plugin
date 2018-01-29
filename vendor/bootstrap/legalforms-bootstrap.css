@@ -1749,8 +1749,9 @@
 #legalforms-plugin input[type=radio],
 #legalforms-plugin input[type=checkbox] {
   margin: 4px 0 0;
-  margin-top: 1px \9;
+  margin-top: 1px;
   line-height: normal;
+  width: 20px;
 }
 #legalforms-plugin input[type=file] {
   display: block;
