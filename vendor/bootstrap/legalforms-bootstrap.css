@@ -1,0 +1,5871 @@
+#legalforms-plugin {
+  /*!
+ * Bootstrap v3.1.1 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+  /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+}
+#legalforms-plugin {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+#legalforms-plugin {
+  margin: 0;
+}
+#legalforms-plugin article,
+#legalforms-plugin aside,
+#legalforms-plugin details,
+#legalforms-plugin figcaption,
+#legalforms-plugin figure,
+#legalforms-plugin footer,
+#legalforms-plugin header,
+#legalforms-plugin hgroup,
+#legalforms-plugin main,
+#legalforms-plugin nav,
+#legalforms-plugin section,
+#legalforms-plugin summary {
+  display: block;
+}
+#legalforms-plugin audio,
+#legalforms-plugin canvas,
+#legalforms-plugin progress,
+#legalforms-plugin video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+#legalforms-plugin audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+#legalforms-plugin [hidden],
+#legalforms-plugin template {
+  display: none;
+}
+#legalforms-plugin a {
+  background: 0 0;
+}
+#legalforms-plugin a:active,
+#legalforms-plugin a:hover {
+  outline: 0;
+}
+#legalforms-plugin abbr[title] {
+  border-bottom: 1px dotted;
+}
+#legalforms-plugin b,
+#legalforms-plugin strong {
+  font-weight: 700;
+}
+#legalforms-plugin dfn {
+  font-style: italic;
+}
+#legalforms-plugin h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+#legalforms-plugin mark {
+  background: #ff0;
+  color: #000;
+}
+#legalforms-plugin small {
+  font-size: 80%;
+}
+#legalforms-plugin sub,
+#legalforms-plugin sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+#legalforms-plugin sup {
+  top: -0.5em;
+}
+#legalforms-plugin sub {
+  bottom: -0.25em;
+}
+#legalforms-plugin img {
+  border: 0;
+}
+#legalforms-plugin svg:not(:root) {
+  overflow: hidden;
+}
+#legalforms-plugin figure {
+  margin: 1em 40px;
+}
+#legalforms-plugin hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+#legalforms-plugin pre {
+  overflow: auto;
+}
+#legalforms-plugin code,
+#legalforms-plugin kbd,
+#legalforms-plugin pre,
+#legalforms-plugin samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+#legalforms-plugin button,
+#legalforms-plugin input,
+#legalforms-plugin optgroup,
+#legalforms-plugin select,
+#legalforms-plugin textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+#legalforms-plugin button {
+  overflow: visible;
+}
+#legalforms-plugin button,
+#legalforms-plugin select {
+  text-transform: none;
+}
+#legalforms-plugin button,
+#legalforms-plugin input[type=button],
+#legalforms-plugin input[type=reset],
+#legalforms-plugin input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+#legalforms-plugin button[disabled],
+#legalforms-plugin input[disabled] {
+  cursor: default;
+}
+#legalforms-plugin button::-moz-focus-inner,
+#legalforms-plugin input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+#legalforms-plugin input {
+  line-height: normal;
+}
+#legalforms-plugin input[type=checkbox],
+#legalforms-plugin input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+#legalforms-plugin input[type=number]::-webkit-inner-spin-button,
+#legalforms-plugin input[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+#legalforms-plugin input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+#legalforms-plugin input[type=search]::-webkit-search-cancel-button,
+#legalforms-plugin input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+#legalforms-plugin fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+#legalforms-plugin legend {
+  border: 0;
+  padding: 0;
+}
+#legalforms-plugin textarea {
+  overflow: auto;
+}
+#legalforms-plugin optgroup {
+  font-weight: 700;
+}
+#legalforms-plugin table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+#legalforms-plugin td,
+#legalforms-plugin th {
+  padding: 0;
+}
+@media print {
+  #legalforms-plugin * {
+    text-shadow: none!important;
+    color: #000!important;
+    background: transparent!important;
+    box-shadow: none !important;
+  }
+  #legalforms-plugin a,
+  #legalforms-plugin a:visited {
+    text-decoration: underline;
+  }
+  #legalforms-plugin a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  #legalforms-plugin abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  #legalforms-plugin a[href^="javascript:"]:after,
+  #legalforms-plugin a[href^="#"]:after {
+    content: "";
+  }
+  #legalforms-plugin pre,
+  #legalforms-plugin blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  #legalforms-plugin thead {
+    display: table-header-group;
+  }
+  #legalforms-plugin tr,
+  #legalforms-plugin img {
+    page-break-inside: avoid;
+  }
+  #legalforms-plugin img {
+    max-width: 100% !important;
+  }
+  #legalforms-plugin p,
+  #legalforms-plugin h2,
+  #legalforms-plugin h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  #legalforms-plugin h2,
+  #legalforms-plugin h3 {
+    page-break-after: avoid;
+  }
+  #legalforms-plugin select {
+    background: #fff !important;
+  }
+  #legalforms-plugin .navbar {
+    display: none;
+  }
+  #legalforms-plugin .table td,
+  #legalforms-plugin .table th {
+    background-color: #fff !important;
+  }
+  #legalforms-plugin .btn > .caret,
+  #legalforms-plugin .dropup > .btn > .caret {
+    border-top-color: #000 !important;
+  }
+  #legalforms-plugin .label {
+    border: 1px solid #000;
+  }
+  #legalforms-plugin .table {
+    border-collapse: collapse !important;
+  }
+  #legalforms-plugin .table-bordered th,
+  #legalforms-plugin .table-bordered td {
+    border: 1px solid #ddd !important;
+  }
+}
+#legalforms-plugin * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#legalforms-plugin :before,
+#legalforms-plugin :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#legalforms-plugin {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+#legalforms-plugin {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+#legalforms-plugin input,
+#legalforms-plugin button,
+#legalforms-plugin select,
+#legalforms-plugin textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+#legalforms-plugin a {
+  color: #428bca;
+  text-decoration: none;
+}
+#legalforms-plugin a:hover,
+#legalforms-plugin a:focus {
+  color: #2a6496;
+  text-decoration: underline;
+}
+#legalforms-plugin a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#legalforms-plugin figure {
+  margin: 0;
+}
+#legalforms-plugin img {
+  vertical-align: middle;
+}
+#legalforms-plugin .img-responsive,
+#legalforms-plugin .thumbnail > img,
+#legalforms-plugin .thumbnail a > img,
+#legalforms-plugin .carousel-inner > .item > img,
+#legalforms-plugin .carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+#legalforms-plugin .img-rounded {
+  border-radius: 6px;
+}
+#legalforms-plugin .img-thumbnail {
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+#legalforms-plugin .img-circle {
+  border-radius: 50%;
+}
+#legalforms-plugin hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+#legalforms-plugin .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+#legalforms-plugin h1,
+#legalforms-plugin h2,
+#legalforms-plugin h3,
+#legalforms-plugin h4,
+#legalforms-plugin h5,
+#legalforms-plugin h6,
+#legalforms-plugin .h1,
+#legalforms-plugin .h2,
+#legalforms-plugin .h3,
+#legalforms-plugin .h4,
+#legalforms-plugin .h5,
+#legalforms-plugin .h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+#legalforms-plugin h1 small,
+#legalforms-plugin h2 small,
+#legalforms-plugin h3 small,
+#legalforms-plugin h4 small,
+#legalforms-plugin h5 small,
+#legalforms-plugin h6 small,
+#legalforms-plugin .h1 small,
+#legalforms-plugin .h2 small,
+#legalforms-plugin .h3 small,
+#legalforms-plugin .h4 small,
+#legalforms-plugin .h5 small,
+#legalforms-plugin .h6 small,
+#legalforms-plugin h1 .small,
+#legalforms-plugin h2 .small,
+#legalforms-plugin h3 .small,
+#legalforms-plugin h4 .small,
+#legalforms-plugin h5 .small,
+#legalforms-plugin h6 .small,
+#legalforms-plugin .h1 .small,
+#legalforms-plugin .h2 .small,
+#legalforms-plugin .h3 .small,
+#legalforms-plugin .h4 .small,
+#legalforms-plugin .h5 .small,
+#legalforms-plugin .h6 .small {
+  font-weight: 400;
+  line-height: 1;
+  color: #999;
+}
+#legalforms-plugin h1,
+#legalforms-plugin .h1,
+#legalforms-plugin h2,
+#legalforms-plugin .h2,
+#legalforms-plugin h3,
+#legalforms-plugin .h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#legalforms-plugin h1 small,
+#legalforms-plugin .h1 small,
+#legalforms-plugin h2 small,
+#legalforms-plugin .h2 small,
+#legalforms-plugin h3 small,
+#legalforms-plugin .h3 small,
+#legalforms-plugin h1 .small,
+#legalforms-plugin .h1 .small,
+#legalforms-plugin h2 .small,
+#legalforms-plugin .h2 .small,
+#legalforms-plugin h3 .small,
+#legalforms-plugin .h3 .small {
+  font-size: 65%;
+}
+#legalforms-plugin h4,
+#legalforms-plugin .h4,
+#legalforms-plugin h5,
+#legalforms-plugin .h5,
+#legalforms-plugin h6,
+#legalforms-plugin .h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#legalforms-plugin h4 small,
+#legalforms-plugin .h4 small,
+#legalforms-plugin h5 small,
+#legalforms-plugin .h5 small,
+#legalforms-plugin h6 small,
+#legalforms-plugin .h6 small,
+#legalforms-plugin h4 .small,
+#legalforms-plugin .h4 .small,
+#legalforms-plugin h5 .small,
+#legalforms-plugin .h5 .small,
+#legalforms-plugin h6 .small,
+#legalforms-plugin .h6 .small {
+  font-size: 75%;
+}
+#legalforms-plugin h1,
+#legalforms-plugin .h1 {
+  font-size: 36px;
+}
+#legalforms-plugin h2,
+#legalforms-plugin .h2 {
+  font-size: 30px;
+}
+#legalforms-plugin h3,
+#legalforms-plugin .h3 {
+  font-size: 24px;
+}
+#legalforms-plugin h4,
+#legalforms-plugin .h4 {
+  font-size: 18px;
+}
+#legalforms-plugin h5,
+#legalforms-plugin .h5 {
+  font-size: 14px;
+}
+#legalforms-plugin h6,
+#legalforms-plugin .h6 {
+  font-size: 12px;
+}
+#legalforms-plugin p {
+  margin: 0 0 10px;
+}
+#legalforms-plugin .lead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .lead {
+    font-size: 21px;
+  }
+}
+#legalforms-plugin small,
+#legalforms-plugin .small {
+  font-size: 85%;
+}
+#legalforms-plugin cite {
+  font-style: normal;
+}
+#legalforms-plugin .text-left {
+  text-align: left;
+}
+#legalforms-plugin .text-right {
+  text-align: right;
+}
+#legalforms-plugin .text-center {
+  text-align: center;
+}
+#legalforms-plugin .text-justify {
+  text-align: justify;
+}
+#legalforms-plugin .text-muted {
+  color: #999;
+}
+#legalforms-plugin .text-primary {
+  color: #428bca;
+}
+#legalforms-plugin a.text-primary:hover {
+  color: #3071a9;
+}
+#legalforms-plugin .text-success {
+  color: #3c763d;
+}
+#legalforms-plugin a.text-success:hover {
+  color: #2b542c;
+}
+#legalforms-plugin .text-info {
+  color: #31708f;
+}
+#legalforms-plugin a.text-info:hover {
+  color: #245269;
+}
+#legalforms-plugin .text-warning {
+  color: #8a6d3b;
+}
+#legalforms-plugin a.text-warning:hover {
+  color: #66512c;
+}
+#legalforms-plugin .text-danger {
+  color: #a94442;
+}
+#legalforms-plugin a.text-danger:hover {
+  color: #843534;
+}
+#legalforms-plugin .bg-primary {
+  color: #fff;
+  background-color: #428bca;
+}
+#legalforms-plugin a.bg-primary:hover {
+  background-color: #3071a9;
+}
+#legalforms-plugin .bg-success {
+  background-color: #dff0d8;
+}
+#legalforms-plugin a.bg-success:hover {
+  background-color: #c1e2b3;
+}
+#legalforms-plugin .bg-info {
+  background-color: #d9edf7;
+}
+#legalforms-plugin a.bg-info:hover {
+  background-color: #afd9ee;
+}
+#legalforms-plugin .bg-warning {
+  background-color: #fcf8e3;
+}
+#legalforms-plugin a.bg-warning:hover {
+  background-color: #f7ecb5;
+}
+#legalforms-plugin .bg-danger {
+  background-color: #f2dede;
+}
+#legalforms-plugin a.bg-danger:hover {
+  background-color: #e4b9b9;
+}
+#legalforms-plugin .page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+#legalforms-plugin ul,
+#legalforms-plugin ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+#legalforms-plugin ul ul,
+#legalforms-plugin ol ul,
+#legalforms-plugin ul ol,
+#legalforms-plugin ol ol {
+  margin-bottom: 0;
+}
+#legalforms-plugin .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+#legalforms-plugin .list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+}
+#legalforms-plugin .list-inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#legalforms-plugin dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#legalforms-plugin dt,
+#legalforms-plugin dd {
+  line-height: 1.42857143;
+}
+#legalforms-plugin dt {
+  font-weight: 700;
+}
+#legalforms-plugin dd {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #legalforms-plugin .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+#legalforms-plugin abbr[title],
+#legalforms-plugin abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted #999;
+}
+#legalforms-plugin .initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+#legalforms-plugin blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
+}
+#legalforms-plugin blockquote p:last-child,
+#legalforms-plugin blockquote ul:last-child,
+#legalforms-plugin blockquote ol:last-child {
+  margin-bottom: 0;
+}
+#legalforms-plugin blockquote footer,
+#legalforms-plugin blockquote small,
+#legalforms-plugin blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #999;
+}
+#legalforms-plugin blockquote footer:before,
+#legalforms-plugin blockquote small:before,
+#legalforms-plugin blockquote .small:before {
+  content: '\2014 \00A0';
+}
+#legalforms-plugin .blockquote-reverse,
+#legalforms-plugin blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid #eee;
+  border-left: 0;
+  text-align: right;
+}
+#legalforms-plugin .blockquote-reverse footer:before,
+#legalforms-plugin blockquote.pull-right footer:before,
+#legalforms-plugin .blockquote-reverse small:before,
+#legalforms-plugin blockquote.pull-right small:before,
+#legalforms-plugin .blockquote-reverse .small:before,
+#legalforms-plugin blockquote.pull-right .small:before {
+  content: '';
+}
+#legalforms-plugin .blockquote-reverse footer:after,
+#legalforms-plugin blockquote.pull-right footer:after,
+#legalforms-plugin .blockquote-reverse small:after,
+#legalforms-plugin blockquote.pull-right small:after,
+#legalforms-plugin .blockquote-reverse .small:after,
+#legalforms-plugin blockquote.pull-right .small:after {
+  content: '\00A0 \2014';
+}
+#legalforms-plugin blockquote:before,
+#legalforms-plugin blockquote:after {
+  content: "";
+}
+#legalforms-plugin address {
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 1.42857143;
+}
+#legalforms-plugin code,
+#legalforms-plugin kbd,
+#legalforms-plugin pre,
+#legalforms-plugin samp {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+#legalforms-plugin code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+#legalforms-plugin kbd {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #fff;
+  background-color: #333;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+#legalforms-plugin pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#legalforms-plugin pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0;
+}
+#legalforms-plugin .pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+#legalforms-plugin .container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #legalforms-plugin .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  #legalforms-plugin .container {
+    width: 1170px;
+  }
+}
+#legalforms-plugin .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#legalforms-plugin .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#legalforms-plugin .col-xs-1,
+#legalforms-plugin .col-sm-1,
+#legalforms-plugin .col-md-1,
+#legalforms-plugin .col-lg-1,
+#legalforms-plugin .col-xs-2,
+#legalforms-plugin .col-sm-2,
+#legalforms-plugin .col-md-2,
+#legalforms-plugin .col-lg-2,
+#legalforms-plugin .col-xs-3,
+#legalforms-plugin .col-sm-3,
+#legalforms-plugin .col-md-3,
+#legalforms-plugin .col-lg-3,
+#legalforms-plugin .col-xs-4,
+#legalforms-plugin .col-sm-4,
+#legalforms-plugin .col-md-4,
+#legalforms-plugin .col-lg-4,
+#legalforms-plugin .col-xs-5,
+#legalforms-plugin .col-sm-5,
+#legalforms-plugin .col-md-5,
+#legalforms-plugin .col-lg-5,
+#legalforms-plugin .col-xs-6,
+#legalforms-plugin .col-sm-6,
+#legalforms-plugin .col-md-6,
+#legalforms-plugin .col-lg-6,
+#legalforms-plugin .col-xs-7,
+#legalforms-plugin .col-sm-7,
+#legalforms-plugin .col-md-7,
+#legalforms-plugin .col-lg-7,
+#legalforms-plugin .col-xs-8,
+#legalforms-plugin .col-sm-8,
+#legalforms-plugin .col-md-8,
+#legalforms-plugin .col-lg-8,
+#legalforms-plugin .col-xs-9,
+#legalforms-plugin .col-sm-9,
+#legalforms-plugin .col-md-9,
+#legalforms-plugin .col-lg-9,
+#legalforms-plugin .col-xs-10,
+#legalforms-plugin .col-sm-10,
+#legalforms-plugin .col-md-10,
+#legalforms-plugin .col-lg-10,
+#legalforms-plugin .col-xs-11,
+#legalforms-plugin .col-sm-11,
+#legalforms-plugin .col-md-11,
+#legalforms-plugin .col-lg-11,
+#legalforms-plugin .col-xs-12,
+#legalforms-plugin .col-sm-12,
+#legalforms-plugin .col-md-12,
+#legalforms-plugin .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#legalforms-plugin .col-xs-1,
+#legalforms-plugin .col-xs-2,
+#legalforms-plugin .col-xs-3,
+#legalforms-plugin .col-xs-4,
+#legalforms-plugin .col-xs-5,
+#legalforms-plugin .col-xs-6,
+#legalforms-plugin .col-xs-7,
+#legalforms-plugin .col-xs-8,
+#legalforms-plugin .col-xs-9,
+#legalforms-plugin .col-xs-10,
+#legalforms-plugin .col-xs-11,
+#legalforms-plugin .col-xs-12 {
+  float: left;
+}
+#legalforms-plugin .col-xs-12 {
+  width: 100%;
+}
+#legalforms-plugin .col-xs-11 {
+  width: 91.66666667%;
+}
+#legalforms-plugin .col-xs-10 {
+  width: 83.33333333%;
+}
+#legalforms-plugin .col-xs-9 {
+  width: 75%;
+}
+#legalforms-plugin .col-xs-8 {
+  width: 66.66666667%;
+}
+#legalforms-plugin .col-xs-7 {
+  width: 58.33333333%;
+}
+#legalforms-plugin .col-xs-6 {
+  width: 50%;
+}
+#legalforms-plugin .col-xs-5 {
+  width: 41.66666667%;
+}
+#legalforms-plugin .col-xs-4 {
+  width: 33.33333333%;
+}
+#legalforms-plugin .col-xs-3 {
+  width: 25%;
+}
+#legalforms-plugin .col-xs-2 {
+  width: 16.66666667%;
+}
+#legalforms-plugin .col-xs-1 {
+  width: 8.33333333%;
+}
+#legalforms-plugin .col-xs-pull-12 {
+  right: 100%;
+}
+#legalforms-plugin .col-xs-pull-11 {
+  right: 91.66666667%;
+}
+#legalforms-plugin .col-xs-pull-10 {
+  right: 83.33333333%;
+}
+#legalforms-plugin .col-xs-pull-9 {
+  right: 75%;
+}
+#legalforms-plugin .col-xs-pull-8 {
+  right: 66.66666667%;
+}
+#legalforms-plugin .col-xs-pull-7 {
+  right: 58.33333333%;
+}
+#legalforms-plugin .col-xs-pull-6 {
+  right: 50%;
+}
+#legalforms-plugin .col-xs-pull-5 {
+  right: 41.66666667%;
+}
+#legalforms-plugin .col-xs-pull-4 {
+  right: 33.33333333%;
+}
+#legalforms-plugin .col-xs-pull-3 {
+  right: 25%;
+}
+#legalforms-plugin .col-xs-pull-2 {
+  right: 16.66666667%;
+}
+#legalforms-plugin .col-xs-pull-1 {
+  right: 8.33333333%;
+}
+#legalforms-plugin .col-xs-pull-0 {
+  right: 0;
+}
+#legalforms-plugin .col-xs-push-12 {
+  left: 100%;
+}
+#legalforms-plugin .col-xs-push-11 {
+  left: 91.66666667%;
+}
+#legalforms-plugin .col-xs-push-10 {
+  left: 83.33333333%;
+}
+#legalforms-plugin .col-xs-push-9 {
+  left: 75%;
+}
+#legalforms-plugin .col-xs-push-8 {
+  left: 66.66666667%;
+}
+#legalforms-plugin .col-xs-push-7 {
+  left: 58.33333333%;
+}
+#legalforms-plugin .col-xs-push-6 {
+  left: 50%;
+}
+#legalforms-plugin .col-xs-push-5 {
+  left: 41.66666667%;
+}
+#legalforms-plugin .col-xs-push-4 {
+  left: 33.33333333%;
+}
+#legalforms-plugin .col-xs-push-3 {
+  left: 25%;
+}
+#legalforms-plugin .col-xs-push-2 {
+  left: 16.66666667%;
+}
+#legalforms-plugin .col-xs-push-1 {
+  left: 8.33333333%;
+}
+#legalforms-plugin .col-xs-push-0 {
+  left: 0;
+}
+#legalforms-plugin .col-xs-offset-12 {
+  margin-left: 100%;
+}
+#legalforms-plugin .col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+#legalforms-plugin .col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+#legalforms-plugin .col-xs-offset-9 {
+  margin-left: 75%;
+}
+#legalforms-plugin .col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+#legalforms-plugin .col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+#legalforms-plugin .col-xs-offset-6 {
+  margin-left: 50%;
+}
+#legalforms-plugin .col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+#legalforms-plugin .col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+#legalforms-plugin .col-xs-offset-3 {
+  margin-left: 25%;
+}
+#legalforms-plugin .col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+#legalforms-plugin .col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+#legalforms-plugin .col-xs-offset-0 {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .col-sm-1,
+  #legalforms-plugin .col-sm-2,
+  #legalforms-plugin .col-sm-3,
+  #legalforms-plugin .col-sm-4,
+  #legalforms-plugin .col-sm-5,
+  #legalforms-plugin .col-sm-6,
+  #legalforms-plugin .col-sm-7,
+  #legalforms-plugin .col-sm-8,
+  #legalforms-plugin .col-sm-9,
+  #legalforms-plugin .col-sm-10,
+  #legalforms-plugin .col-sm-11,
+  #legalforms-plugin .col-sm-12 {
+    float: left;
+  }
+  #legalforms-plugin .col-sm-12 {
+    width: 100%;
+  }
+  #legalforms-plugin .col-sm-11 {
+    width: 91.66666667%;
+  }
+  #legalforms-plugin .col-sm-10 {
+    width: 83.33333333%;
+  }
+  #legalforms-plugin .col-sm-9 {
+    width: 75%;
+  }
+  #legalforms-plugin .col-sm-8 {
+    width: 66.66666667%;
+  }
+  #legalforms-plugin .col-sm-7 {
+    width: 58.33333333%;
+  }
+  #legalforms-plugin .col-sm-6 {
+    width: 50%;
+  }
+  #legalforms-plugin .col-sm-5 {
+    width: 41.66666667%;
+  }
+  #legalforms-plugin .col-sm-4 {
+    width: 33.33333333%;
+  }
+  #legalforms-plugin .col-sm-3 {
+    width: 25%;
+  }
+  #legalforms-plugin .col-sm-2 {
+    width: 16.66666667%;
+  }
+  #legalforms-plugin .col-sm-1 {
+    width: 8.33333333%;
+  }
+  #legalforms-plugin .col-sm-pull-12 {
+    right: 100%;
+  }
+  #legalforms-plugin .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  #legalforms-plugin .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  #legalforms-plugin .col-sm-pull-9 {
+    right: 75%;
+  }
+  #legalforms-plugin .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  #legalforms-plugin .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  #legalforms-plugin .col-sm-pull-6 {
+    right: 50%;
+  }
+  #legalforms-plugin .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  #legalforms-plugin .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  #legalforms-plugin .col-sm-pull-3 {
+    right: 25%;
+  }
+  #legalforms-plugin .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  #legalforms-plugin .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  #legalforms-plugin .col-sm-pull-0 {
+    right: 0;
+  }
+  #legalforms-plugin .col-sm-push-12 {
+    left: 100%;
+  }
+  #legalforms-plugin .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  #legalforms-plugin .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  #legalforms-plugin .col-sm-push-9 {
+    left: 75%;
+  }
+  #legalforms-plugin .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  #legalforms-plugin .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  #legalforms-plugin .col-sm-push-6 {
+    left: 50%;
+  }
+  #legalforms-plugin .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  #legalforms-plugin .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  #legalforms-plugin .col-sm-push-3 {
+    left: 25%;
+  }
+  #legalforms-plugin .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  #legalforms-plugin .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  #legalforms-plugin .col-sm-push-0 {
+    left: 0;
+  }
+  #legalforms-plugin .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  #legalforms-plugin .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #legalforms-plugin .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #legalforms-plugin .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  #legalforms-plugin .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #legalforms-plugin .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #legalforms-plugin .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  #legalforms-plugin .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #legalforms-plugin .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #legalforms-plugin .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  #legalforms-plugin .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #legalforms-plugin .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #legalforms-plugin .col-sm-offset-0 {
+    margin-left: 0;
+  }
+}
+@media (min-width: 992px) {
+  #legalforms-plugin .col-md-1,
+  #legalforms-plugin .col-md-2,
+  #legalforms-plugin .col-md-3,
+  #legalforms-plugin .col-md-4,
+  #legalforms-plugin .col-md-5,
+  #legalforms-plugin .col-md-6,
+  #legalforms-plugin .col-md-7,
+  #legalforms-plugin .col-md-8,
+  #legalforms-plugin .col-md-9,
+  #legalforms-plugin .col-md-10,
+  #legalforms-plugin .col-md-11,
+  #legalforms-plugin .col-md-12 {
+    float: left;
+  }
+  #legalforms-plugin .col-md-12 {
+    width: 100%;
+  }
+  #legalforms-plugin .col-md-11 {
+    width: 91.66666667%;
+  }
+  #legalforms-plugin .col-md-10 {
+    width: 83.33333333%;
+  }
+  #legalforms-plugin .col-md-9 {
+    width: 75%;
+  }
+  #legalforms-plugin .col-md-8 {
+    width: 66.66666667%;
+  }
+  #legalforms-plugin .col-md-7 {
+    width: 58.33333333%;
+  }
+  #legalforms-plugin .col-md-6 {
+    width: 50%;
+  }
+  #legalforms-plugin .col-md-5 {
+    width: 41.66666667%;
+  }
+  #legalforms-plugin .col-md-4 {
+    width: 33.33333333%;
+  }
+  #legalforms-plugin .col-md-3 {
+    width: 25%;
+  }
+  #legalforms-plugin .col-md-2 {
+    width: 16.66666667%;
+  }
+  #legalforms-plugin .col-md-1 {
+    width: 8.33333333%;
+  }
+  #legalforms-plugin .col-md-pull-12 {
+    right: 100%;
+  }
+  #legalforms-plugin .col-md-pull-11 {
+    right: 91.66666667%;
+  }
+  #legalforms-plugin .col-md-pull-10 {
+    right: 83.33333333%;
+  }
+  #legalforms-plugin .col-md-pull-9 {
+    right: 75%;
+  }
+  #legalforms-plugin .col-md-pull-8 {
+    right: 66.66666667%;
+  }
+  #legalforms-plugin .col-md-pull-7 {
+    right: 58.33333333%;
+  }
+  #legalforms-plugin .col-md-pull-6 {
+    right: 50%;
+  }
+  #legalforms-plugin .col-md-pull-5 {
+    right: 41.66666667%;
+  }
+  #legalforms-plugin .col-md-pull-4 {
+    right: 33.33333333%;
+  }
+  #legalforms-plugin .col-md-pull-3 {
+    right: 25%;
+  }
+  #legalforms-plugin .col-md-pull-2 {
+    right: 16.66666667%;
+  }
+  #legalforms-plugin .col-md-pull-1 {
+    right: 8.33333333%;
+  }
+  #legalforms-plugin .col-md-pull-0 {
+    right: 0;
+  }
+  #legalforms-plugin .col-md-push-12 {
+    left: 100%;
+  }
+  #legalforms-plugin .col-md-push-11 {
+    left: 91.66666667%;
+  }
+  #legalforms-plugin .col-md-push-10 {
+    left: 83.33333333%;
+  }
+  #legalforms-plugin .col-md-push-9 {
+    left: 75%;
+  }
+  #legalforms-plugin .col-md-push-8 {
+    left: 66.66666667%;
+  }
+  #legalforms-plugin .col-md-push-7 {
+    left: 58.33333333%;
+  }
+  #legalforms-plugin .col-md-push-6 {
+    left: 50%;
+  }
+  #legalforms-plugin .col-md-push-5 {
+    left: 41.66666667%;
+  }
+  #legalforms-plugin .col-md-push-4 {
+    left: 33.33333333%;
+  }
+  #legalforms-plugin .col-md-push-3 {
+    left: 25%;
+  }
+  #legalforms-plugin .col-md-push-2 {
+    left: 16.66666667%;
+  }
+  #legalforms-plugin .col-md-push-1 {
+    left: 8.33333333%;
+  }
+  #legalforms-plugin .col-md-push-0 {
+    left: 0;
+  }
+  #legalforms-plugin .col-md-offset-12 {
+    margin-left: 100%;
+  }
+  #legalforms-plugin .col-md-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #legalforms-plugin .col-md-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #legalforms-plugin .col-md-offset-9 {
+    margin-left: 75%;
+  }
+  #legalforms-plugin .col-md-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #legalforms-plugin .col-md-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #legalforms-plugin .col-md-offset-6 {
+    margin-left: 50%;
+  }
+  #legalforms-plugin .col-md-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #legalforms-plugin .col-md-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #legalforms-plugin .col-md-offset-3 {
+    margin-left: 25%;
+  }
+  #legalforms-plugin .col-md-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #legalforms-plugin .col-md-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #legalforms-plugin .col-md-offset-0 {
+    margin-left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  #legalforms-plugin .col-lg-1,
+  #legalforms-plugin .col-lg-2,
+  #legalforms-plugin .col-lg-3,
+  #legalforms-plugin .col-lg-4,
+  #legalforms-plugin .col-lg-5,
+  #legalforms-plugin .col-lg-6,
+  #legalforms-plugin .col-lg-7,
+  #legalforms-plugin .col-lg-8,
+  #legalforms-plugin .col-lg-9,
+  #legalforms-plugin .col-lg-10,
+  #legalforms-plugin .col-lg-11,
+  #legalforms-plugin .col-lg-12 {
+    float: left;
+  }
+  #legalforms-plugin .col-lg-12 {
+    width: 100%;
+  }
+  #legalforms-plugin .col-lg-11 {
+    width: 91.66666667%;
+  }
+  #legalforms-plugin .col-lg-10 {
+    width: 83.33333333%;
+  }
+  #legalforms-plugin .col-lg-9 {
+    width: 75%;
+  }
+  #legalforms-plugin .col-lg-8 {
+    width: 66.66666667%;
+  }
+  #legalforms-plugin .col-lg-7 {
+    width: 58.33333333%;
+  }
+  #legalforms-plugin .col-lg-6 {
+    width: 50%;
+  }
+  #legalforms-plugin .col-lg-5 {
+    width: 41.66666667%;
+  }
+  #legalforms-plugin .col-lg-4 {
+    width: 33.33333333%;
+  }
+  #legalforms-plugin .col-lg-3 {
+    width: 25%;
+  }
+  #legalforms-plugin .col-lg-2 {
+    width: 16.66666667%;
+  }
+  #legalforms-plugin .col-lg-1 {
+    width: 8.33333333%;
+  }
+  #legalforms-plugin .col-lg-pull-12 {
+    right: 100%;
+  }
+  #legalforms-plugin .col-lg-pull-11 {
+    right: 91.66666667%;
+  }
+  #legalforms-plugin .col-lg-pull-10 {
+    right: 83.33333333%;
+  }
+  #legalforms-plugin .col-lg-pull-9 {
+    right: 75%;
+  }
+  #legalforms-plugin .col-lg-pull-8 {
+    right: 66.66666667%;
+  }
+  #legalforms-plugin .col-lg-pull-7 {
+    right: 58.33333333%;
+  }
+  #legalforms-plugin .col-lg-pull-6 {
+    right: 50%;
+  }
+  #legalforms-plugin .col-lg-pull-5 {
+    right: 41.66666667%;
+  }
+  #legalforms-plugin .col-lg-pull-4 {
+    right: 33.33333333%;
+  }
+  #legalforms-plugin .col-lg-pull-3 {
+    right: 25%;
+  }
+  #legalforms-plugin .col-lg-pull-2 {
+    right: 16.66666667%;
+  }
+  #legalforms-plugin .col-lg-pull-1 {
+    right: 8.33333333%;
+  }
+  #legalforms-plugin .col-lg-pull-0 {
+    right: 0;
+  }
+  #legalforms-plugin .col-lg-push-12 {
+    left: 100%;
+  }
+  #legalforms-plugin .col-lg-push-11 {
+    left: 91.66666667%;
+  }
+  #legalforms-plugin .col-lg-push-10 {
+    left: 83.33333333%;
+  }
+  #legalforms-plugin .col-lg-push-9 {
+    left: 75%;
+  }
+  #legalforms-plugin .col-lg-push-8 {
+    left: 66.66666667%;
+  }
+  #legalforms-plugin .col-lg-push-7 {
+    left: 58.33333333%;
+  }
+  #legalforms-plugin .col-lg-push-6 {
+    left: 50%;
+  }
+  #legalforms-plugin .col-lg-push-5 {
+    left: 41.66666667%;
+  }
+  #legalforms-plugin .col-lg-push-4 {
+    left: 33.33333333%;
+  }
+  #legalforms-plugin .col-lg-push-3 {
+    left: 25%;
+  }
+  #legalforms-plugin .col-lg-push-2 {
+    left: 16.66666667%;
+  }
+  #legalforms-plugin .col-lg-push-1 {
+    left: 8.33333333%;
+  }
+  #legalforms-plugin .col-lg-push-0 {
+    left: 0;
+  }
+  #legalforms-plugin .col-lg-offset-12 {
+    margin-left: 100%;
+  }
+  #legalforms-plugin .col-lg-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  #legalforms-plugin .col-lg-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  #legalforms-plugin .col-lg-offset-9 {
+    margin-left: 75%;
+  }
+  #legalforms-plugin .col-lg-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  #legalforms-plugin .col-lg-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  #legalforms-plugin .col-lg-offset-6 {
+    margin-left: 50%;
+  }
+  #legalforms-plugin .col-lg-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  #legalforms-plugin .col-lg-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  #legalforms-plugin .col-lg-offset-3 {
+    margin-left: 25%;
+  }
+  #legalforms-plugin .col-lg-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  #legalforms-plugin .col-lg-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  #legalforms-plugin .col-lg-offset-0 {
+    margin-left: 0;
+  }
+}
+#legalforms-plugin table {
+  max-width: 100%;
+  background-color: transparent;
+}
+#legalforms-plugin th {
+  text-align: left;
+}
+#legalforms-plugin .table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+#legalforms-plugin .table > thead > tr > th,
+#legalforms-plugin .table > tbody > tr > th,
+#legalforms-plugin .table > tfoot > tr > th,
+#legalforms-plugin .table > thead > tr > td,
+#legalforms-plugin .table > tbody > tr > td,
+#legalforms-plugin .table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+#legalforms-plugin .table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+#legalforms-plugin .table > caption + thead > tr:first-child > th,
+#legalforms-plugin .table > colgroup + thead > tr:first-child > th,
+#legalforms-plugin .table > thead:first-child > tr:first-child > th,
+#legalforms-plugin .table > caption + thead > tr:first-child > td,
+#legalforms-plugin .table > colgroup + thead > tr:first-child > td,
+#legalforms-plugin .table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+#legalforms-plugin .table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+#legalforms-plugin .table .table {
+  background-color: #fff;
+}
+#legalforms-plugin .table-condensed > thead > tr > th,
+#legalforms-plugin .table-condensed > tbody > tr > th,
+#legalforms-plugin .table-condensed > tfoot > tr > th,
+#legalforms-plugin .table-condensed > thead > tr > td,
+#legalforms-plugin .table-condensed > tbody > tr > td,
+#legalforms-plugin .table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+#legalforms-plugin .table-bordered {
+  border: 1px solid #ddd;
+}
+#legalforms-plugin .table-bordered > thead > tr > th,
+#legalforms-plugin .table-bordered > tbody > tr > th,
+#legalforms-plugin .table-bordered > tfoot > tr > th,
+#legalforms-plugin .table-bordered > thead > tr > td,
+#legalforms-plugin .table-bordered > tbody > tr > td,
+#legalforms-plugin .table-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+#legalforms-plugin .table-bordered > thead > tr > th,
+#legalforms-plugin .table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+#legalforms-plugin .table-striped > tbody > tr:nth-child(odd) > td,
+#legalforms-plugin .table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+#legalforms-plugin .table-hover > tbody > tr:hover > td,
+#legalforms-plugin .table-hover > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+#legalforms-plugin table col[class*=col-] {
+  position: static;
+  float: none;
+  display: table-column;
+}
+#legalforms-plugin table td[class*=col-],
+#legalforms-plugin table th[class*=col-] {
+  position: static;
+  float: none;
+  display: table-cell;
+}
+#legalforms-plugin .table > thead > tr > td.active,
+#legalforms-plugin .table > tbody > tr > td.active,
+#legalforms-plugin .table > tfoot > tr > td.active,
+#legalforms-plugin .table > thead > tr > th.active,
+#legalforms-plugin .table > tbody > tr > th.active,
+#legalforms-plugin .table > tfoot > tr > th.active,
+#legalforms-plugin .table > thead > tr.active > td,
+#legalforms-plugin .table > tbody > tr.active > td,
+#legalforms-plugin .table > tfoot > tr.active > td,
+#legalforms-plugin .table > thead > tr.active > th,
+#legalforms-plugin .table > tbody > tr.active > th,
+#legalforms-plugin .table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+#legalforms-plugin .table-hover > tbody > tr > td.active:hover,
+#legalforms-plugin .table-hover > tbody > tr > th.active:hover,
+#legalforms-plugin .table-hover > tbody > tr.active:hover > td,
+#legalforms-plugin .table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+#legalforms-plugin .table > thead > tr > td.success,
+#legalforms-plugin .table > tbody > tr > td.success,
+#legalforms-plugin .table > tfoot > tr > td.success,
+#legalforms-plugin .table > thead > tr > th.success,
+#legalforms-plugin .table > tbody > tr > th.success,
+#legalforms-plugin .table > tfoot > tr > th.success,
+#legalforms-plugin .table > thead > tr.success > td,
+#legalforms-plugin .table > tbody > tr.success > td,
+#legalforms-plugin .table > tfoot > tr.success > td,
+#legalforms-plugin .table > thead > tr.success > th,
+#legalforms-plugin .table > tbody > tr.success > th,
+#legalforms-plugin .table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+}
+#legalforms-plugin .table-hover > tbody > tr > td.success:hover,
+#legalforms-plugin .table-hover > tbody > tr > th.success:hover,
+#legalforms-plugin .table-hover > tbody > tr.success:hover > td,
+#legalforms-plugin .table-hover > tbody > tr.success:hover > th {
+  background-color: #d0e9c6;
+}
+#legalforms-plugin .table > thead > tr > td.info,
+#legalforms-plugin .table > tbody > tr > td.info,
+#legalforms-plugin .table > tfoot > tr > td.info,
+#legalforms-plugin .table > thead > tr > th.info,
+#legalforms-plugin .table > tbody > tr > th.info,
+#legalforms-plugin .table > tfoot > tr > th.info,
+#legalforms-plugin .table > thead > tr.info > td,
+#legalforms-plugin .table > tbody > tr.info > td,
+#legalforms-plugin .table > tfoot > tr.info > td,
+#legalforms-plugin .table > thead > tr.info > th,
+#legalforms-plugin .table > tbody > tr.info > th,
+#legalforms-plugin .table > tfoot > tr.info > th {
+  background-color: #d9edf7;
+}
+#legalforms-plugin .table-hover > tbody > tr > td.info:hover,
+#legalforms-plugin .table-hover > tbody > tr > th.info:hover,
+#legalforms-plugin .table-hover > tbody > tr.info:hover > td,
+#legalforms-plugin .table-hover > tbody > tr.info:hover > th {
+  background-color: #c4e3f3;
+}
+#legalforms-plugin .table > thead > tr > td.warning,
+#legalforms-plugin .table > tbody > tr > td.warning,
+#legalforms-plugin .table > tfoot > tr > td.warning,
+#legalforms-plugin .table > thead > tr > th.warning,
+#legalforms-plugin .table > tbody > tr > th.warning,
+#legalforms-plugin .table > tfoot > tr > th.warning,
+#legalforms-plugin .table > thead > tr.warning > td,
+#legalforms-plugin .table > tbody > tr.warning > td,
+#legalforms-plugin .table > tfoot > tr.warning > td,
+#legalforms-plugin .table > thead > tr.warning > th,
+#legalforms-plugin .table > tbody > tr.warning > th,
+#legalforms-plugin .table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+}
+#legalforms-plugin .table-hover > tbody > tr > td.warning:hover,
+#legalforms-plugin .table-hover > tbody > tr > th.warning:hover,
+#legalforms-plugin .table-hover > tbody > tr.warning:hover > td,
+#legalforms-plugin .table-hover > tbody > tr.warning:hover > th {
+  background-color: #faf2cc;
+}
+#legalforms-plugin .table > thead > tr > td.danger,
+#legalforms-plugin .table > tbody > tr > td.danger,
+#legalforms-plugin .table > tfoot > tr > td.danger,
+#legalforms-plugin .table > thead > tr > th.danger,
+#legalforms-plugin .table > tbody > tr > th.danger,
+#legalforms-plugin .table > tfoot > tr > th.danger,
+#legalforms-plugin .table > thead > tr.danger > td,
+#legalforms-plugin .table > tbody > tr.danger > td,
+#legalforms-plugin .table > tfoot > tr.danger > td,
+#legalforms-plugin .table > thead > tr.danger > th,
+#legalforms-plugin .table > tbody > tr.danger > th,
+#legalforms-plugin .table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+}
+#legalforms-plugin .table-hover > tbody > tr > td.danger:hover,
+#legalforms-plugin .table-hover > tbody > tr > th.danger:hover,
+#legalforms-plugin .table-hover > tbody > tr.danger:hover > td,
+#legalforms-plugin .table-hover > tbody > tr.danger:hover > th {
+  background-color: #ebcccc;
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd;
+    -webkit-overflow-scrolling: touch;
+  }
+  #legalforms-plugin .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  #legalforms-plugin .table-responsive > .table > thead > tr > th,
+  #legalforms-plugin .table-responsive > .table > tbody > tr > th,
+  #legalforms-plugin .table-responsive > .table > tfoot > tr > th,
+  #legalforms-plugin .table-responsive > .table > thead > tr > td,
+  #legalforms-plugin .table-responsive > .table > tbody > tr > td,
+  #legalforms-plugin .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  #legalforms-plugin .table-responsive > .table-bordered {
+    border: 0;
+  }
+  #legalforms-plugin .table-responsive > .table-bordered > thead > tr > th:first-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  #legalforms-plugin .table-responsive > .table-bordered > thead > tr > td:first-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  #legalforms-plugin .table-responsive > .table-bordered > thead > tr > th:last-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  #legalforms-plugin .table-responsive > .table-bordered > thead > tr > td:last-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  #legalforms-plugin .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  #legalforms-plugin .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+#legalforms-plugin fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+#legalforms-plugin legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+#legalforms-plugin label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+#legalforms-plugin input[type=search] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#legalforms-plugin input[type=radio],
+#legalforms-plugin input[type=checkbox] {
+  margin: 4px 0 0;
+  margin-top: 1px \9;
+  line-height: normal;
+}
+#legalforms-plugin input[type=file] {
+  display: block;
+}
+#legalforms-plugin input[type=range] {
+  display: block;
+  width: 100%;
+}
+#legalforms-plugin select[multiple],
+#legalforms-plugin select[size] {
+  height: auto;
+}
+#legalforms-plugin input[type=file]:focus,
+#legalforms-plugin input[type=radio]:focus,
+#legalforms-plugin input[type=checkbox]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#legalforms-plugin output {
+  display: block;
+  padding-top: 7px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+}
+#legalforms-plugin .form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+#legalforms-plugin .form-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+#legalforms-plugin .form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+#legalforms-plugin .form-control:-ms-input-placeholder {
+  color: #999;
+}
+#legalforms-plugin .form-control::-webkit-input-placeholder {
+  color: #999;
+}
+#legalforms-plugin .form-control[disabled],
+#legalforms-plugin .form-control[readonly],
+#legalforms-plugin fieldset[disabled] .form-control {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+#legalforms-plugin textarea.form-control {
+  height: auto;
+}
+#legalforms-plugin input[type=search] {
+  -webkit-appearance: none;
+}
+#legalforms-plugin input[type=date] {
+  line-height: 34px;
+}
+#legalforms-plugin .form-group {
+  margin-bottom: 15px;
+}
+#legalforms-plugin .radio,
+#legalforms-plugin .checkbox {
+  display: block;
+  min-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+#legalforms-plugin .radio label,
+#legalforms-plugin .checkbox label {
+  display: inline;
+  font-weight: 400;
+  cursor: pointer;
+}
+#legalforms-plugin .radio input[type=radio],
+#legalforms-plugin .radio-inline input[type=radio],
+#legalforms-plugin .checkbox input[type=checkbox],
+#legalforms-plugin .checkbox-inline input[type=checkbox] {
+  float: left;
+  margin-left: -20px;
+}
+#legalforms-plugin .radio + .radio,
+#legalforms-plugin .checkbox + .checkbox {
+  margin-top: -5px;
+}
+#legalforms-plugin .radio-inline,
+#legalforms-plugin .checkbox-inline {
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: 400;
+  cursor: pointer;
+}
+#legalforms-plugin .radio-inline + .radio-inline,
+#legalforms-plugin .checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+#legalforms-plugin input[type=radio][disabled],
+#legalforms-plugin input[type=checkbox][disabled],
+#legalforms-plugin .radio[disabled],
+#legalforms-plugin .radio-inline[disabled],
+#legalforms-plugin .checkbox[disabled],
+#legalforms-plugin .checkbox-inline[disabled],
+#legalforms-plugin fieldset[disabled] input[type=radio],
+#legalforms-plugin fieldset[disabled] input[type=checkbox],
+#legalforms-plugin fieldset[disabled] .radio,
+#legalforms-plugin fieldset[disabled] .radio-inline,
+#legalforms-plugin fieldset[disabled] .checkbox,
+#legalforms-plugin fieldset[disabled] .checkbox-inline {
+  cursor: not-allowed;
+}
+#legalforms-plugin .input-sm {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+#legalforms-plugin select.input-sm {
+  height: 30px;
+  line-height: 30px;
+}
+#legalforms-plugin textarea.input-sm,
+#legalforms-plugin select[multiple].input-sm {
+  height: auto;
+}
+#legalforms-plugin .input-lg {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+#legalforms-plugin select.input-lg {
+  height: 46px;
+  line-height: 46px;
+}
+#legalforms-plugin textarea.input-lg,
+#legalforms-plugin select[multiple].input-lg {
+  height: auto;
+}
+#legalforms-plugin .has-feedback {
+  position: relative;
+}
+#legalforms-plugin .has-feedback .form-control {
+  padding-right: 42.5px;
+}
+#legalforms-plugin .has-feedback .form-control-feedback {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+#legalforms-plugin .has-success .help-block,
+#legalforms-plugin .has-success .control-label,
+#legalforms-plugin .has-success .radio,
+#legalforms-plugin .has-success .checkbox,
+#legalforms-plugin .has-success .radio-inline,
+#legalforms-plugin .has-success .checkbox-inline {
+  color: #3c763d;
+}
+#legalforms-plugin .has-success .form-control {
+  border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#legalforms-plugin .has-success .form-control:focus {
+  border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+#legalforms-plugin .has-success .input-group-addon {
+  color: #3c763d;
+  border-color: #3c763d;
+  background-color: #dff0d8;
+}
+#legalforms-plugin .has-success .form-control-feedback {
+  color: #3c763d;
+}
+#legalforms-plugin .has-warning .help-block,
+#legalforms-plugin .has-warning .control-label,
+#legalforms-plugin .has-warning .radio,
+#legalforms-plugin .has-warning .checkbox,
+#legalforms-plugin .has-warning .radio-inline,
+#legalforms-plugin .has-warning .checkbox-inline {
+  color: #8a6d3b;
+}
+#legalforms-plugin .has-warning .form-control {
+  border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#legalforms-plugin .has-warning .form-control:focus {
+  border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+}
+#legalforms-plugin .has-warning .input-group-addon {
+  color: #8a6d3b;
+  border-color: #8a6d3b;
+  background-color: #fcf8e3;
+}
+#legalforms-plugin .has-warning .form-control-feedback {
+  color: #8a6d3b;
+}
+#legalforms-plugin .has-error .help-block,
+#legalforms-plugin .has-error .control-label,
+#legalforms-plugin .has-error .radio,
+#legalforms-plugin .has-error .checkbox,
+#legalforms-plugin .has-error .radio-inline,
+#legalforms-plugin .has-error .checkbox-inline {
+  color: #a94442;
+}
+#legalforms-plugin .has-error .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#legalforms-plugin .has-error .form-control:focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+#legalforms-plugin .has-error .input-group-addon {
+  color: #a94442;
+  border-color: #a94442;
+  background-color: #f2dede;
+}
+#legalforms-plugin .has-error .form-control-feedback {
+  color: #a94442;
+}
+#legalforms-plugin .form-control-static {
+  margin-bottom: 0;
+}
+#legalforms-plugin .help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .form-inline .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .form-inline .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .form-inline .input-group > .form-control {
+    width: 100%;
+  }
+  #legalforms-plugin .form-inline .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .form-inline .radio,
+  #legalforms-plugin .form-inline .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .form-inline .radio input[type=radio],
+  #legalforms-plugin .form-inline .checkbox input[type=checkbox] {
+    float: none;
+    margin-left: 0;
+  }
+  #legalforms-plugin .form-inline .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+#legalforms-plugin .form-horizontal .control-label,
+#legalforms-plugin .form-horizontal .radio,
+#legalforms-plugin .form-horizontal .checkbox,
+#legalforms-plugin .form-horizontal .radio-inline,
+#legalforms-plugin .form-horizontal .checkbox-inline {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 7px;
+}
+#legalforms-plugin .form-horizontal .radio,
+#legalforms-plugin .form-horizontal .checkbox {
+  min-height: 27px;
+}
+#legalforms-plugin .form-horizontal .form-group {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#legalforms-plugin .form-horizontal .form-control-static {
+  padding-top: 7px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .form-horizontal .control-label {
+    text-align: right;
+  }
+}
+#legalforms-plugin .form-horizontal .has-feedback .form-control-feedback {
+  top: 0;
+  right: 15px;
+}
+#legalforms-plugin .btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#legalforms-plugin .btn:focus,
+#legalforms-plugin .btn:active:focus,
+#legalforms-plugin .btn.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+#legalforms-plugin .btn:hover,
+#legalforms-plugin .btn:focus {
+  color: #333;
+  text-decoration: none;
+}
+#legalforms-plugin .btn:active,
+#legalforms-plugin .btn.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#legalforms-plugin .btn.disabled,
+#legalforms-plugin .btn[disabled],
+#legalforms-plugin fieldset[disabled] .btn {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: .65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#legalforms-plugin .btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+#legalforms-plugin .btn-default:hover,
+#legalforms-plugin .btn-default:focus,
+#legalforms-plugin .btn-default:active,
+#legalforms-plugin .btn-default.active,
+#legalforms-plugin .open .dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+#legalforms-plugin .btn-default:active,
+#legalforms-plugin .btn-default.active,
+#legalforms-plugin .open .dropdown-toggle.btn-default {
+  background-image: none;
+}
+#legalforms-plugin .btn-default.disabled,
+#legalforms-plugin .btn-default[disabled],
+#legalforms-plugin fieldset[disabled] .btn-default,
+#legalforms-plugin .btn-default.disabled:hover,
+#legalforms-plugin .btn-default[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-default:hover,
+#legalforms-plugin .btn-default.disabled:focus,
+#legalforms-plugin .btn-default[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-default:focus,
+#legalforms-plugin .btn-default.disabled:active,
+#legalforms-plugin .btn-default[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-default:active,
+#legalforms-plugin .btn-default.disabled.active,
+#legalforms-plugin .btn-default[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-default.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+#legalforms-plugin .btn-default .badge {
+  color: #fff;
+  background-color: #333;
+}
+#legalforms-plugin .btn-primary {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+#legalforms-plugin .btn-primary:hover,
+#legalforms-plugin .btn-primary:focus,
+#legalforms-plugin .btn-primary:active,
+#legalforms-plugin .btn-primary.active,
+#legalforms-plugin .open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+#legalforms-plugin .btn-primary:active,
+#legalforms-plugin .btn-primary.active,
+#legalforms-plugin .open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+#legalforms-plugin .btn-primary.disabled,
+#legalforms-plugin .btn-primary[disabled],
+#legalforms-plugin fieldset[disabled] .btn-primary,
+#legalforms-plugin .btn-primary.disabled:hover,
+#legalforms-plugin .btn-primary[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-primary:hover,
+#legalforms-plugin .btn-primary.disabled:focus,
+#legalforms-plugin .btn-primary[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-primary:focus,
+#legalforms-plugin .btn-primary.disabled:active,
+#legalforms-plugin .btn-primary[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-primary:active,
+#legalforms-plugin .btn-primary.disabled.active,
+#legalforms-plugin .btn-primary[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-primary.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+#legalforms-plugin .btn-primary .badge {
+  color: #428bca;
+  background-color: #fff;
+}
+#legalforms-plugin .btn-success {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+#legalforms-plugin .btn-success:hover,
+#legalforms-plugin .btn-success:focus,
+#legalforms-plugin .btn-success:active,
+#legalforms-plugin .btn-success.active,
+#legalforms-plugin .open .dropdown-toggle.btn-success {
+  color: #fff;
+  background-color: #47a447;
+  border-color: #398439;
+}
+#legalforms-plugin .btn-success:active,
+#legalforms-plugin .btn-success.active,
+#legalforms-plugin .open .dropdown-toggle.btn-success {
+  background-image: none;
+}
+#legalforms-plugin .btn-success.disabled,
+#legalforms-plugin .btn-success[disabled],
+#legalforms-plugin fieldset[disabled] .btn-success,
+#legalforms-plugin .btn-success.disabled:hover,
+#legalforms-plugin .btn-success[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-success:hover,
+#legalforms-plugin .btn-success.disabled:focus,
+#legalforms-plugin .btn-success[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-success:focus,
+#legalforms-plugin .btn-success.disabled:active,
+#legalforms-plugin .btn-success[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-success:active,
+#legalforms-plugin .btn-success.disabled.active,
+#legalforms-plugin .btn-success[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-success.active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+#legalforms-plugin .btn-success .badge {
+  color: #5cb85c;
+  background-color: #fff;
+}
+#legalforms-plugin .btn-info {
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+#legalforms-plugin .btn-info:hover,
+#legalforms-plugin .btn-info:focus,
+#legalforms-plugin .btn-info:active,
+#legalforms-plugin .btn-info.active,
+#legalforms-plugin .open .dropdown-toggle.btn-info {
+  color: #fff;
+  background-color: #39b3d7;
+  border-color: #269abc;
+}
+#legalforms-plugin .btn-info:active,
+#legalforms-plugin .btn-info.active,
+#legalforms-plugin .open .dropdown-toggle.btn-info {
+  background-image: none;
+}
+#legalforms-plugin .btn-info.disabled,
+#legalforms-plugin .btn-info[disabled],
+#legalforms-plugin fieldset[disabled] .btn-info,
+#legalforms-plugin .btn-info.disabled:hover,
+#legalforms-plugin .btn-info[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-info:hover,
+#legalforms-plugin .btn-info.disabled:focus,
+#legalforms-plugin .btn-info[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-info:focus,
+#legalforms-plugin .btn-info.disabled:active,
+#legalforms-plugin .btn-info[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-info:active,
+#legalforms-plugin .btn-info.disabled.active,
+#legalforms-plugin .btn-info[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-info.active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+#legalforms-plugin .btn-info .badge {
+  color: #5bc0de;
+  background-color: #fff;
+}
+#legalforms-plugin .btn-warning {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+#legalforms-plugin .btn-warning:hover,
+#legalforms-plugin .btn-warning:focus,
+#legalforms-plugin .btn-warning:active,
+#legalforms-plugin .btn-warning.active,
+#legalforms-plugin .open .dropdown-toggle.btn-warning {
+  color: #fff;
+  background-color: #ed9c28;
+  border-color: #d58512;
+}
+#legalforms-plugin .btn-warning:active,
+#legalforms-plugin .btn-warning.active,
+#legalforms-plugin .open .dropdown-toggle.btn-warning {
+  background-image: none;
+}
+#legalforms-plugin .btn-warning.disabled,
+#legalforms-plugin .btn-warning[disabled],
+#legalforms-plugin fieldset[disabled] .btn-warning,
+#legalforms-plugin .btn-warning.disabled:hover,
+#legalforms-plugin .btn-warning[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-warning:hover,
+#legalforms-plugin .btn-warning.disabled:focus,
+#legalforms-plugin .btn-warning[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-warning:focus,
+#legalforms-plugin .btn-warning.disabled:active,
+#legalforms-plugin .btn-warning[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-warning:active,
+#legalforms-plugin .btn-warning.disabled.active,
+#legalforms-plugin .btn-warning[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-warning.active {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+#legalforms-plugin .btn-warning .badge {
+  color: #f0ad4e;
+  background-color: #fff;
+}
+#legalforms-plugin .btn-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+#legalforms-plugin .btn-danger:hover,
+#legalforms-plugin .btn-danger:focus,
+#legalforms-plugin .btn-danger:active,
+#legalforms-plugin .btn-danger.active,
+#legalforms-plugin .open .dropdown-toggle.btn-danger {
+  color: #fff;
+  background-color: #d2322d;
+  border-color: #ac2925;
+}
+#legalforms-plugin .btn-danger:active,
+#legalforms-plugin .btn-danger.active,
+#legalforms-plugin .open .dropdown-toggle.btn-danger {
+  background-image: none;
+}
+#legalforms-plugin .btn-danger.disabled,
+#legalforms-plugin .btn-danger[disabled],
+#legalforms-plugin fieldset[disabled] .btn-danger,
+#legalforms-plugin .btn-danger.disabled:hover,
+#legalforms-plugin .btn-danger[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-danger:hover,
+#legalforms-plugin .btn-danger.disabled:focus,
+#legalforms-plugin .btn-danger[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-danger:focus,
+#legalforms-plugin .btn-danger.disabled:active,
+#legalforms-plugin .btn-danger[disabled]:active,
+#legalforms-plugin fieldset[disabled] .btn-danger:active,
+#legalforms-plugin .btn-danger.disabled.active,
+#legalforms-plugin .btn-danger[disabled].active,
+#legalforms-plugin fieldset[disabled] .btn-danger.active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+#legalforms-plugin .btn-danger .badge {
+  color: #d9534f;
+  background-color: #fff;
+}
+#legalforms-plugin .btn-link {
+  color: #428bca;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 0;
+}
+#legalforms-plugin .btn-link,
+#legalforms-plugin .btn-link:active,
+#legalforms-plugin .btn-link[disabled],
+#legalforms-plugin fieldset[disabled] .btn-link {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#legalforms-plugin .btn-link,
+#legalforms-plugin .btn-link:hover,
+#legalforms-plugin .btn-link:focus,
+#legalforms-plugin .btn-link:active {
+  border-color: transparent;
+}
+#legalforms-plugin .btn-link:hover,
+#legalforms-plugin .btn-link:focus {
+  color: #2a6496;
+  text-decoration: underline;
+  background-color: transparent;
+}
+#legalforms-plugin .btn-link[disabled]:hover,
+#legalforms-plugin fieldset[disabled] .btn-link:hover,
+#legalforms-plugin .btn-link[disabled]:focus,
+#legalforms-plugin fieldset[disabled] .btn-link:focus {
+  color: #999;
+  text-decoration: none;
+}
+#legalforms-plugin .btn-lg,
+#legalforms-plugin .btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+#legalforms-plugin .btn-sm,
+#legalforms-plugin .btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+#legalforms-plugin .btn-xs,
+#legalforms-plugin .btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+#legalforms-plugin .btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+#legalforms-plugin .btn-block + .btn-block {
+  margin-top: 5px;
+}
+#legalforms-plugin input[type=submit].btn-block,
+#legalforms-plugin input[type=reset].btn-block,
+#legalforms-plugin input[type=button].btn-block {
+  width: 100%;
+}
+#legalforms-plugin .fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity 0.15s linear;
+}
+#legalforms-plugin .fade.in {
+  opacity: 1;
+}
+#legalforms-plugin .collapse {
+  display: none;
+}
+#legalforms-plugin .collapse.in {
+  display: block;
+}
+#legalforms-plugin .collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height .35s ease;
+  transition: height 0.35s ease;
+}
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(../fonts/glyphicons-halflings-regular.eot);
+  src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../fonts/glyphicons-halflings-regular.woff) format('woff'), url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
+}
+#legalforms-plugin .glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#legalforms-plugin .glyphicon-asterisk:before {
+  content: "\2a";
+}
+#legalforms-plugin .glyphicon-plus:before {
+  content: "\2b";
+}
+#legalforms-plugin .glyphicon-euro:before {
+  content: "\20ac";
+}
+#legalforms-plugin .glyphicon-minus:before {
+  content: "\2212";
+}
+#legalforms-plugin .glyphicon-cloud:before {
+  content: "\2601";
+}
+#legalforms-plugin .glyphicon-envelope:before {
+  content: "\2709";
+}
+#legalforms-plugin .glyphicon-pencil:before {
+  content: "\270f";
+}
+#legalforms-plugin .glyphicon-glass:before {
+  content: "\e001";
+}
+#legalforms-plugin .glyphicon-music:before {
+  content: "\e002";
+}
+#legalforms-plugin .glyphicon-search:before {
+  content: "\e003";
+}
+#legalforms-plugin .glyphicon-heart:before {
+  content: "\e005";
+}
+#legalforms-plugin .glyphicon-star:before {
+  content: "\e006";
+}
+#legalforms-plugin .glyphicon-star-empty:before {
+  content: "\e007";
+}
+#legalforms-plugin .glyphicon-user:before {
+  content: "\e008";
+}
+#legalforms-plugin .glyphicon-film:before {
+  content: "\e009";
+}
+#legalforms-plugin .glyphicon-th-large:before {
+  content: "\e010";
+}
+#legalforms-plugin .glyphicon-th:before {
+  content: "\e011";
+}
+#legalforms-plugin .glyphicon-th-list:before {
+  content: "\e012";
+}
+#legalforms-plugin .glyphicon-ok:before {
+  content: "\e013";
+}
+#legalforms-plugin .glyphicon-remove:before {
+  content: "\e014";
+}
+#legalforms-plugin .glyphicon-zoom-in:before {
+  content: "\e015";
+}
+#legalforms-plugin .glyphicon-zoom-out:before {
+  content: "\e016";
+}
+#legalforms-plugin .glyphicon-off:before {
+  content: "\e017";
+}
+#legalforms-plugin .glyphicon-signal:before {
+  content: "\e018";
+}
+#legalforms-plugin .glyphicon-cog:before {
+  content: "\e019";
+}
+#legalforms-plugin .glyphicon-trash:before {
+  content: "\e020";
+}
+#legalforms-plugin .glyphicon-home:before {
+  content: "\e021";
+}
+#legalforms-plugin .glyphicon-file:before {
+  content: "\e022";
+}
+#legalforms-plugin .glyphicon-time:before {
+  content: "\e023";
+}
+#legalforms-plugin .glyphicon-road:before {
+  content: "\e024";
+}
+#legalforms-plugin .glyphicon-download-alt:before {
+  content: "\e025";
+}
+#legalforms-plugin .glyphicon-download:before {
+  content: "\e026";
+}
+#legalforms-plugin .glyphicon-upload:before {
+  content: "\e027";
+}
+#legalforms-plugin .glyphicon-inbox:before {
+  content: "\e028";
+}
+#legalforms-plugin .glyphicon-play-circle:before {
+  content: "\e029";
+}
+#legalforms-plugin .glyphicon-repeat:before {
+  content: "\e030";
+}
+#legalforms-plugin .glyphicon-refresh:before {
+  content: "\e031";
+}
+#legalforms-plugin .glyphicon-list-alt:before {
+  content: "\e032";
+}
+#legalforms-plugin .glyphicon-lock:before {
+  content: "\e033";
+}
+#legalforms-plugin .glyphicon-flag:before {
+  content: "\e034";
+}
+#legalforms-plugin .glyphicon-headphones:before {
+  content: "\e035";
+}
+#legalforms-plugin .glyphicon-volume-off:before {
+  content: "\e036";
+}
+#legalforms-plugin .glyphicon-volume-down:before {
+  content: "\e037";
+}
+#legalforms-plugin .glyphicon-volume-up:before {
+  content: "\e038";
+}
+#legalforms-plugin .glyphicon-qrcode:before {
+  content: "\e039";
+}
+#legalforms-plugin .glyphicon-barcode:before {
+  content: "\e040";
+}
+#legalforms-plugin .glyphicon-tag:before {
+  content: "\e041";
+}
+#legalforms-plugin .glyphicon-tags:before {
+  content: "\e042";
+}
+#legalforms-plugin .glyphicon-book:before {
+  content: "\e043";
+}
+#legalforms-plugin .glyphicon-bookmark:before {
+  content: "\e044";
+}
+#legalforms-plugin .glyphicon-print:before {
+  content: "\e045";
+}
+#legalforms-plugin .glyphicon-camera:before {
+  content: "\e046";
+}
+#legalforms-plugin .glyphicon-font:before {
+  content: "\e047";
+}
+#legalforms-plugin .glyphicon-bold:before {
+  content: "\e048";
+}
+#legalforms-plugin .glyphicon-italic:before {
+  content: "\e049";
+}
+#legalforms-plugin .glyphicon-text-height:before {
+  content: "\e050";
+}
+#legalforms-plugin .glyphicon-text-width:before {
+  content: "\e051";
+}
+#legalforms-plugin .glyphicon-align-left:before {
+  content: "\e052";
+}
+#legalforms-plugin .glyphicon-align-center:before {
+  content: "\e053";
+}
+#legalforms-plugin .glyphicon-align-right:before {
+  content: "\e054";
+}
+#legalforms-plugin .glyphicon-align-justify:before {
+  content: "\e055";
+}
+#legalforms-plugin .glyphicon-list:before {
+  content: "\e056";
+}
+#legalforms-plugin .glyphicon-indent-left:before {
+  content: "\e057";
+}
+#legalforms-plugin .glyphicon-indent-right:before {
+  content: "\e058";
+}
+#legalforms-plugin .glyphicon-facetime-video:before {
+  content: "\e059";
+}
+#legalforms-plugin .glyphicon-picture:before {
+  content: "\e060";
+}
+#legalforms-plugin .glyphicon-map-marker:before {
+  content: "\e062";
+}
+#legalforms-plugin .glyphicon-adjust:before {
+  content: "\e063";
+}
+#legalforms-plugin .glyphicon-tint:before {
+  content: "\e064";
+}
+#legalforms-plugin .glyphicon-edit:before {
+  content: "\e065";
+}
+#legalforms-plugin .glyphicon-share:before {
+  content: "\e066";
+}
+#legalforms-plugin .glyphicon-check:before {
+  content: "\e067";
+}
+#legalforms-plugin .glyphicon-move:before {
+  content: "\e068";
+}
+#legalforms-plugin .glyphicon-step-backward:before {
+  content: "\e069";
+}
+#legalforms-plugin .glyphicon-fast-backward:before {
+  content: "\e070";
+}
+#legalforms-plugin .glyphicon-backward:before {
+  content: "\e071";
+}
+#legalforms-plugin .glyphicon-play:before {
+  content: "\e072";
+}
+#legalforms-plugin .glyphicon-pause:before {
+  content: "\e073";
+}
+#legalforms-plugin .glyphicon-stop:before {
+  content: "\e074";
+}
+#legalforms-plugin .glyphicon-forward:before {
+  content: "\e075";
+}
+#legalforms-plugin .glyphicon-fast-forward:before {
+  content: "\e076";
+}
+#legalforms-plugin .glyphicon-step-forward:before {
+  content: "\e077";
+}
+#legalforms-plugin .glyphicon-eject:before {
+  content: "\e078";
+}
+#legalforms-plugin .glyphicon-chevron-left:before {
+  content: "\e079";
+}
+#legalforms-plugin .glyphicon-chevron-right:before {
+  content: "\e080";
+}
+#legalforms-plugin .glyphicon-plus-sign:before {
+  content: "\e081";
+}
+#legalforms-plugin .glyphicon-minus-sign:before {
+  content: "\e082";
+}
+#legalforms-plugin .glyphicon-remove-sign:before {
+  content: "\e083";
+}
+#legalforms-plugin .glyphicon-ok-sign:before {
+  content: "\e084";
+}
+#legalforms-plugin .glyphicon-question-sign:before {
+  content: "\e085";
+}
+#legalforms-plugin .glyphicon-info-sign:before {
+  content: "\e086";
+}
+#legalforms-plugin .glyphicon-screenshot:before {
+  content: "\e087";
+}
+#legalforms-plugin .glyphicon-remove-circle:before {
+  content: "\e088";
+}
+#legalforms-plugin .glyphicon-ok-circle:before {
+  content: "\e089";
+}
+#legalforms-plugin .glyphicon-ban-circle:before {
+  content: "\e090";
+}
+#legalforms-plugin .glyphicon-arrow-left:before {
+  content: "\e091";
+}
+#legalforms-plugin .glyphicon-arrow-right:before {
+  content: "\e092";
+}
+#legalforms-plugin .glyphicon-arrow-up:before {
+  content: "\e093";
+}
+#legalforms-plugin .glyphicon-arrow-down:before {
+  content: "\e094";
+}
+#legalforms-plugin .glyphicon-share-alt:before {
+  content: "\e095";
+}
+#legalforms-plugin .glyphicon-resize-full:before {
+  content: "\e096";
+}
+#legalforms-plugin .glyphicon-resize-small:before {
+  content: "\e097";
+}
+#legalforms-plugin .glyphicon-exclamation-sign:before {
+  content: "\e101";
+}
+#legalforms-plugin .glyphicon-gift:before {
+  content: "\e102";
+}
+#legalforms-plugin .glyphicon-leaf:before {
+  content: "\e103";
+}
+#legalforms-plugin .glyphicon-fire:before {
+  content: "\e104";
+}
+#legalforms-plugin .glyphicon-eye-open:before {
+  content: "\e105";
+}
+#legalforms-plugin .glyphicon-eye-close:before {
+  content: "\e106";
+}
+#legalforms-plugin .glyphicon-warning-sign:before {
+  content: "\e107";
+}
+#legalforms-plugin .glyphicon-plane:before {
+  content: "\e108";
+}
+#legalforms-plugin .glyphicon-calendar:before {
+  content: "\e109";
+}
+#legalforms-plugin .glyphicon-random:before {
+  content: "\e110";
+}
+#legalforms-plugin .glyphicon-comment:before {
+  content: "\e111";
+}
+#legalforms-plugin .glyphicon-magnet:before {
+  content: "\e112";
+}
+#legalforms-plugin .glyphicon-chevron-up:before {
+  content: "\e113";
+}
+#legalforms-plugin .glyphicon-chevron-down:before {
+  content: "\e114";
+}
+#legalforms-plugin .glyphicon-retweet:before {
+  content: "\e115";
+}
+#legalforms-plugin .glyphicon-shopping-cart:before {
+  content: "\e116";
+}
+#legalforms-plugin .glyphicon-folder-close:before {
+  content: "\e117";
+}
+#legalforms-plugin .glyphicon-folder-open:before {
+  content: "\e118";
+}
+#legalforms-plugin .glyphicon-resize-vertical:before {
+  content: "\e119";
+}
+#legalforms-plugin .glyphicon-resize-horizontal:before {
+  content: "\e120";
+}
+#legalforms-plugin .glyphicon-hdd:before {
+  content: "\e121";
+}
+#legalforms-plugin .glyphicon-bullhorn:before {
+  content: "\e122";
+}
+#legalforms-plugin .glyphicon-bell:before {
+  content: "\e123";
+}
+#legalforms-plugin .glyphicon-certificate:before {
+  content: "\e124";
+}
+#legalforms-plugin .glyphicon-thumbs-up:before {
+  content: "\e125";
+}
+#legalforms-plugin .glyphicon-thumbs-down:before {
+  content: "\e126";
+}
+#legalforms-plugin .glyphicon-hand-right:before {
+  content: "\e127";
+}
+#legalforms-plugin .glyphicon-hand-left:before {
+  content: "\e128";
+}
+#legalforms-plugin .glyphicon-hand-up:before {
+  content: "\e129";
+}
+#legalforms-plugin .glyphicon-hand-down:before {
+  content: "\e130";
+}
+#legalforms-plugin .glyphicon-circle-arrow-right:before {
+  content: "\e131";
+}
+#legalforms-plugin .glyphicon-circle-arrow-left:before {
+  content: "\e132";
+}
+#legalforms-plugin .glyphicon-circle-arrow-up:before {
+  content: "\e133";
+}
+#legalforms-plugin .glyphicon-circle-arrow-down:before {
+  content: "\e134";
+}
+#legalforms-plugin .glyphicon-globe:before {
+  content: "\e135";
+}
+#legalforms-plugin .glyphicon-wrench:before {
+  content: "\e136";
+}
+#legalforms-plugin .glyphicon-tasks:before {
+  content: "\e137";
+}
+#legalforms-plugin .glyphicon-filter:before {
+  content: "\e138";
+}
+#legalforms-plugin .glyphicon-briefcase:before {
+  content: "\e139";
+}
+#legalforms-plugin .glyphicon-fullscreen:before {
+  content: "\e140";
+}
+#legalforms-plugin .glyphicon-dashboard:before {
+  content: "\e141";
+}
+#legalforms-plugin .glyphicon-paperclip:before {
+  content: "\e142";
+}
+#legalforms-plugin .glyphicon-heart-empty:before {
+  content: "\e143";
+}
+#legalforms-plugin .glyphicon-link:before {
+  content: "\e144";
+}
+#legalforms-plugin .glyphicon-phone:before {
+  content: "\e145";
+}
+#legalforms-plugin .glyphicon-pushpin:before {
+  content: "\e146";
+}
+#legalforms-plugin .glyphicon-usd:before {
+  content: "\e148";
+}
+#legalforms-plugin .glyphicon-gbp:before {
+  content: "\e149";
+}
+#legalforms-plugin .glyphicon-sort:before {
+  content: "\e150";
+}
+#legalforms-plugin .glyphicon-sort-by-alphabet:before {
+  content: "\e151";
+}
+#legalforms-plugin .glyphicon-sort-by-alphabet-alt:before {
+  content: "\e152";
+}
+#legalforms-plugin .glyphicon-sort-by-order:before {
+  content: "\e153";
+}
+#legalforms-plugin .glyphicon-sort-by-order-alt:before {
+  content: "\e154";
+}
+#legalforms-plugin .glyphicon-sort-by-attributes:before {
+  content: "\e155";
+}
+#legalforms-plugin .glyphicon-sort-by-attributes-alt:before {
+  content: "\e156";
+}
+#legalforms-plugin .glyphicon-unchecked:before {
+  content: "\e157";
+}
+#legalforms-plugin .glyphicon-expand:before {
+  content: "\e158";
+}
+#legalforms-plugin .glyphicon-collapse-down:before {
+  content: "\e159";
+}
+#legalforms-plugin .glyphicon-collapse-up:before {
+  content: "\e160";
+}
+#legalforms-plugin .glyphicon-log-in:before {
+  content: "\e161";
+}
+#legalforms-plugin .glyphicon-flash:before {
+  content: "\e162";
+}
+#legalforms-plugin .glyphicon-log-out:before {
+  content: "\e163";
+}
+#legalforms-plugin .glyphicon-new-window:before {
+  content: "\e164";
+}
+#legalforms-plugin .glyphicon-record:before {
+  content: "\e165";
+}
+#legalforms-plugin .glyphicon-save:before {
+  content: "\e166";
+}
+#legalforms-plugin .glyphicon-open:before {
+  content: "\e167";
+}
+#legalforms-plugin .glyphicon-saved:before {
+  content: "\e168";
+}
+#legalforms-plugin .glyphicon-import:before {
+  content: "\e169";
+}
+#legalforms-plugin .glyphicon-export:before {
+  content: "\e170";
+}
+#legalforms-plugin .glyphicon-send:before {
+  content: "\e171";
+}
+#legalforms-plugin .glyphicon-floppy-disk:before {
+  content: "\e172";
+}
+#legalforms-plugin .glyphicon-floppy-saved:before {
+  content: "\e173";
+}
+#legalforms-plugin .glyphicon-floppy-remove:before {
+  content: "\e174";
+}
+#legalforms-plugin .glyphicon-floppy-save:before {
+  content: "\e175";
+}
+#legalforms-plugin .glyphicon-floppy-open:before {
+  content: "\e176";
+}
+#legalforms-plugin .glyphicon-credit-card:before {
+  content: "\e177";
+}
+#legalforms-plugin .glyphicon-transfer:before {
+  content: "\e178";
+}
+#legalforms-plugin .glyphicon-cutlery:before {
+  content: "\e179";
+}
+#legalforms-plugin .glyphicon-header:before {
+  content: "\e180";
+}
+#legalforms-plugin .glyphicon-compressed:before {
+  content: "\e181";
+}
+#legalforms-plugin .glyphicon-earphone:before {
+  content: "\e182";
+}
+#legalforms-plugin .glyphicon-phone-alt:before {
+  content: "\e183";
+}
+#legalforms-plugin .glyphicon-tower:before {
+  content: "\e184";
+}
+#legalforms-plugin .glyphicon-stats:before {
+  content: "\e185";
+}
+#legalforms-plugin .glyphicon-sd-video:before {
+  content: "\e186";
+}
+#legalforms-plugin .glyphicon-hd-video:before {
+  content: "\e187";
+}
+#legalforms-plugin .glyphicon-subtitles:before {
+  content: "\e188";
+}
+#legalforms-plugin .glyphicon-sound-stereo:before {
+  content: "\e189";
+}
+#legalforms-plugin .glyphicon-sound-dolby:before {
+  content: "\e190";
+}
+#legalforms-plugin .glyphicon-sound-5-1:before {
+  content: "\e191";
+}
+#legalforms-plugin .glyphicon-sound-6-1:before {
+  content: "\e192";
+}
+#legalforms-plugin .glyphicon-sound-7-1:before {
+  content: "\e193";
+}
+#legalforms-plugin .glyphicon-copyright-mark:before {
+  content: "\e194";
+}
+#legalforms-plugin .glyphicon-registration-mark:before {
+  content: "\e195";
+}
+#legalforms-plugin .glyphicon-cloud-download:before {
+  content: "\e197";
+}
+#legalforms-plugin .glyphicon-cloud-upload:before {
+  content: "\e198";
+}
+#legalforms-plugin .glyphicon-tree-conifer:before {
+  content: "\e199";
+}
+#legalforms-plugin .glyphicon-tree-deciduous:before {
+  content: "\e200";
+}
+#legalforms-plugin .caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+#legalforms-plugin .dropdown {
+  position: relative;
+}
+#legalforms-plugin .dropdown-toggle:focus {
+  outline: 0;
+}
+#legalforms-plugin .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+#legalforms-plugin .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+#legalforms-plugin .dropdown-menu .divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+#legalforms-plugin .dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+}
+#legalforms-plugin .dropdown-menu > li > a:hover,
+#legalforms-plugin .dropdown-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+#legalforms-plugin .dropdown-menu > .active > a,
+#legalforms-plugin .dropdown-menu > .active > a:hover,
+#legalforms-plugin .dropdown-menu > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+#legalforms-plugin .dropdown-menu > .disabled > a,
+#legalforms-plugin .dropdown-menu > .disabled > a:hover,
+#legalforms-plugin .dropdown-menu > .disabled > a:focus {
+  color: #999;
+}
+#legalforms-plugin .dropdown-menu > .disabled > a:hover,
+#legalforms-plugin .dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  cursor: not-allowed;
+}
+#legalforms-plugin .open > .dropdown-menu {
+  display: block;
+}
+#legalforms-plugin .open > a {
+  outline: 0;
+}
+#legalforms-plugin .dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+#legalforms-plugin .dropdown-menu-left {
+  left: 0;
+  right: auto;
+}
+#legalforms-plugin .dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #999;
+}
+#legalforms-plugin .dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
+#legalforms-plugin .pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+#legalforms-plugin .dropup .caret,
+#legalforms-plugin .navbar-fixed-bottom .dropdown .caret {
+  border-top: 0;
+  border-bottom: 4px solid;
+  content: "";
+}
+#legalforms-plugin .dropup .dropdown-menu,
+#legalforms-plugin .navbar-fixed-bottom .dropdown .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 1px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-right .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+  #legalforms-plugin .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto;
+  }
+}
+#legalforms-plugin .btn-group,
+#legalforms-plugin .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+#legalforms-plugin .btn-group > .btn,
+#legalforms-plugin .btn-group-vertical > .btn {
+  position: relative;
+  float: left;
+}
+#legalforms-plugin .btn-group > .btn:hover,
+#legalforms-plugin .btn-group-vertical > .btn:hover,
+#legalforms-plugin .btn-group > .btn:focus,
+#legalforms-plugin .btn-group-vertical > .btn:focus,
+#legalforms-plugin .btn-group > .btn:active,
+#legalforms-plugin .btn-group-vertical > .btn:active,
+#legalforms-plugin .btn-group > .btn.active,
+#legalforms-plugin .btn-group-vertical > .btn.active {
+  z-index: 2;
+}
+#legalforms-plugin .btn-group > .btn:focus,
+#legalforms-plugin .btn-group-vertical > .btn:focus {
+  outline: 0;
+}
+#legalforms-plugin .btn-group .btn + .btn,
+#legalforms-plugin .btn-group .btn + .btn-group,
+#legalforms-plugin .btn-group .btn-group + .btn,
+#legalforms-plugin .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+#legalforms-plugin .btn-toolbar {
+  margin-left: -5px;
+}
+#legalforms-plugin .btn-toolbar .btn-group,
+#legalforms-plugin .btn-toolbar .input-group {
+  float: left;
+}
+#legalforms-plugin .btn-toolbar > .btn,
+#legalforms-plugin .btn-toolbar > .btn-group,
+#legalforms-plugin .btn-toolbar > .input-group {
+  margin-left: 5px;
+}
+#legalforms-plugin .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+#legalforms-plugin .btn-group > .btn:first-child {
+  margin-left: 0;
+}
+#legalforms-plugin .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#legalforms-plugin .btn-group > .btn:last-child:not(:first-child),
+#legalforms-plugin .btn-group > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .btn-group > .btn-group {
+  float: left;
+}
+#legalforms-plugin .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+#legalforms-plugin .btn-group > .btn-group:first-child > .btn:last-child,
+#legalforms-plugin .btn-group > .btn-group:first-child > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#legalforms-plugin .btn-group > .btn-group:last-child > .btn:first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .btn-group .dropdown-toggle:active,
+#legalforms-plugin .btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+#legalforms-plugin .btn-group > .btn + .dropdown-toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+#legalforms-plugin .btn-group > .btn-lg + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+#legalforms-plugin .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+#legalforms-plugin .btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#legalforms-plugin .btn .caret {
+  margin-left: 0;
+}
+#legalforms-plugin .btn-lg .caret {
+  border-width: 5px 5px 0;
+  border-bottom-width: 0;
+}
+#legalforms-plugin .dropup .btn-lg .caret {
+  border-width: 0 5px 5px;
+}
+#legalforms-plugin .btn-group-vertical > .btn,
+#legalforms-plugin .btn-group-vertical > .btn-group,
+#legalforms-plugin .btn-group-vertical > .btn-group > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+}
+#legalforms-plugin .btn-group-vertical > .btn-group > .btn {
+  float: none;
+}
+#legalforms-plugin .btn-group-vertical > .btn + .btn,
+#legalforms-plugin .btn-group-vertical > .btn + .btn-group,
+#legalforms-plugin .btn-group-vertical > .btn-group + .btn,
+#legalforms-plugin .btn-group-vertical > .btn-group + .btn-group {
+  margin-top: -1px;
+  margin-left: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
+#legalforms-plugin .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#legalforms-plugin .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+#legalforms-plugin .btn-group-justified > .btn,
+#legalforms-plugin .btn-group-justified > .btn-group {
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+#legalforms-plugin .btn-group-justified > .btn-group .btn {
+  width: 100%;
+}
+#legalforms-plugin [data-toggle=buttons] > .btn > input[type=radio],
+#legalforms-plugin [data-toggle=buttons] > .btn > input[type=checkbox] {
+  display: none;
+}
+#legalforms-plugin .input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+#legalforms-plugin .input-group[class*=col-] {
+  float: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+#legalforms-plugin .input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+#legalforms-plugin .input-group-lg > .form-control,
+#legalforms-plugin .input-group-lg > .input-group-addon,
+#legalforms-plugin .input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+#legalforms-plugin select.input-group-lg > .form-control,
+#legalforms-plugin select.input-group-lg > .input-group-addon,
+#legalforms-plugin select.input-group-lg > .input-group-btn > .btn {
+  height: 46px;
+  line-height: 46px;
+}
+#legalforms-plugin textarea.input-group-lg > .form-control,
+#legalforms-plugin textarea.input-group-lg > .input-group-addon,
+#legalforms-plugin textarea.input-group-lg > .input-group-btn > .btn,
+#legalforms-plugin select[multiple].input-group-lg > .form-control,
+#legalforms-plugin select[multiple].input-group-lg > .input-group-addon,
+#legalforms-plugin select[multiple].input-group-lg > .input-group-btn > .btn {
+  height: auto;
+}
+#legalforms-plugin .input-group-sm > .form-control,
+#legalforms-plugin .input-group-sm > .input-group-addon,
+#legalforms-plugin .input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+#legalforms-plugin select.input-group-sm > .form-control,
+#legalforms-plugin select.input-group-sm > .input-group-addon,
+#legalforms-plugin select.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  line-height: 30px;
+}
+#legalforms-plugin textarea.input-group-sm > .form-control,
+#legalforms-plugin textarea.input-group-sm > .input-group-addon,
+#legalforms-plugin textarea.input-group-sm > .input-group-btn > .btn,
+#legalforms-plugin select[multiple].input-group-sm > .form-control,
+#legalforms-plugin select[multiple].input-group-sm > .input-group-addon,
+#legalforms-plugin select[multiple].input-group-sm > .input-group-btn > .btn {
+  height: auto;
+}
+#legalforms-plugin .input-group-addon,
+#legalforms-plugin .input-group-btn,
+#legalforms-plugin .input-group .form-control {
+  display: table-cell;
+}
+#legalforms-plugin .input-group-addon:not(:first-child):not(:last-child),
+#legalforms-plugin .input-group-btn:not(:first-child):not(:last-child),
+#legalforms-plugin .input-group .form-control:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+#legalforms-plugin .input-group-addon,
+#legalforms-plugin .input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+#legalforms-plugin .input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #555;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#legalforms-plugin .input-group-addon.input-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+#legalforms-plugin .input-group-addon.input-lg {
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 6px;
+}
+#legalforms-plugin .input-group-addon input[type=radio],
+#legalforms-plugin .input-group-addon input[type=checkbox] {
+  margin-top: 0;
+}
+#legalforms-plugin .input-group .form-control:first-child,
+#legalforms-plugin .input-group-addon:first-child,
+#legalforms-plugin .input-group-btn:first-child > .btn,
+#legalforms-plugin .input-group-btn:first-child > .btn-group > .btn,
+#legalforms-plugin .input-group-btn:first-child > .dropdown-toggle,
+#legalforms-plugin .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+#legalforms-plugin .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#legalforms-plugin .input-group-addon:first-child {
+  border-right: 0;
+}
+#legalforms-plugin .input-group .form-control:last-child,
+#legalforms-plugin .input-group-addon:last-child,
+#legalforms-plugin .input-group-btn:last-child > .btn,
+#legalforms-plugin .input-group-btn:last-child > .btn-group > .btn,
+#legalforms-plugin .input-group-btn:last-child > .dropdown-toggle,
+#legalforms-plugin .input-group-btn:first-child > .btn:not(:first-child),
+#legalforms-plugin .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .input-group-addon:last-child {
+  border-left: 0;
+}
+#legalforms-plugin .input-group-btn {
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+}
+#legalforms-plugin .input-group-btn > .btn {
+  position: relative;
+}
+#legalforms-plugin .input-group-btn > .btn + .btn {
+  margin-left: -1px;
+}
+#legalforms-plugin .input-group-btn > .btn:hover,
+#legalforms-plugin .input-group-btn > .btn:focus,
+#legalforms-plugin .input-group-btn > .btn:active {
+  z-index: 2;
+}
+#legalforms-plugin .input-group-btn:first-child > .btn,
+#legalforms-plugin .input-group-btn:first-child > .btn-group {
+  margin-right: -1px;
+}
+#legalforms-plugin .input-group-btn:last-child > .btn,
+#legalforms-plugin .input-group-btn:last-child > .btn-group {
+  margin-left: -1px;
+}
+#legalforms-plugin .nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+#legalforms-plugin .nav > li {
+  position: relative;
+  display: block;
+}
+#legalforms-plugin .nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+#legalforms-plugin .nav > li > a:hover,
+#legalforms-plugin .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+#legalforms-plugin .nav > li.disabled > a {
+  color: #999;
+}
+#legalforms-plugin .nav > li.disabled > a:hover,
+#legalforms-plugin .nav > li.disabled > a:focus {
+  color: #999;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: not-allowed;
+}
+#legalforms-plugin .nav .open > a,
+#legalforms-plugin .nav .open > a:hover,
+#legalforms-plugin .nav .open > a:focus {
+  background-color: #eee;
+  border-color: #428bca;
+}
+#legalforms-plugin .nav .nav-divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+#legalforms-plugin .nav > li > a > img {
+  max-width: none;
+}
+#legalforms-plugin .nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+#legalforms-plugin .nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+#legalforms-plugin .nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+#legalforms-plugin .nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+#legalforms-plugin .nav-tabs > li.active > a,
+#legalforms-plugin .nav-tabs > li.active > a:hover,
+#legalforms-plugin .nav-tabs > li.active > a:focus {
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+#legalforms-plugin .nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+#legalforms-plugin .nav-tabs.nav-justified > li {
+  float: none;
+}
+#legalforms-plugin .nav-tabs.nav-justified > li > a {
+  text-align: center;
+  margin-bottom: 5px;
+}
+#legalforms-plugin .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  #legalforms-plugin .nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+#legalforms-plugin .nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+#legalforms-plugin .nav-tabs.nav-justified > .active > a,
+#legalforms-plugin .nav-tabs.nav-justified > .active > a:hover,
+#legalforms-plugin .nav-tabs.nav-justified > .active > a:focus {
+  border: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+  }
+  #legalforms-plugin .nav-tabs.nav-justified > .active > a,
+  #legalforms-plugin .nav-tabs.nav-justified > .active > a:hover,
+  #legalforms-plugin .nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+#legalforms-plugin .nav-pills > li {
+  float: left;
+}
+#legalforms-plugin .nav-pills > li > a {
+  border-radius: 4px;
+}
+#legalforms-plugin .nav-pills > li + li {
+  margin-left: 2px;
+}
+#legalforms-plugin .nav-pills > li.active > a,
+#legalforms-plugin .nav-pills > li.active > a:hover,
+#legalforms-plugin .nav-pills > li.active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+#legalforms-plugin .nav-stacked > li {
+  float: none;
+}
+#legalforms-plugin .nav-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+#legalforms-plugin .nav-justified {
+  width: 100%;
+}
+#legalforms-plugin .nav-justified > li {
+  float: none;
+}
+#legalforms-plugin .nav-justified > li > a {
+  text-align: center;
+  margin-bottom: 5px;
+}
+#legalforms-plugin .nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  #legalforms-plugin .nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+#legalforms-plugin .nav-tabs-justified {
+  border-bottom: 0;
+}
+#legalforms-plugin .nav-tabs-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+#legalforms-plugin .nav-tabs-justified > .active > a,
+#legalforms-plugin .nav-tabs-justified > .active > a:hover,
+#legalforms-plugin .nav-tabs-justified > .active > a:focus {
+  border: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .nav-tabs-justified > li > a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+  }
+  #legalforms-plugin .nav-tabs-justified > .active > a,
+  #legalforms-plugin .nav-tabs-justified > .active > a:hover,
+  #legalforms-plugin .nav-tabs-justified > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+#legalforms-plugin .tab-content > .tab-pane {
+  display: none;
+}
+#legalforms-plugin .tab-content > .active {
+  display: block;
+}
+#legalforms-plugin .nav-tabs .dropdown-menu {
+  margin-top: -1px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar {
+    border-radius: 4px;
+  }
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-header {
+    float: left;
+  }
+}
+#legalforms-plugin .navbar-collapse {
+  max-height: 340px;
+  overflow-x: visible;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+#legalforms-plugin .navbar-collapse.in {
+  overflow-y: auto;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    box-shadow: none;
+  }
+  #legalforms-plugin .navbar-collapse.collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  #legalforms-plugin .navbar-collapse.in {
+    overflow-y: visible;
+  }
+  #legalforms-plugin .navbar-fixed-top .navbar-collapse,
+  #legalforms-plugin .navbar-static-top .navbar-collapse,
+  #legalforms-plugin .navbar-fixed-bottom .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+#legalforms-plugin .container > .navbar-header,
+#legalforms-plugin .container-fluid > .navbar-header,
+#legalforms-plugin .container > .navbar-collapse,
+#legalforms-plugin .container-fluid > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .container > .navbar-header,
+  #legalforms-plugin .container-fluid > .navbar-header,
+  #legalforms-plugin .container > .navbar-collapse,
+  #legalforms-plugin .container-fluid > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+#legalforms-plugin .navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 1px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-static-top {
+    border-radius: 0;
+  }
+}
+#legalforms-plugin .navbar-fixed-top,
+#legalforms-plugin .navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-fixed-top,
+  #legalforms-plugin .navbar-fixed-bottom {
+    border-radius: 0;
+  }
+}
+#legalforms-plugin .navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+#legalforms-plugin .navbar-fixed-bottom {
+  bottom: 0;
+  margin-bottom: 0;
+  border-width: 1px 0 0;
+}
+#legalforms-plugin .navbar-brand {
+  float: left;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 50px;
+}
+#legalforms-plugin .navbar-brand:hover,
+#legalforms-plugin .navbar-brand:focus {
+  text-decoration: none;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar > .container .navbar-brand,
+  #legalforms-plugin .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px;
+  }
+}
+#legalforms-plugin .navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+#legalforms-plugin .navbar-toggle:focus {
+  outline: 0;
+}
+#legalforms-plugin .navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+#legalforms-plugin .navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-toggle {
+    display: none;
+  }
+}
+#legalforms-plugin .navbar-nav {
+  margin: 7.5px -15px;
+}
+#legalforms-plugin .navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .navbar-nav .open .dropdown-menu {
+    position: static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  #legalforms-plugin .navbar-nav .open .dropdown-menu > li > a,
+  #legalforms-plugin .navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 25px;
+  }
+  #legalforms-plugin .navbar-nav .open .dropdown-menu > li > a {
+    line-height: 20px;
+  }
+  #legalforms-plugin .navbar-nav .open .dropdown-menu > li > a:hover,
+  #legalforms-plugin .navbar-nav .open .dropdown-menu > li > a:focus {
+    background-image: none;
+  }
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-nav {
+    float: left;
+    margin: 0;
+  }
+  #legalforms-plugin .navbar-nav > li {
+    float: left;
+  }
+  #legalforms-plugin .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #legalforms-plugin .navbar-nav.navbar-right:last-child {
+    margin-right: -15px;
+  }
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-left {
+    float: left !important;
+  }
+  #legalforms-plugin .navbar-right {
+    float: right !important;
+  }
+}
+#legalforms-plugin .navbar-form {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 10px 15px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-form .form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .navbar-form .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .navbar-form .input-group > .form-control {
+    width: 100%;
+  }
+  #legalforms-plugin .navbar-form .control-label {
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .navbar-form .radio,
+  #legalforms-plugin .navbar-form .checkbox {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    vertical-align: middle;
+  }
+  #legalforms-plugin .navbar-form .radio input[type=radio],
+  #legalforms-plugin .navbar-form .checkbox input[type=checkbox] {
+    float: none;
+    margin-left: 0;
+  }
+  #legalforms-plugin .navbar-form .has-feedback .form-control-feedback {
+    top: 0;
+  }
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .navbar-form .form-group {
+    margin-bottom: 5px;
+  }
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-form {
+    width: auto;
+    border: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  #legalforms-plugin .navbar-form.navbar-right:last-child {
+    margin-right: -15px;
+  }
+}
+#legalforms-plugin .navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#legalforms-plugin .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#legalforms-plugin .navbar-btn {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+#legalforms-plugin .navbar-btn.btn-sm {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#legalforms-plugin .navbar-btn.btn-xs {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+#legalforms-plugin .navbar-text {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .navbar-text {
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  #legalforms-plugin .navbar-text.navbar-right:last-child {
+    margin-right: 0;
+  }
+}
+#legalforms-plugin .navbar-default {
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+}
+#legalforms-plugin .navbar-default .navbar-brand {
+  color: #777;
+}
+#legalforms-plugin .navbar-default .navbar-brand:hover,
+#legalforms-plugin .navbar-default .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-default .navbar-text {
+  color: #777;
+}
+#legalforms-plugin .navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+#legalforms-plugin .navbar-default .navbar-nav > li > a:hover,
+#legalforms-plugin .navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-default .navbar-nav > .active > a,
+#legalforms-plugin .navbar-default .navbar-nav > .active > a:hover,
+#legalforms-plugin .navbar-default .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+#legalforms-plugin .navbar-default .navbar-nav > .disabled > a,
+#legalforms-plugin .navbar-default .navbar-nav > .disabled > a:hover,
+#legalforms-plugin .navbar-default .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-default .navbar-toggle {
+  border-color: #ddd;
+}
+#legalforms-plugin .navbar-default .navbar-toggle:hover,
+#legalforms-plugin .navbar-default .navbar-toggle:focus {
+  background-color: #ddd;
+}
+#legalforms-plugin .navbar-default .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+#legalforms-plugin .navbar-default .navbar-collapse,
+#legalforms-plugin .navbar-default .navbar-form {
+  border-color: #e7e7e7;
+}
+#legalforms-plugin .navbar-default .navbar-nav > .open > a,
+#legalforms-plugin .navbar-default .navbar-nav > .open > a:hover,
+#legalforms-plugin .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #e7e7e7;
+  color: #555;
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+    background-color: transparent;
+  }
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  #legalforms-plugin .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+}
+#legalforms-plugin .navbar-default .navbar-link {
+  color: #777;
+}
+#legalforms-plugin .navbar-default .navbar-link:hover {
+  color: #333;
+}
+#legalforms-plugin .navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+#legalforms-plugin .navbar-inverse .navbar-brand {
+  color: #999;
+}
+#legalforms-plugin .navbar-inverse .navbar-brand:hover,
+#legalforms-plugin .navbar-inverse .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-inverse .navbar-text {
+  color: #999;
+}
+#legalforms-plugin .navbar-inverse .navbar-nav > li > a {
+  color: #999;
+}
+#legalforms-plugin .navbar-inverse .navbar-nav > li > a:hover,
+#legalforms-plugin .navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-inverse .navbar-nav > .active > a,
+#legalforms-plugin .navbar-inverse .navbar-nav > .active > a:hover,
+#legalforms-plugin .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+#legalforms-plugin .navbar-inverse .navbar-nav > .disabled > a,
+#legalforms-plugin .navbar-inverse .navbar-nav > .disabled > a:hover,
+#legalforms-plugin .navbar-inverse .navbar-nav > .disabled > a:focus {
+  color: #444;
+  background-color: transparent;
+}
+#legalforms-plugin .navbar-inverse .navbar-toggle {
+  border-color: #333;
+}
+#legalforms-plugin .navbar-inverse .navbar-toggle:hover,
+#legalforms-plugin .navbar-inverse .navbar-toggle:focus {
+  background-color: #333;
+}
+#legalforms-plugin .navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+#legalforms-plugin .navbar-inverse .navbar-collapse,
+#legalforms-plugin .navbar-inverse .navbar-form {
+  border-color: #101010;
+}
+#legalforms-plugin .navbar-inverse .navbar-nav > .open > a,
+#legalforms-plugin .navbar-inverse .navbar-nav > .open > a:hover,
+#legalforms-plugin .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #080808;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+    border-color: #080808;
+  }
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
+    background-color: #080808;
+  }
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #999;
+  }
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+  }
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #080808;
+  }
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  #legalforms-plugin .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #444;
+    background-color: transparent;
+  }
+}
+#legalforms-plugin .navbar-inverse .navbar-link {
+  color: #999;
+}
+#legalforms-plugin .navbar-inverse .navbar-link:hover {
+  color: #fff;
+}
+#legalforms-plugin .breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+#legalforms-plugin .breadcrumb > li {
+  display: inline-block;
+}
+#legalforms-plugin .breadcrumb > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+#legalforms-plugin .breadcrumb > .active {
+  color: #999;
+}
+#legalforms-plugin .pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+#legalforms-plugin .pagination > li {
+  display: inline;
+}
+#legalforms-plugin .pagination > li > a,
+#legalforms-plugin .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  color: #428bca;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-left: -1px;
+}
+#legalforms-plugin .pagination > li:first-child > a,
+#legalforms-plugin .pagination > li:first-child > span {
+  margin-left: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+#legalforms-plugin .pagination > li:last-child > a,
+#legalforms-plugin .pagination > li:last-child > span {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+#legalforms-plugin .pagination > li > a:hover,
+#legalforms-plugin .pagination > li > span:hover,
+#legalforms-plugin .pagination > li > a:focus,
+#legalforms-plugin .pagination > li > span:focus {
+  color: #2a6496;
+  background-color: #eee;
+  border-color: #ddd;
+}
+#legalforms-plugin .pagination > .active > a,
+#legalforms-plugin .pagination > .active > span,
+#legalforms-plugin .pagination > .active > a:hover,
+#legalforms-plugin .pagination > .active > span:hover,
+#legalforms-plugin .pagination > .active > a:focus,
+#legalforms-plugin .pagination > .active > span:focus {
+  z-index: 2;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+  cursor: default;
+}
+#legalforms-plugin .pagination > .disabled > span,
+#legalforms-plugin .pagination > .disabled > span:hover,
+#legalforms-plugin .pagination > .disabled > span:focus,
+#legalforms-plugin .pagination > .disabled > a,
+#legalforms-plugin .pagination > .disabled > a:hover,
+#legalforms-plugin .pagination > .disabled > a:focus {
+  color: #999;
+  background-color: #fff;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+#legalforms-plugin .pagination-lg > li > a,
+#legalforms-plugin .pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+}
+#legalforms-plugin .pagination-lg > li:first-child > a,
+#legalforms-plugin .pagination-lg > li:first-child > span {
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+#legalforms-plugin .pagination-lg > li:last-child > a,
+#legalforms-plugin .pagination-lg > li:last-child > span {
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+#legalforms-plugin .pagination-sm > li > a,
+#legalforms-plugin .pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+#legalforms-plugin .pagination-sm > li:first-child > a,
+#legalforms-plugin .pagination-sm > li:first-child > span {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#legalforms-plugin .pagination-sm > li:last-child > a,
+#legalforms-plugin .pagination-sm > li:last-child > span {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+#legalforms-plugin .pager {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+}
+#legalforms-plugin .pager li {
+  display: inline;
+}
+#legalforms-plugin .pager li > a,
+#legalforms-plugin .pager li > span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+#legalforms-plugin .pager li > a:hover,
+#legalforms-plugin .pager li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+#legalforms-plugin .pager .next > a,
+#legalforms-plugin .pager .next > span {
+  float: right;
+}
+#legalforms-plugin .pager .previous > a,
+#legalforms-plugin .pager .previous > span {
+  float: left;
+}
+#legalforms-plugin .pager .disabled > a,
+#legalforms-plugin .pager .disabled > a:hover,
+#legalforms-plugin .pager .disabled > a:focus,
+#legalforms-plugin .pager .disabled > span {
+  color: #999;
+  background-color: #fff;
+  cursor: not-allowed;
+}
+#legalforms-plugin .label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+#legalforms-plugin .label[href]:hover,
+#legalforms-plugin .label[href]:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+#legalforms-plugin .label:empty {
+  display: none;
+}
+#legalforms-plugin .btn .label {
+  position: relative;
+  top: -1px;
+}
+#legalforms-plugin .label-default {
+  background-color: #999;
+}
+#legalforms-plugin .label-default[href]:hover,
+#legalforms-plugin .label-default[href]:focus {
+  background-color: gray;
+}
+#legalforms-plugin .label-primary {
+  background-color: #428bca;
+}
+#legalforms-plugin .label-primary[href]:hover,
+#legalforms-plugin .label-primary[href]:focus {
+  background-color: #3071a9;
+}
+#legalforms-plugin .label-success {
+  background-color: #5cb85c;
+}
+#legalforms-plugin .label-success[href]:hover,
+#legalforms-plugin .label-success[href]:focus {
+  background-color: #449d44;
+}
+#legalforms-plugin .label-info {
+  background-color: #5bc0de;
+}
+#legalforms-plugin .label-info[href]:hover,
+#legalforms-plugin .label-info[href]:focus {
+  background-color: #31b0d5;
+}
+#legalforms-plugin .label-warning {
+  background-color: #f0ad4e;
+}
+#legalforms-plugin .label-warning[href]:hover,
+#legalforms-plugin .label-warning[href]:focus {
+  background-color: #ec971f;
+}
+#legalforms-plugin .label-danger {
+  background-color: #d9534f;
+}
+#legalforms-plugin .label-danger[href]:hover,
+#legalforms-plugin .label-danger[href]:focus {
+  background-color: #c9302c;
+}
+#legalforms-plugin .badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #999;
+  border-radius: 10px;
+}
+#legalforms-plugin .badge:empty {
+  display: none;
+}
+#legalforms-plugin .btn .badge {
+  position: relative;
+  top: -1px;
+}
+#legalforms-plugin .btn-xs .badge {
+  top: 0;
+  padding: 1px 5px;
+}
+#legalforms-plugin a.badge:hover,
+#legalforms-plugin a.badge:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+#legalforms-plugin a.list-group-item.active > .badge,
+#legalforms-plugin .nav-pills > .active > a > .badge {
+  color: #428bca;
+  background-color: #fff;
+}
+#legalforms-plugin .nav-pills > li > a > .badge {
+  margin-left: 3px;
+}
+#legalforms-plugin .jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  background-color: #eee;
+}
+#legalforms-plugin .jumbotron h1,
+#legalforms-plugin .jumbotron .h1 {
+  color: inherit;
+}
+#legalforms-plugin .jumbotron p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+#legalforms-plugin .container .jumbotron {
+  border-radius: 6px;
+}
+#legalforms-plugin .jumbotron .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  #legalforms-plugin .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  #legalforms-plugin .container .jumbotron {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  #legalforms-plugin .jumbotron h1,
+  #legalforms-plugin .jumbotron .h1 {
+    font-size: 63px;
+  }
+}
+#legalforms-plugin .thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#legalforms-plugin .thumbnail > img,
+#legalforms-plugin .thumbnail a > img {
+  margin-left: auto;
+  margin-right: auto;
+}
+#legalforms-plugin a.thumbnail:hover,
+#legalforms-plugin a.thumbnail:focus,
+#legalforms-plugin a.thumbnail.active {
+  border-color: #428bca;
+}
+#legalforms-plugin .thumbnail .caption {
+  padding: 9px;
+  color: #333;
+}
+#legalforms-plugin .alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+#legalforms-plugin .alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+#legalforms-plugin .alert .alert-link {
+  font-weight: 700;
+}
+#legalforms-plugin .alert > p,
+#legalforms-plugin .alert > ul {
+  margin-bottom: 0;
+}
+#legalforms-plugin .alert > p + p {
+  margin-top: 5px;
+}
+#legalforms-plugin .alert-dismissable {
+  padding-right: 35px;
+}
+#legalforms-plugin .alert-dismissable .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+#legalforms-plugin .alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+#legalforms-plugin .alert-success hr {
+  border-top-color: #c9e2b3;
+}
+#legalforms-plugin .alert-success .alert-link {
+  color: #2b542c;
+}
+#legalforms-plugin .alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+#legalforms-plugin .alert-info hr {
+  border-top-color: #a6e1ec;
+}
+#legalforms-plugin .alert-info .alert-link {
+  color: #245269;
+}
+#legalforms-plugin .alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+#legalforms-plugin .alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+#legalforms-plugin .alert-warning .alert-link {
+  color: #66512c;
+}
+#legalforms-plugin .alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+#legalforms-plugin .alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+#legalforms-plugin .alert-danger .alert-link {
+  color: #843534;
+}
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+#legalforms-plugin .progress {
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+#legalforms-plugin .progress-bar {
+  float: left;
+  width: 0;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width .6s ease;
+  transition: width 0.6s ease;
+}
+#legalforms-plugin .progress-striped .progress-bar {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+#legalforms-plugin .progress.active .progress-bar {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+#legalforms-plugin .progress-bar-success {
+  background-color: #5cb85c;
+}
+#legalforms-plugin .progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#legalforms-plugin .progress-bar-info {
+  background-color: #5bc0de;
+}
+#legalforms-plugin .progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#legalforms-plugin .progress-bar-warning {
+  background-color: #f0ad4e;
+}
+#legalforms-plugin .progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#legalforms-plugin .progress-bar-danger {
+  background-color: #d9534f;
+}
+#legalforms-plugin .progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#legalforms-plugin .media,
+#legalforms-plugin .media-body {
+  overflow: hidden;
+  zoom: 1;
+}
+#legalforms-plugin .media,
+#legalforms-plugin .media .media {
+  margin-top: 15px;
+}
+#legalforms-plugin .media:first-child {
+  margin-top: 0;
+}
+#legalforms-plugin .media-object {
+  display: block;
+}
+#legalforms-plugin .media-heading {
+  margin: 0 0 5px;
+}
+#legalforms-plugin .media > .pull-left {
+  margin-right: 10px;
+}
+#legalforms-plugin .media > .pull-right {
+  margin-left: 10px;
+}
+#legalforms-plugin .media-list {
+  padding-left: 0;
+  list-style: none;
+}
+#legalforms-plugin .list-group {
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+#legalforms-plugin .list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+#legalforms-plugin .list-group-item:first-child {
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+#legalforms-plugin .list-group-item:last-child {
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+#legalforms-plugin .list-group-item > .badge {
+  float: right;
+}
+#legalforms-plugin .list-group-item > .badge + .badge {
+  margin-right: 5px;
+}
+#legalforms-plugin a.list-group-item {
+  color: #555;
+}
+#legalforms-plugin a.list-group-item .list-group-item-heading {
+  color: #333;
+}
+#legalforms-plugin a.list-group-item:hover,
+#legalforms-plugin a.list-group-item:focus {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+#legalforms-plugin a.list-group-item.active,
+#legalforms-plugin a.list-group-item.active:hover,
+#legalforms-plugin a.list-group-item.active:focus {
+  z-index: 2;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+#legalforms-plugin a.list-group-item.active .list-group-item-heading,
+#legalforms-plugin a.list-group-item.active:hover .list-group-item-heading,
+#legalforms-plugin a.list-group-item.active:focus .list-group-item-heading {
+  color: inherit;
+}
+#legalforms-plugin a.list-group-item.active .list-group-item-text,
+#legalforms-plugin a.list-group-item.active:hover .list-group-item-text,
+#legalforms-plugin a.list-group-item.active:focus .list-group-item-text {
+  color: #e1edf7;
+}
+#legalforms-plugin .list-group-item-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+#legalforms-plugin a.list-group-item-success {
+  color: #3c763d;
+}
+#legalforms-plugin a.list-group-item-success .list-group-item-heading {
+  color: inherit;
+}
+#legalforms-plugin a.list-group-item-success:hover,
+#legalforms-plugin a.list-group-item-success:focus {
+  color: #3c763d;
+  background-color: #d0e9c6;
+}
+#legalforms-plugin a.list-group-item-success.active,
+#legalforms-plugin a.list-group-item-success.active:hover,
+#legalforms-plugin a.list-group-item-success.active:focus {
+  color: #fff;
+  background-color: #3c763d;
+  border-color: #3c763d;
+}
+#legalforms-plugin .list-group-item-info {
+  color: #31708f;
+  background-color: #d9edf7;
+}
+#legalforms-plugin a.list-group-item-info {
+  color: #31708f;
+}
+#legalforms-plugin a.list-group-item-info .list-group-item-heading {
+  color: inherit;
+}
+#legalforms-plugin a.list-group-item-info:hover,
+#legalforms-plugin a.list-group-item-info:focus {
+  color: #31708f;
+  background-color: #c4e3f3;
+}
+#legalforms-plugin a.list-group-item-info.active,
+#legalforms-plugin a.list-group-item-info.active:hover,
+#legalforms-plugin a.list-group-item-info.active:focus {
+  color: #fff;
+  background-color: #31708f;
+  border-color: #31708f;
+}
+#legalforms-plugin .list-group-item-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+}
+#legalforms-plugin a.list-group-item-warning {
+  color: #8a6d3b;
+}
+#legalforms-plugin a.list-group-item-warning .list-group-item-heading {
+  color: inherit;
+}
+#legalforms-plugin a.list-group-item-warning:hover,
+#legalforms-plugin a.list-group-item-warning:focus {
+  color: #8a6d3b;
+  background-color: #faf2cc;
+}
+#legalforms-plugin a.list-group-item-warning.active,
+#legalforms-plugin a.list-group-item-warning.active:hover,
+#legalforms-plugin a.list-group-item-warning.active:focus {
+  color: #fff;
+  background-color: #8a6d3b;
+  border-color: #8a6d3b;
+}
+#legalforms-plugin .list-group-item-danger {
+  color: #a94442;
+  background-color: #f2dede;
+}
+#legalforms-plugin a.list-group-item-danger {
+  color: #a94442;
+}
+#legalforms-plugin a.list-group-item-danger .list-group-item-heading {
+  color: inherit;
+}
+#legalforms-plugin a.list-group-item-danger:hover,
+#legalforms-plugin a.list-group-item-danger:focus {
+  color: #a94442;
+  background-color: #ebcccc;
+}
+#legalforms-plugin a.list-group-item-danger.active,
+#legalforms-plugin a.list-group-item-danger.active:hover,
+#legalforms-plugin a.list-group-item-danger.active:focus {
+  color: #fff;
+  background-color: #a94442;
+  border-color: #a94442;
+}
+#legalforms-plugin .list-group-item-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+#legalforms-plugin .list-group-item-text {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+#legalforms-plugin .panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#legalforms-plugin .panel-body {
+  padding: 15px;
+}
+#legalforms-plugin .panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#legalforms-plugin .panel-heading > .dropdown .dropdown-toggle {
+  color: inherit;
+}
+#legalforms-plugin .panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+#legalforms-plugin .panel-title > a {
+  color: inherit;
+}
+#legalforms-plugin .panel-footer {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#legalforms-plugin .panel > .list-group {
+  margin-bottom: 0;
+}
+#legalforms-plugin .panel > .list-group .list-group-item {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+#legalforms-plugin .panel > .list-group:first-child .list-group-item:first-child {
+  border-top: 0;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#legalforms-plugin .panel > .list-group:last-child .list-group-item:last-child {
+  border-bottom: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#legalforms-plugin .panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+#legalforms-plugin .panel > .table,
+#legalforms-plugin .panel > .table-responsive > .table {
+  margin-bottom: 0;
+}
+#legalforms-plugin .panel > .table:first-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child {
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+#legalforms-plugin .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+#legalforms-plugin .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+#legalforms-plugin .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+#legalforms-plugin .panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+  border-top-left-radius: 3px;
+}
+#legalforms-plugin .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+#legalforms-plugin .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+#legalforms-plugin .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+#legalforms-plugin .panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+#legalforms-plugin .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+  border-top-right-radius: 3px;
+}
+#legalforms-plugin .panel > .table:last-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child {
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+#legalforms-plugin .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+#legalforms-plugin .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+#legalforms-plugin .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+#legalforms-plugin .panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+  border-bottom-left-radius: 3px;
+}
+#legalforms-plugin .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+#legalforms-plugin .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+#legalforms-plugin .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+#legalforms-plugin .panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+#legalforms-plugin .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+  border-bottom-right-radius: 3px;
+}
+#legalforms-plugin .panel > .panel-body + .table,
+#legalforms-plugin .panel > .panel-body + .table-responsive {
+  border-top: 1px solid #ddd;
+}
+#legalforms-plugin .panel > .table > tbody:first-child > tr:first-child th,
+#legalforms-plugin .panel > .table > tbody:first-child > tr:first-child td {
+  border-top: 0;
+}
+#legalforms-plugin .panel > .table-bordered,
+#legalforms-plugin .panel > .table-responsive > .table-bordered {
+  border: 0;
+}
+#legalforms-plugin .panel > .table-bordered > thead > tr > th:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+#legalforms-plugin .panel > .table-bordered > tbody > tr > th:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr > th:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+#legalforms-plugin .panel > .table-bordered > thead > tr > td:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+#legalforms-plugin .panel > .table-bordered > tbody > tr > td:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr > td:first-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+#legalforms-plugin .panel > .table-bordered > thead > tr > th:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+#legalforms-plugin .panel > .table-bordered > tbody > tr > th:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr > th:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+#legalforms-plugin .panel > .table-bordered > thead > tr > td:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+#legalforms-plugin .panel > .table-bordered > tbody > tr > td:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr > td:last-child,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+  border-right: 0;
+}
+#legalforms-plugin .panel > .table-bordered > thead > tr:first-child > td,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
+#legalforms-plugin .panel > .table-bordered > tbody > tr:first-child > td,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+#legalforms-plugin .panel > .table-bordered > thead > tr:first-child > th,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > thead > tr:first-child > th,
+#legalforms-plugin .panel > .table-bordered > tbody > tr:first-child > th,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+  border-bottom: 0;
+}
+#legalforms-plugin .panel > .table-bordered > tbody > tr:last-child > td,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr:last-child > td,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+#legalforms-plugin .panel > .table-bordered > tbody > tr:last-child > th,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+#legalforms-plugin .panel > .table-bordered > tfoot > tr:last-child > th,
+#legalforms-plugin .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+  border-bottom: 0;
+}
+#legalforms-plugin .panel > .table-responsive {
+  border: 0;
+  margin-bottom: 0;
+}
+#legalforms-plugin .panel-group {
+  margin-bottom: 20px;
+}
+#legalforms-plugin .panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+#legalforms-plugin .panel-group .panel + .panel {
+  margin-top: 5px;
+}
+#legalforms-plugin .panel-group .panel-heading {
+  border-bottom: 0;
+}
+#legalforms-plugin .panel-group .panel-heading + .panel-collapse .panel-body {
+  border-top: 1px solid #ddd;
+}
+#legalforms-plugin .panel-group .panel-footer {
+  border-top: 0;
+}
+#legalforms-plugin .panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #ddd;
+}
+#legalforms-plugin .panel-default {
+  border-color: #ddd;
+}
+#legalforms-plugin .panel-default > .panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+#legalforms-plugin .panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #ddd;
+}
+#legalforms-plugin .panel-default > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #ddd;
+}
+#legalforms-plugin .panel-primary {
+  border-color: #428bca;
+}
+#legalforms-plugin .panel-primary > .panel-heading {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+#legalforms-plugin .panel-primary > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #428bca;
+}
+#legalforms-plugin .panel-primary > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #428bca;
+}
+#legalforms-plugin .panel-success {
+  border-color: #d6e9c6;
+}
+#legalforms-plugin .panel-success > .panel-heading {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+#legalforms-plugin .panel-success > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #d6e9c6;
+}
+#legalforms-plugin .panel-success > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #d6e9c6;
+}
+#legalforms-plugin .panel-info {
+  border-color: #bce8f1;
+}
+#legalforms-plugin .panel-info > .panel-heading {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+#legalforms-plugin .panel-info > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #bce8f1;
+}
+#legalforms-plugin .panel-info > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #bce8f1;
+}
+#legalforms-plugin .panel-warning {
+  border-color: #faebcc;
+}
+#legalforms-plugin .panel-warning > .panel-heading {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+#legalforms-plugin .panel-warning > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #faebcc;
+}
+#legalforms-plugin .panel-warning > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #faebcc;
+}
+#legalforms-plugin .panel-danger {
+  border-color: #ebccd1;
+}
+#legalforms-plugin .panel-danger > .panel-heading {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+#legalforms-plugin .panel-danger > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #ebccd1;
+}
+#legalforms-plugin .panel-danger > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #ebccd1;
+}
+#legalforms-plugin .well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#legalforms-plugin .well blockquote {
+  border-color: #ddd;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+#legalforms-plugin .well-lg {
+  padding: 24px;
+  border-radius: 6px;
+}
+#legalforms-plugin .well-sm {
+  padding: 9px;
+  border-radius: 3px;
+}
+#legalforms-plugin .close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+#legalforms-plugin .close:hover,
+#legalforms-plugin .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+#legalforms-plugin button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  -webkit-appearance: none;
+}
+#legalforms-plugin .modal-open {
+  overflow: hidden;
+}
+#legalforms-plugin .modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+#legalforms-plugin .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+#legalforms-plugin .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#legalforms-plugin .modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+#legalforms-plugin .modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+#legalforms-plugin .modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+#legalforms-plugin .modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#legalforms-plugin .modal-backdrop.in {
+  opacity: .5;
+  filter: alpha(opacity=50);
+}
+#legalforms-plugin .modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px;
+}
+#legalforms-plugin .modal-header .close {
+  margin-top: -2px;
+}
+#legalforms-plugin .modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+#legalforms-plugin .modal-body {
+  position: relative;
+  padding: 20px;
+}
+#legalforms-plugin .modal-footer {
+  margin-top: 15px;
+  padding: 19px 20px 20px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+#legalforms-plugin .modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+#legalforms-plugin .modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+#legalforms-plugin .modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #legalforms-plugin .modal-dialog {
+    width: 600px;
+    margin: 30px auto;
+  }
+  #legalforms-plugin .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  #legalforms-plugin .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  #legalforms-plugin .modal-lg {
+    width: 900px;
+  }
+}
+#legalforms-plugin .tooltip {
+  position: absolute;
+  z-index: 1030;
+  display: block;
+  visibility: visible;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#legalforms-plugin .tooltip.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+#legalforms-plugin .tooltip.top {
+  margin-top: -3px;
+  padding: 5px 0;
+}
+#legalforms-plugin .tooltip.right {
+  margin-left: 3px;
+  padding: 0 5px;
+}
+#legalforms-plugin .tooltip.bottom {
+  margin-top: 3px;
+  padding: 5px 0;
+}
+#legalforms-plugin .tooltip.left {
+  margin-left: -3px;
+  padding: 0 5px;
+}
+#legalforms-plugin .tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background-color: #000;
+  border-radius: 4px;
+}
+#legalforms-plugin .tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#legalforms-plugin .tooltip.top .tooltip-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+#legalforms-plugin .tooltip.top-left .tooltip-arrow {
+  bottom: 0;
+  left: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+#legalforms-plugin .tooltip.top-right .tooltip-arrow {
+  bottom: 0;
+  right: 5px;
+  border-width: 5px 5px 0;
+  border-top-color: #000;
+}
+#legalforms-plugin .tooltip.right .tooltip-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #000;
+}
+#legalforms-plugin .tooltip.left .tooltip-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #000;
+}
+#legalforms-plugin .tooltip.bottom .tooltip-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000;
+}
+#legalforms-plugin .tooltip.bottom-left .tooltip-arrow {
+  top: 0;
+  left: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000;
+}
+#legalforms-plugin .tooltip.bottom-right .tooltip-arrow {
+  top: 0;
+  right: 5px;
+  border-width: 0 5px 5px;
+  border-bottom-color: #000;
+}
+#legalforms-plugin .popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1010;
+  display: none;
+  max-width: 276px;
+  padding: 1px;
+  text-align: left;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+}
+#legalforms-plugin .popover.top {
+  margin-top: -10px;
+}
+#legalforms-plugin .popover.right {
+  margin-left: 10px;
+}
+#legalforms-plugin .popover.bottom {
+  margin-top: 10px;
+}
+#legalforms-plugin .popover.left {
+  margin-left: -10px;
+}
+#legalforms-plugin .popover-title {
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+#legalforms-plugin .popover-content {
+  padding: 9px 14px;
+}
+#legalforms-plugin .popover > .arrow,
+#legalforms-plugin .popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+#legalforms-plugin .popover > .arrow {
+  border-width: 11px;
+}
+#legalforms-plugin .popover > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+#legalforms-plugin .popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+#legalforms-plugin .popover.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: #fff;
+}
+#legalforms-plugin .popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+#legalforms-plugin .popover.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: #fff;
+}
+#legalforms-plugin .popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+#legalforms-plugin .popover.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #fff;
+}
+#legalforms-plugin .popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+#legalforms-plugin .popover.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: #fff;
+  bottom: -10px;
+}
+#legalforms-plugin .carousel {
+  position: relative;
+}
+#legalforms-plugin .carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+#legalforms-plugin .carousel-inner > .item {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+#legalforms-plugin .carousel-inner > .item > img,
+#legalforms-plugin .carousel-inner > .item > a > img {
+  line-height: 1;
+}
+#legalforms-plugin .carousel-inner > .active,
+#legalforms-plugin .carousel-inner > .next,
+#legalforms-plugin .carousel-inner > .prev {
+  display: block;
+}
+#legalforms-plugin .carousel-inner > .active {
+  left: 0;
+}
+#legalforms-plugin .carousel-inner > .next,
+#legalforms-plugin .carousel-inner > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#legalforms-plugin .carousel-inner > .next {
+  left: 100%;
+}
+#legalforms-plugin .carousel-inner > .prev {
+  left: -100%;
+}
+#legalforms-plugin .carousel-inner > .next.left,
+#legalforms-plugin .carousel-inner > .prev.right {
+  left: 0;
+}
+#legalforms-plugin .carousel-inner > .active.left {
+  left: -100%;
+}
+#legalforms-plugin .carousel-inner > .active.right {
+  left: 100%;
+}
+#legalforms-plugin .carousel-control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  opacity: .5;
+  filter: alpha(opacity=50);
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+#legalforms-plugin .carousel-control.left {
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+}
+#legalforms-plugin .carousel-control.right {
+  left: auto;
+  right: 0;
+  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+}
+#legalforms-plugin .carousel-control:hover,
+#legalforms-plugin .carousel-control:focus {
+  outline: 0;
+  color: #fff;
+  text-decoration: none;
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+#legalforms-plugin .carousel-control .icon-prev,
+#legalforms-plugin .carousel-control .icon-next,
+#legalforms-plugin .carousel-control .glyphicon-chevron-left,
+#legalforms-plugin .carousel-control .glyphicon-chevron-right {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+#legalforms-plugin .carousel-control .icon-prev,
+#legalforms-plugin .carousel-control .glyphicon-chevron-left {
+  left: 50%;
+}
+#legalforms-plugin .carousel-control .icon-next,
+#legalforms-plugin .carousel-control .glyphicon-chevron-right {
+  right: 50%;
+}
+#legalforms-plugin .carousel-control .icon-prev,
+#legalforms-plugin .carousel-control .icon-next {
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  font-family: serif;
+}
+#legalforms-plugin .carousel-control .icon-prev:before {
+  content: '\2039';
+}
+#legalforms-plugin .carousel-control .icon-next:before {
+  content: '\203a';
+}
+#legalforms-plugin .carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+#legalforms-plugin .carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000 \9;
+  background-color: rgba(0, 0, 0, 0);
+}
+#legalforms-plugin .carousel-indicators .active {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+#legalforms-plugin .carousel-caption {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+#legalforms-plugin .carousel-caption .btn {
+  text-shadow: none;
+}
+@media screen and (min-width: 768px) {
+  #legalforms-plugin .carousel-control .glyphicon-chevron-left,
+  #legalforms-plugin .carousel-control .glyphicon-chevron-right,
+  #legalforms-plugin .carousel-control .icon-prev,
+  #legalforms-plugin .carousel-control .icon-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    font-size: 30px;
+  }
+  #legalforms-plugin .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+  #legalforms-plugin .carousel-indicators {
+    bottom: 20px;
+  }
+}
+#legalforms-plugin .clearfix:before,
+#legalforms-plugin .clearfix:after,
+#legalforms-plugin .container:before,
+#legalforms-plugin .container:after,
+#legalforms-plugin .container-fluid:before,
+#legalforms-plugin .container-fluid:after,
+#legalforms-plugin .row:before,
+#legalforms-plugin .row:after,
+#legalforms-plugin .form-horizontal .form-group:before,
+#legalforms-plugin .form-horizontal .form-group:after,
+#legalforms-plugin .btn-toolbar:before,
+#legalforms-plugin .btn-toolbar:after,
+#legalforms-plugin .btn-group-vertical > .btn-group:before,
+#legalforms-plugin .btn-group-vertical > .btn-group:after,
+#legalforms-plugin .nav:before,
+#legalforms-plugin .nav:after,
+#legalforms-plugin .navbar:before,
+#legalforms-plugin .navbar:after,
+#legalforms-plugin .navbar-header:before,
+#legalforms-plugin .navbar-header:after,
+#legalforms-plugin .navbar-collapse:before,
+#legalforms-plugin .navbar-collapse:after,
+#legalforms-plugin .pager:before,
+#legalforms-plugin .pager:after,
+#legalforms-plugin .panel-body:before,
+#legalforms-plugin .panel-body:after,
+#legalforms-plugin .modal-footer:before,
+#legalforms-plugin .modal-footer:after {
+  content: " ";
+  display: table;
+}
+#legalforms-plugin .clearfix:after,
+#legalforms-plugin .container:after,
+#legalforms-plugin .container-fluid:after,
+#legalforms-plugin .row:after,
+#legalforms-plugin .form-horizontal .form-group:after,
+#legalforms-plugin .btn-toolbar:after,
+#legalforms-plugin .btn-group-vertical > .btn-group:after,
+#legalforms-plugin .nav:after,
+#legalforms-plugin .navbar:after,
+#legalforms-plugin .navbar-header:after,
+#legalforms-plugin .navbar-collapse:after,
+#legalforms-plugin .pager:after,
+#legalforms-plugin .panel-body:after,
+#legalforms-plugin .modal-footer:after {
+  clear: both;
+}
+#legalforms-plugin .center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#legalforms-plugin .pull-right {
+  float: right !important;
+}
+#legalforms-plugin .pull-left {
+  float: left !important;
+}
+#legalforms-plugin .hide {
+  display: none !important;
+}
+#legalforms-plugin .show {
+  display: block !important;
+}
+#legalforms-plugin .invisible {
+  visibility: hidden;
+}
+#legalforms-plugin .text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+#legalforms-plugin .hidden {
+  display: none!important;
+  visibility: hidden !important;
+}
+#legalforms-plugin .affix {
+  position: fixed;
+}
+@-ms-viewport {
+  width: device-width;
+}
+#legalforms-plugin .visible-xs,
+#legalforms-plugin .visible-sm,
+#legalforms-plugin .visible-md,
+#legalforms-plugin .visible-lg {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .visible-xs {
+    display: block !important;
+  }
+  #legalforms-plugin table.visible-xs {
+    display: table;
+  }
+  #legalforms-plugin tr.visible-xs {
+    display: table-row !important;
+  }
+  #legalforms-plugin th.visible-xs,
+  #legalforms-plugin td.visible-xs {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #legalforms-plugin .visible-sm {
+    display: block !important;
+  }
+  #legalforms-plugin table.visible-sm {
+    display: table;
+  }
+  #legalforms-plugin tr.visible-sm {
+    display: table-row !important;
+  }
+  #legalforms-plugin th.visible-sm,
+  #legalforms-plugin td.visible-sm {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #legalforms-plugin .visible-md {
+    display: block !important;
+  }
+  #legalforms-plugin table.visible-md {
+    display: table;
+  }
+  #legalforms-plugin tr.visible-md {
+    display: table-row !important;
+  }
+  #legalforms-plugin th.visible-md,
+  #legalforms-plugin td.visible-md {
+    display: table-cell !important;
+  }
+}
+@media (min-width: 1200px) {
+  #legalforms-plugin .visible-lg {
+    display: block !important;
+  }
+  #legalforms-plugin table.visible-lg {
+    display: table;
+  }
+  #legalforms-plugin tr.visible-lg {
+    display: table-row !important;
+  }
+  #legalforms-plugin th.visible-lg,
+  #legalforms-plugin td.visible-lg {
+    display: table-cell !important;
+  }
+}
+@media (max-width: 767px) {
+  #legalforms-plugin .hidden-xs {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #legalforms-plugin .hidden-sm {
+    display: none !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  #legalforms-plugin .hidden-md {
+    display: none !important;
+  }
+}
+@media (min-width: 1200px) {
+  #legalforms-plugin .hidden-lg {
+    display: none !important;
+  }
+}
+#legalforms-plugin .visible-print {
+  display: none !important;
+}
+@media print {
+  #legalforms-plugin .visible-print {
+    display: block !important;
+  }
+  #legalforms-plugin table.visible-print {
+    display: table;
+  }
+  #legalforms-plugin tr.visible-print {
+    display: table-row !important;
+  }
+  #legalforms-plugin th.visible-print,
+  #legalforms-plugin td.visible-print {
+    display: table-cell !important;
+  }
+}
+@media print {
+  #legalforms-plugin .hidden-print {
+    display: none !important;
+  }
+}

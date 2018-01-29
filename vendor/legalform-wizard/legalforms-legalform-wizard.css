@@ -1,0 +1,45 @@
+#legalforms-plugin .wizard {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+#legalforms-plugin .wizard > .wizard-step {
+  display: none;
+  position: relative;
+  -webkit-transition: 0.3s ease-in-out left;
+  -o-transition: 0.3s ease-in-out left;
+  transition: 0.3s ease-in-out left;
+}
+#legalforms-plugin .wizard > .active,
+#legalforms-plugin .wizard > .next,
+#legalforms-plugin .wizard > .prev {
+  display: block;
+}
+#legalforms-plugin .wizard > .active {
+  left: 0;
+}
+#legalforms-plugin .wizard > .next,
+#legalforms-plugin .wizard > .prev {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+#legalforms-plugin .wizard > .next {
+  left: 100%;
+}
+#legalforms-plugin .wizard > .prev {
+  left: -100%;
+}
+#legalforms-plugin .wizard > .next.left,
+#legalforms-plugin .wizard > .prev.right {
+  left: 0;
+}
+#legalforms-plugin .wizard > .active.left {
+  left: -100%;
+}
+#legalforms-plugin .wizard > .active.right {
+  left: 100%;
+}
+#legalforms-plugin .wizard-hide:not(.in) {
+  display: none;
+}

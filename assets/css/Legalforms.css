@@ -1,48 +1,48 @@
-.wizard.material input[type="text"],
-.wizard.material input[type="password"],
-.wizard.material input[type="email"],
-.wizard.material textarea {
+#legalforms-plugin .wizard.material input[type="text"],
+#legalforms-plugin .wizard.material input[type="password"],
+#legalforms-plugin .wizard.material input[type="email"],
+#legalforms-plugin .wizard.material textarea {
     padding: 0;
     border-radius: 0 !important;
 }
 
-.wizard.material input[type="text"]:focus,
-.wizard.material input[type="password"]:focus,
-.wizard.material input[type="email"]:focus,
-.wizard.material textarea:focus {
+#legalforms-plugin .wizard.material input[type="text"]:focus,
+#legalforms-plugin .wizard.material input[type="password"]:focus,
+#legalforms-plugin .wizard.material input[type="email"]:focus,
+#legalforms-plugin .wizard.material textarea:focus {
     border: none;
     color: inherit;
     box-shadow: none;
 }
 
-#doc-wizard-login :before,
-#doc-wizard-login :after {
+#legalforms-plugin #doc-wizard-login :before,
+#legalforms-plugin #doc-wizard-login :after {
     display: none;
 }
 
-.material {
+#legalforms-plugin .material {
     margin-top: 0;
 }
 
-.material .wizard-step > form {
+#legalforms-plugin .material .wizard-step > form {
     display: none;
 }
 
-.material .wizard-step.active > form,
+#legalforms-plugin .material .wizard-step.active > form,
 .material .wizard-step.active > .wizards-actions {
     padding: 10px 50px;
     display: block;
 }
 
-.doc-save {
+#legalforms-plugin .doc-save {
     margin-right: 5px;
 }
 
-#doc-save-alert {
+#legalforms-plugin #doc-save-alert {
     margin-top: 20px;
     margin-bottom: 0;
 }
 
-div.wizard:not(.material) .btn-default {
+#legalforms-plugin div.wizard:not(.material) .btn-default {
     border: 1px solid #ccc;
 }
