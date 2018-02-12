@@ -122,50 +122,27 @@ var decodeEntities = (function() {
       return headerHight;
     }
 
-    function sendToFlow(account) {
+    function sendToFlow(account, register) {
         $.ajax({
-            url: legalforms.base_url + '/service/iam/sessions',
-            type: 'POST',
-            crossDomain: true,
-            dataType: 'json',
+            url: '/wp-content/plugins/legalform/process_legalform.php',
+            type: 'post',
             contentType: 'application/json',
-            data: JSON.stringify(account)
-        }).done(function(session) {
-            var flowData = {
-              scenario: legalforms.flow,
-              data: {
-                  values: getValues(),
-                  template: legalforms.template,
-                  name: legalforms.name,
-                  organization: session.user.employment[0].organization.id
-              }
+            data: JSON.stringify({
+                account: account,
+                legalforms: legalforms,
+                values: getValues(),
+                register: register
+            })
+        }).done(function(url) {
+            window.top.location.href = url;
+        }).fail(function(xhr, textStatus) {
+            if (xhr.status === 409) {
+                $('#doc-email-exists').removeClass('hidden');
+            } else if (xhr.status === 401) {
+                $('#doc-email-error').removeClass('hidden');
+            } else {
+                $('#doc-error').removeClass('hidden');
             }
-
-            if (legalforms.alias_key && legalforms.alias_value) {
-                flowData.data.alias = {
-                    key: legalforms.alias_key,
-                    value: legalforms.alias_value
-                }
-            }
-
-            $.ajax({
-                url: legalforms.base_url + '/service/flow/processes',
-                type: 'POST',
-                crossDomain: true,
-                dataType: 'json',
-                contentType: 'application/json',
-                headers: {'X-Session': session.id},
-                data: JSON.stringify(flowData)
-            }).done(function(data) {
-                if (legalforms.done_url != '') {
-                    var url = legalforms.done_url;
-                } else {
-                    var url = legalforms.base_url + '/processes/' + data.id + '?auto_open=true&hash=' + session.id;
-                }
-                window.top.location.href = url;
-            });
-        }).fail(function(data) {
-            $('#doc-email-error').removeClass('hidden');
         });
     }
 
@@ -197,25 +174,16 @@ var decodeEntities = (function() {
             email: $('#doc-wizard-register [name="account.email"]').val(),
             password: $('#doc-wizard-register [name="account.password"]').val(),
         }
-
-        $.ajax({
-              url: legalforms.base_url + '/service/iam/users',
-              type: 'POST',
-              crossDomain: true,
-              dataType: 'json',
-              contentType: 'application/json',
-              data: JSON.stringify(account)
-        }).done(function() {
-            sendToFlow(account);
-        });
+        sendToFlow(account, true);
     });
+
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
         var account = {
             email: $('#doc-wizard-login [name="account.email"]').val(),
             password: $('#doc-wizard-login [name="account.password"]').val(),
         }
-        sendToFlow(account);
+        sendToFlow(account, false);
     });
 
 

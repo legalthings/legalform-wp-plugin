@@ -253,6 +253,113 @@ if (!class_exists('LegalThingsLegalForms')) {
             $buttons[] = 'legalforms_button';
             return $buttons;
         }
+
+        public function create_user($base_url, $account)
+        {
+            $response = wp_remote_post(
+                $base_url . '/service/iam/users',
+                array(
+                    'timeout' => 15,
+                    'body' => $account
+                )
+            );
+
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] !== 201) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            }
+        }
+
+        public function create_session($base_url, $account)
+        {
+            $response = wp_remote_post(
+                $base_url . '/service/iam/sessions',
+                array(
+                    'timeout' => 15,
+                    'body' => $account
+                )
+            );
+
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] !== 201) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            } else {
+                return json_decode($response['body'], true);
+            }
+        }
+
+        public function create_process($base_url, $session, $flow_data)
+        {
+            $response = wp_remote_post(
+                $base_url . '/service/flow/processes',
+                array(
+                    'headers' => array(
+                        'X-Session' => $session['id']
+                    ),
+                    'timeout' => 15,
+                    'body' => $flow_data
+                )
+            );
+
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] !== 201) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            } else {
+                return json_decode($response['body'], true);
+            }
+        }
+
+        public function process_legalform($data)
+        {
+            if ($data['register']) {
+                $this->create_user($data['legalforms']['base_url'], $data['account']);
+            }
+
+            $session = $this->create_session($data['legalforms']['base_url'], $data['account']);
+
+            $flow_data = array(
+                'scenario' => $data['legalforms']['flow'],
+                'data' => array(
+                    'values' => $data['values'],
+                    'template' => $data['legalforms']['template'],
+                    'name' => $data['legalforms']['name'],
+                    'organization' => $session['user']['employment'][0]['organization']['id']
+                )
+            );
+
+            if ($data['legalforms']['alias_key'] && $data['legalforms']['alias_value']) {
+                $flow_data['data']['alias'] = array(
+                    'key' => $data['legalforms']['alias_key'],
+                    'value' => $data['legalforms']['alias_value']
+                );
+            }
+
+            $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
+
+            if ($data['legalforms']['done_url'] != '') {
+                echo $data['legalforms']['done_url'];
+            } else {
+                echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?auto_open=true&hash=' . $session['id'];
+            }
+        }
     }
 }
 
