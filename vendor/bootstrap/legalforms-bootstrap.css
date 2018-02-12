@@ -5656,6 +5656,21 @@
 #legalforms-plugin .carousel-caption .btn {
   text-shadow: none;
 }
+
+#legalforms-plugin .selectize-control.form-control {
+  padding: 0px;
+  border: none;
+}
+
+#legalforms-plugin .selectize-dropdown-content {
+  background: white;
+  box-shadow: 0px 0px 7px grey;
+}
+
+#legalforms-plugin .selectize-dropdown-content .highlight {
+  background: #00abff !important;
+}
+
 @media screen and (min-width: 768px) {
   #legalforms-plugin .carousel-control .glyphicon-chevron-left,
   #legalforms-plugin .carousel-control .glyphicon-chevron-right,
