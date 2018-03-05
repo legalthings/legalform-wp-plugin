@@ -1,9 +1,9 @@
 <div id="legalforms-plugin">
   <div class="row" id="doc-form">
       <h1 id="legalforms-name"></h1>
-      <div class="alert alert-danger hidden" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
-      <div class="alert alert-danger hidden" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
-      <div class="alert alert-danger hidden" role="alert" id="doc-error">Er is iets fout gegaan</div>
+      <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
+      <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
+      <div class="alert alert-danger hidden d-none" role="alert" id="doc-error">Er is iets fout gegaan</div>
       <div id="doc-wizard" class="wizard"></div>
       <div id="doc-wizard-register" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
           <div class="wizard-step active">
