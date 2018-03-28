@@ -124,6 +124,9 @@ if (!class_exists('LegalThingsLegalForms')) {
          */
         public function appendAssets($attrs, $form)
         {
+            wp_register_script('popper', plugins_url('/vendor/popper/popper.js', __FILE__));
+            wp_enqueue_script('popper');
+
             // Add bootstrap to the page
             if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done'))) {
                 wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/legalforms-bootstrap.css', __FILE__));
