@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.2.4
+ *   Version: 1.2.7
  *   Author: LegalThings
  */
 
@@ -203,7 +203,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'name'                  => $form->name,
                 'definition'            => $form->definition,
                 'legalform_respond_url' => '10',
-                'ajaxurl'               => admin_url( 'admin-ajax.php' )
+                'ajaxurl'               => admin_url( 'admin-ajax.php' ),
+                'dir_url'               => plugin_dir_path(LT_LFP)
             );
 
             foreach ($this->config as $key => $value) {
