@@ -1,5 +1,3 @@
-var version = '1.2.1';
-
 var decodeEntities = (function() {
     // this prevents any overhead from creating the object each time
     var element = document.createElement('div');
@@ -21,8 +19,6 @@ var decodeEntities = (function() {
 })();
 
 (function($) {
-    console.log('LegalForms v' + version + ' initiated');
-
     $('#legalforms-name').html(legalforms.name);
 
     var loading = false;
