@@ -28,6 +28,13 @@
                         <input class="regular-text" type="text" value="<?php echo esc_attr($this->config['standard_password']);?>" name="standard_password" />
                     </td>
                 </tr>
+                <tr>
+                    <td scope="row">
+                        <?php _e('Load plugin Bootstrap?', LT_LFP) ?>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="load_bootstrap" value="false" <?php echo $this->config['load_bootstrap'] ? 'checked' : ''; ?> />
+                    </td>
             </tbody>
         </table>
     </div>

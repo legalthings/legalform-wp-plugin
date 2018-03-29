@@ -19,7 +19,8 @@ if (!class_exists('LegalThingsLegalForms')) {
     {
         public $config   = [];
         public $defaults = [
-          'base_url' => ''
+          'base_url' => '',
+          'load_bootstrap' => true
         ];
 
         public function __construct()
@@ -76,6 +77,12 @@ if (!class_exists('LegalThingsLegalForms')) {
                     }
                 }
 
+                if (isset($_POST['load_bootstrap'])) {
+                    $this->config['load_bootstrap'] = true;
+                } else {
+                    $this->config['load_bootstrap'] = false;
+                }
+
                 update_option(LT_LFP, $this->config);
             }
 
@@ -125,7 +132,8 @@ if (!class_exists('LegalThingsLegalForms')) {
         public function appendAssets($attrs, $form)
         {
             // Add bootstrap to the page
-            if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done'))) {
+            if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done')) &&
+                $this->config['load_bootstrap']) {
                 wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/legalforms-bootstrap.css', __FILE__));
                 wp_enqueue_style('bootstrap');
                 wp_register_script('bootstrap', plugins_url('/vendor/bootstrap/bootstrap.js', __FILE__));
