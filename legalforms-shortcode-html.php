@@ -37,6 +37,7 @@
                   </button>
                   <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-register" data-toggle="wizard" data-step="register">
                         Ga door
+                        <div class="loader hidden d-none"></div>
                   </button>
                 </div>
           </div>
@@ -63,6 +64,7 @@
               <div class="wizards-actions">
                 <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-login" data-toggle="wizard" data-step="login">
                     Login
+                    <div class="loader hidden d-none"></div>
                 </button>
             </div>
           </div>

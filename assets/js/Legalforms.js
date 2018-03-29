@@ -25,6 +25,8 @@ var decodeEntities = (function() {
 
     $('#legalforms-name').html(legalforms.name);
 
+    var loading = false;
+
     var builder = new LegalForm();
 
     var template = builder.build(legalforms.definition);
@@ -123,6 +125,11 @@ var decodeEntities = (function() {
     }
 
     function sendToFlow(account, register) {
+        if (loading) return;
+        loading = true;
+
+        $('.loader').removeClass('hidden d-none');
+
         $.ajax({
             url: legalforms.dir_url + '/process_legalform.php',
             type: 'post',
@@ -136,6 +143,9 @@ var decodeEntities = (function() {
         }).done(function(url) {
             window.top.location.href = url;
         }).fail(function(xhr, textStatus) {
+            loading = false;
+            $('.loader').addClass('hidden d-none');
+
             if (xhr.status === 409) {
                 $('#doc-email-exists').removeClass('hidden d-none');
             } else if (xhr.status === 401) {
