@@ -212,7 +212,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'definition'            => $form->definition,
                 'legalform_respond_url' => '10',
                 'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-                'dir_url'               => plugin_dir_path(LT_LFP)
+                'dir_url'               => plugin_dir_url(__FILE__)
             );
 
             foreach ($this->config as $key => $value) {
