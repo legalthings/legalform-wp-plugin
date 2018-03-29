@@ -46,3 +46,24 @@
 #legalforms-plugin div.wizard:not(.material) .btn-default {
     border: 1px solid #ccc;
 }
+
+#legalforms-plugin .loader {
+    border: 2px solid #f0f0f0;
+    border-radius: 50%;
+    border-top: 2px solid #595959;
+    width: 16px;
+    height: 16px;
+    animation: spin 2s linear infinite;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

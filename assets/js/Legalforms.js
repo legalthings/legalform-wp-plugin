@@ -123,6 +123,8 @@ var decodeEntities = (function() {
     }
 
     function sendToFlow(account, register) {
+        $('.loader').removeClass('hidden d-none');
+
         $.ajax({
             url: legalforms.dir_url + '/process_legalform.php',
             type: 'post',
