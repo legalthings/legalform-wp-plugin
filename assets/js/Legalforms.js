@@ -124,7 +124,7 @@ var decodeEntities = (function() {
 
     function sendToFlow(account, register) {
         $.ajax({
-            url: '/wp-content/plugins/legalform/process_legalform.php',
+            url: legalforms.dir_url + '/process_legalform.php',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
