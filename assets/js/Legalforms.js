@@ -137,11 +137,11 @@ var decodeEntities = (function() {
             window.top.location.href = url;
         }).fail(function(xhr, textStatus) {
             if (xhr.status === 409) {
-                $('#doc-email-exists').removeClass('hidden');
+                $('#doc-email-exists').removeClass('hidden d-none');
             } else if (xhr.status === 401) {
-                $('#doc-email-error').removeClass('hidden');
+                $('#doc-email-error').removeClass('hidden d-none');
             } else {
-                $('#doc-error').removeClass('hidden');
+                $('#doc-error').removeClass('hidden d-none');
             }
         });
     }
