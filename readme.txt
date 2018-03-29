@@ -33,13 +33,14 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 == Changelog ==
 = 1.2.7 =
 - Fixed support for non-standard plugin directories
+- Added loading spinner
+- Added option to disable plugin Bootstrap
 
 = 1.2.6 =
 - Bug fixes
 
 = 1.2.5 =
 - Bug fixes related to validation
-- Support for Bootstrap v4
 
 = 1.2.4 =
 - Bug fixes
