@@ -34,6 +34,11 @@
     display: block;
 }
 
+#legalforms-plugin #doc-wizard-login .btn-success,
+#legalforms-plugin #doc-wizard-register .btn-success {
+  margin-left: 5px;
+}
+
 #legalforms-plugin .doc-save {
     margin-right: 5px;
 }
