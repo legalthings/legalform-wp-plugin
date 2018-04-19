@@ -32,12 +32,15 @@
                   </div>
               </form>
               <div class="wizards-actions">
-                  <button class="btn btn-info btn-raised btn-outline pull-left" id="switch-login">
-                      Ik heb al een account
+                  <button class="btn btn-default btn-secondary pull-left" data-target="#doc-wizard-register" data-toggle="wizard" data-step="previous">
+                      Vorige
                   </button>
                   <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-register" data-toggle="wizard" data-step="register">
                         Ga door
                         <div class="loader hidden d-none"></div>
+                  </button>
+                  <button class="btn btn-info btn-raised btn-outline pull-right" id="switch-login">
+                      Ik heb al een account
                   </button>
                 </div>
           </div>
@@ -62,6 +65,9 @@
                   </div>
               </form>
               <div class="wizards-actions">
+                <button class="btn btn-default btn-secondary pull-left" data-target="#doc-wizard-login" data-toggle="wizard" data-step="previous">
+                  Vorige
+                </button>
                 <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-login" data-toggle="wizard" data-step="login">
                     Login
                     <div class="loader hidden d-none"></div>

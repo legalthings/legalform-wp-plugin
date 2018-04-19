@@ -192,6 +192,12 @@ var decodeEntities = (function() {
         sendToFlow(account, false);
     });
 
+    $(document).on('click', '#doc-wizard-login button[data-step="previous"], \
+            #doc-wizard-register button[data-step="previous"]', function() {
+        $('#doc-wizard-register').hide();
+        $('#doc-wizard-login').hide();
+        $('#doc-wizard').show();
+    })
 
     $(document).on('click', '.doc-save', function() {
         var values = getValues();
