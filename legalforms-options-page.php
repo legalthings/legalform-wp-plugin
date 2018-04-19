@@ -35,6 +35,15 @@
                     <td>
                         <input type="checkbox" name="load_bootstrap" value="false" <?php echo $this->config['load_bootstrap'] ? 'checked' : ''; ?> />
                     </td>
+                </tr>
+                <tr>
+                    <td scope="row">
+                        <?php _e('Optional terms and conditions url', LT_LFP) ?>:
+                    </td>
+                    <td>
+                        <input class="regular-text" type="text" value="<?php echo esc_attr($this->config['terms_url']);?>" name="terms_url" />
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

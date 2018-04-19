@@ -69,6 +69,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                 foreach ($_POST as $key => $value) {
                     switch ($key) {
                         case 'base_url':
+                        case 'terms_url':
                             $this->config[sanitize_key($key)] = (string) esc_url_raw($value);
                             break;
                         default:
