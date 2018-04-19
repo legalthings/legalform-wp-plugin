@@ -22,13 +22,16 @@ Op de *Legalforms* pagina onder het kopje *Instellingen* dient u bij *LegalThing
 
 De opties *Standard login email* en *Standard login password* zijn optioneel en worden gebruikt als u wilt dat de WorkFlow niet begonnen wordt voor de gebruiker die de gegevens heeft ingevuld, maar voor een standaard gebruikersaccount. Dit is handig als u bijvoorbeeld een WorkFlow heeft die op basis van de gegevens in de LegalForm een advies maakt en opstuurt naar een e-mailadres gespecificeerd in het formulier. Hiervoor heeft de gebruiker zelf geen account nodig.
 
-Met *Load plugin Bootstrap* kunt u kiezen of de plugin Bootstrap moet laden of niet. De plugin kijkt of uw Wordpress thema al Bootstrap heeft en laadt alleen als dat niet zo is, omdat het hebben van twee versies tegelijk vaak problemen geeft. Het checken gaat echter fout als u Bootstrap laadt via andere manieren dan via het gebruikelijke registeren / enqueuen, bijvoorbeeld als u een CDN gebruikt. In dit soort gevallen kunt u het laden van Bootstrap door de plugin handmatig uitschakelen.
+Met *Load plugin Bootstrap* kunt u kiezen of de plugin Bootstrap moet laden of niet. De plugin kijkt of uw Wordpress thema al Bootstrap heeft en laadt alleen als dat niet zo is, omdat het hebbenvan twee versies tegelijk vaak problemen geeft. Het checken gaat echter fout als u Bootstrap laadt via andere manieren dan via het gebruikelijke registeren / enqueuen, bijvoorbeeld als u een CDN gebruikt. In dit soort gevallen kunt u het laden van Bootstrap door de plugin handmatig uitschakelen.
+
+Als er algemene voorwaarden geaccepteerd moeten worden bij het registreren van een nieuw account dan kunt u de URL waar deze staan invullen. Als dit veld leeg is, word er ook niet gevraagd om de voorwaarden te accepteren.
+
 
 ## Shortcode
 De volledige shortcode ziet er als volgt uit:
 
 ```
-[legalforms template="template_ref" flow="flow_ref" material="false" standard_login="false" done_url="https://mywebsite.com/" alias_key="key" alias_value=“value"]
+[legalforms template="template_ref" flow="flow_ref" material="false" standard_login="false" done_url="https://mywebsite.com/" alias_key="key" alias_value="value" step_through="false"]
 ```
 
 Opties:
@@ -47,6 +50,8 @@ De URL waar de gebruiker heen wordt gestuurd als hij of zij klaar is met het inv
 Geef de alias key die wordt gebruikt door de WorkFlow. Optioneel.
 - **Alias value:**
  Geef de alias waarde die wordt gebruikt door de WorkFlow. Optioneel.
+- **Step through:**
+Ga automatisch naar de volgende stap, als de huidige stap het invullen van een legaldocx veld is.
 
 Referenties (ook wel LegalThings Resource Identifiers, LTRI’s) kunnen worden gevonden in uw LegalThings Dashboard in de *Systeeminstellingen*, onder *Document bouwen* voor  de template en onder *Workflows beheren* voor de flow. De sjabloonreferentie van een document is de LTRI die onder het tandwieltje te vinden is en de referentie van een WorkFlow scenario is het ‘id’ veld van het WorkFlow object.
 
