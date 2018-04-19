@@ -152,6 +152,26 @@ var decodeEntities = (function() {
         });
     }
 
+    function sendForgotPassword(email) {
+        $.ajax({
+            url: legalforms.dir_url + '/forgot_password.php',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                email: email,
+                legalforms: legalforms
+            })
+        }).done(function() {
+                $('#doc-email-send').removeClass('hidden d-none');
+        }).fail(function(xhr, textStatus) {
+            if (xhr.status === 400) {
+                $('#doc-email-error').removeClass('hidden d-none');
+            } else {
+                $('#doc-error').removeClass('hidden d-none');
+            }
+        });
+    }
+
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         if (legalforms.standard_login === 'true') {
             var account = {
@@ -171,7 +191,11 @@ var decodeEntities = (function() {
     $(document).on('click', '#switch-login', function() {
         $('#doc-wizard-register').hide();
         $('#doc-wizard-login').show();
+    });
 
+    $(document).on('click', '#switch-forgot', function() {
+        $('#doc-wizard-login').hide();
+        $('#doc-wizard-forgot').show();
     });
 
     $(document).on('click', '#doc-wizard-register button[data-step="register"]', function() {
@@ -192,6 +216,12 @@ var decodeEntities = (function() {
         sendToFlow(account, false);
     });
 
+    $(document).on('click', '#doc-wizard-forgot button[data-step="forgot"]', function() {
+        sendForgotPassword($('#doc-wizard-forgot [name="account.email"]').val());
+
+        $('#doc-wizard-forgot').hide();
+        $('#doc-wizard-login').show();
+    });
 
     $(document).on('click', '.doc-save', function() {
         var values = getValues();

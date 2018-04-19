@@ -369,6 +369,32 @@ if (!class_exists('LegalThingsLegalForms')) {
                 echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?auto_open=true&hash=' . $session['id'];
             }
         }
+
+        public function forgot_password($data) {
+          $response = wp_remote_post(
+              $data['legalforms']['base_url'] . '/service/iam/sessions',
+              array(
+                  'timeout' => 15,
+                  'body' => array(
+                    'email' => $data['email'],
+                    'forgotpassword' => true
+                  )
+              )
+          );
+
+          if (is_wp_error($response)) {
+              header('HTTP/1.1 500 Internal Server Error');
+              $error_message = $response->get_error_message();
+              echo 'Something went wrong: ' . $error_message;
+              die();
+          } else if ($response['response']['code'] === 400) {
+              header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+              echo 'Something went wrong: ' . $response['body'];
+              die();
+          } else {
+              echo $response['body'];
+          }
+        }
     }
 }
 
