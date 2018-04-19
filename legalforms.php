@@ -69,6 +69,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                 foreach ($_POST as $key => $value) {
                     switch ($key) {
                         case 'base_url':
+                        case 'terms_url':
                             $this->config[sanitize_key($key)] = (string) esc_url_raw($value);
                             break;
                         default:
@@ -105,7 +106,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'standard_login' => false,
                 'done_url' => '',
                 'alias_key' => '',
-                'alias_value' => ''
+                'alias_value' => '',
+                'step_through' => false
             ), $attrs);
 
             $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
@@ -336,6 +338,36 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
         }
 
+        public function step_through($base_url, $session, $process)
+        {
+            $response = wp_remote_post(
+                $base_url . '/service/flow/processes/'. $process['id'] . '/response',
+                array(
+                    'headers' => array(
+                        'X-Session' => $session['id']
+                    ),
+                    'timeout' => 15,
+                    'body' => array(
+                        'response' => 'ok',
+                        'action' => $process['current']['key']
+                    )
+                )
+            );
+
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] !== 200) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            } else {
+                return json_decode($response['body'], true);
+            }
+        }
+
         public function process_legalform($data)
         {
             if ($data['register']) {
@@ -363,11 +395,41 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
 
+            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through']) {
+                $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
+            }
+
             if ($data['legalforms']['done_url'] != '') {
                 echo $data['legalforms']['done_url'];
             } else {
-                echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?auto_open=true&hash=' . $session['id'];
+                echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
             }
+        }
+
+        public function forgot_password($data) {
+          $response = wp_remote_post(
+              $data['legalforms']['base_url'] . '/service/iam/sessions',
+              array(
+                  'timeout' => 15,
+                  'body' => array(
+                    'email' => $data['email'],
+                    'forgotpassword' => true
+                  )
+              )
+          );
+
+          if (is_wp_error($response)) {
+              header('HTTP/1.1 500 Internal Server Error');
+              $error_message = $response->get_error_message();
+              echo 'Something went wrong: ' . $error_message;
+              die();
+          } else if ($response['response']['code'] === 400) {
+              header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+              echo 'Something went wrong: ' . $response['body'];
+              die();
+          } else {
+              echo $response['body'];
+          }
         }
     }
 }

@@ -152,6 +152,26 @@ var decodeEntities = (function() {
         });
     }
 
+    function sendForgotPassword(email) {
+        $.ajax({
+            url: legalforms.dir_url + '/forgot_password.php',
+            type: 'post',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                email: email,
+                legalforms: legalforms
+            })
+        }).done(function() {
+                $('#doc-email-send').removeClass('hidden d-none');
+        }).fail(function(xhr, textStatus) {
+            if (xhr.status === 400) {
+                $('#doc-email-error').removeClass('hidden d-none');
+            } else {
+                $('#doc-error').removeClass('hidden d-none');
+            }
+        });
+    }
+
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         if (legalforms.standard_login === 'true') {
             var account = {
@@ -171,10 +191,16 @@ var decodeEntities = (function() {
     $(document).on('click', '#switch-login', function() {
         $('#doc-wizard-register').hide();
         $('#doc-wizard-login').show();
+    });
 
+    $(document).on('click', '#switch-forgot', function() {
+        $('#doc-wizard-login').hide();
+        $('#doc-wizard-forgot').show();
     });
 
     $(document).on('click', '#doc-wizard-register button[data-step="register"]', function() {
+        if (!document.getElementById('form-register').checkValidity()) return;
+
         var account = {
             name: $('#doc-wizard-register [name="account.name"]').val(),
             email: $('#doc-wizard-register [name="account.email"]').val(),
@@ -185,6 +211,8 @@ var decodeEntities = (function() {
 
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
+        if (!document.getElementById('form-login').checkValidity()) return;
+
         var account = {
             email: $('#doc-wizard-login [name="account.email"]').val(),
             password: $('#doc-wizard-login [name="account.password"]').val(),
@@ -192,12 +220,20 @@ var decodeEntities = (function() {
         sendToFlow(account, false);
     });
 
+
     $(document).on('click', '#doc-wizard-login button[data-step="previous"], \
             #doc-wizard-register button[data-step="previous"]', function() {
         $('#doc-wizard-register').hide();
         $('#doc-wizard-login').hide();
         $('#doc-wizard').show();
     })
+
+    $(document).on('click', '#doc-wizard-forgot button[data-step="forgot"]', function() {
+        sendForgotPassword($('#doc-wizard-forgot [name="account.email"]').val());
+
+        $('#doc-wizard-forgot').hide();
+        $('#doc-wizard-login').show();
+    });
 
     $(document).on('click', '.doc-save', function() {
         var values = getValues();
