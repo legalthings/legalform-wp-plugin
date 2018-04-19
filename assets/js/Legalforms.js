@@ -175,6 +175,8 @@ var decodeEntities = (function() {
     });
 
     $(document).on('click', '#doc-wizard-register button[data-step="register"]', function() {
+        if (!document.getElementById('form-register').checkValidity()) return;
+
         var account = {
             name: $('#doc-wizard-register [name="account.name"]').val(),
             email: $('#doc-wizard-register [name="account.email"]').val(),
@@ -185,6 +187,8 @@ var decodeEntities = (function() {
 
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
+        if (!document.getElementById('form-login').checkValidity()) return;
+
         var account = {
             email: $('#doc-wizard-login [name="account.email"]').val(),
             password: $('#doc-wizard-login [name="account.password"]').val(),
