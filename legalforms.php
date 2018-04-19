@@ -105,7 +105,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'standard_login' => false,
                 'done_url' => '',
                 'alias_key' => '',
-                'alias_value' => ''
+                'alias_value' => '',
+                'step_through' => false
             ), $attrs);
 
             $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
@@ -393,7 +394,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
 
-            if ($process['current']['definition'] === 'legaldocx') {
+            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through']) {
                 $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
             }
 
