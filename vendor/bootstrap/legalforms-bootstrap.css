@@ -5281,7 +5281,7 @@
     width: 900px;
   }
 }
-#legalforms-plugin .tooltip {
+.tooltip {
   position: absolute;
   z-index: 1030;
   display: block;
@@ -5291,27 +5291,27 @@
   opacity: 0;
   filter: alpha(opacity=0);
 }
-#legalforms-plugin .tooltip.in {
+.tooltip.in {
   opacity: .9;
   filter: alpha(opacity=90);
 }
-#legalforms-plugin .tooltip.top {
+.tooltip.top {
   margin-top: -3px;
   padding: 5px 0;
 }
-#legalforms-plugin .tooltip.right {
+.tooltip.right {
   margin-left: 3px;
   padding: 0 5px;
 }
-#legalforms-plugin .tooltip.bottom {
+.tooltip.bottom {
   margin-top: 3px;
   padding: 5px 0;
 }
-#legalforms-plugin .tooltip.left {
+.tooltip.left {
   margin-left: -3px;
   padding: 0 5px;
 }
-#legalforms-plugin .tooltip-inner {
+.tooltip-inner {
   max-width: 200px;
   padding: 3px 8px;
   color: #fff;
@@ -5320,66 +5320,66 @@
   background-color: #000;
   border-radius: 4px;
 }
-#legalforms-plugin .tooltip-arrow {
+.tooltip-arrow {
   position: absolute;
   width: 0;
   height: 0;
   border-color: transparent;
   border-style: solid;
 }
-#legalforms-plugin .tooltip.top .tooltip-arrow {
+.tooltip.top .tooltip-arrow {
   bottom: 0;
   left: 50%;
   margin-left: -5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
 }
-#legalforms-plugin .tooltip.top-left .tooltip-arrow {
+.tooltip.top-left .tooltip-arrow {
   bottom: 0;
   left: 5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
 }
-#legalforms-plugin .tooltip.top-right .tooltip-arrow {
+.tooltip.top-right .tooltip-arrow {
   bottom: 0;
   right: 5px;
   border-width: 5px 5px 0;
   border-top-color: #000;
 }
-#legalforms-plugin .tooltip.right .tooltip-arrow {
+.tooltip.right .tooltip-arrow {
   top: 50%;
   left: 0;
   margin-top: -5px;
   border-width: 5px 5px 5px 0;
   border-right-color: #000;
 }
-#legalforms-plugin .tooltip.left .tooltip-arrow {
+.tooltip.left .tooltip-arrow {
   top: 50%;
   right: 0;
   margin-top: -5px;
   border-width: 5px 0 5px 5px;
   border-left-color: #000;
 }
-#legalforms-plugin .tooltip.bottom .tooltip-arrow {
+.tooltip.bottom .tooltip-arrow {
   top: 0;
   left: 50%;
   margin-left: -5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
-#legalforms-plugin .tooltip.bottom-left .tooltip-arrow {
+.tooltip.bottom-left .tooltip-arrow {
   top: 0;
   left: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
-#legalforms-plugin .tooltip.bottom-right .tooltip-arrow {
+.tooltip.bottom-right .tooltip-arrow {
   top: 0;
   right: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
-#legalforms-plugin .popover {
+.popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -5397,19 +5397,19 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   white-space: normal;
 }
-#legalforms-plugin .popover.top {
+.popover.top {
   margin-top: -10px;
 }
-#legalforms-plugin .popover.right {
+.popover.right {
   margin-left: 10px;
 }
-#legalforms-plugin .popover.bottom {
+.popover.bottom {
   margin-top: 10px;
 }
-#legalforms-plugin .popover.left {
+.popover.left {
   margin-left: -10px;
 }
-#legalforms-plugin .popover-title {
+.popover-title {
   margin: 0;
   padding: 8px 14px;
   font-size: 14px;
@@ -5419,11 +5419,11 @@
   border-bottom: 1px solid #ebebeb;
   border-radius: 5px 5px 0 0;
 }
-#legalforms-plugin .popover-content {
+.popover-content {
   padding: 9px 14px;
 }
-#legalforms-plugin .popover > .arrow,
-#legalforms-plugin .popover > .arrow:after {
+.popover > .arrow,
+.popover > .arrow:after {
   position: absolute;
   display: block;
   width: 0;
@@ -5431,14 +5431,14 @@
   border-color: transparent;
   border-style: solid;
 }
-#legalforms-plugin .popover > .arrow {
+.popover > .arrow {
   border-width: 11px;
 }
-#legalforms-plugin .popover > .arrow:after {
+.popover > .arrow:after {
   border-width: 10px;
   content: "";
 }
-#legalforms-plugin .popover.top > .arrow {
+.popover.top > .arrow {
   left: 50%;
   margin-left: -11px;
   border-bottom-width: 0;
@@ -5446,14 +5446,14 @@
   border-top-color: rgba(0, 0, 0, 0.25);
   bottom: -11px;
 }
-#legalforms-plugin .popover.top > .arrow:after {
+.popover.top > .arrow:after {
   content: " ";
   bottom: 1px;
   margin-left: -10px;
   border-bottom-width: 0;
   border-top-color: #fff;
 }
-#legalforms-plugin .popover.right > .arrow {
+.popover.right > .arrow {
   top: 50%;
   left: -11px;
   margin-top: -11px;
@@ -5461,14 +5461,14 @@
   border-right-color: #999;
   border-right-color: rgba(0, 0, 0, 0.25);
 }
-#legalforms-plugin .popover.right > .arrow:after {
+.popover.right > .arrow:after {
   content: " ";
   left: 1px;
   bottom: -10px;
   border-left-width: 0;
   border-right-color: #fff;
 }
-#legalforms-plugin .popover.bottom > .arrow {
+.popover.bottom > .arrow {
   left: 50%;
   margin-left: -11px;
   border-top-width: 0;
@@ -5476,14 +5476,14 @@
   border-bottom-color: rgba(0, 0, 0, 0.25);
   top: -11px;
 }
-#legalforms-plugin .popover.bottom > .arrow:after {
+.popover.bottom > .arrow:after {
   content: " ";
   top: 1px;
   margin-left: -10px;
   border-top-width: 0;
   border-bottom-color: #fff;
 }
-#legalforms-plugin .popover.left > .arrow {
+.popover.left > .arrow {
   top: 50%;
   right: -11px;
   margin-top: -11px;
@@ -5491,7 +5491,7 @@
   border-left-color: #999;
   border-left-color: rgba(0, 0, 0, 0.25);
 }
-#legalforms-plugin .popover.left > .arrow:after {
+.popover.left > .arrow:after {
   content: " ";
   right: 1px;
   border-right-width: 0;

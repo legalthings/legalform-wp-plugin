@@ -154,7 +154,7 @@ var decodeEntities = (function() {
 
     function sendForgotPassword(email) {
         $.ajax({
-            url: legalforms.dir_url + '/forgot_password.php',
+            url: legalforms.dir_url + '/process_forgot.php',
             type: 'post',
             contentType: 'application/json',
             data: JSON.stringify({
