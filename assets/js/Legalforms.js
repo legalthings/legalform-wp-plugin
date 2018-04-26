@@ -173,12 +173,18 @@ var decodeEntities = (function() {
     }
 
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
-        if (legalforms.standard_login === 'true') {
+        if (legalforms.standard_login === 'true' && legalforms.ask_email === 'true') {
+            $('#doc-wizard').hide();
+            $('#doc-wizard-email').show();
+            $('html, body').animate({
+                scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
+            }, 500);
+        } else if (legalforms.standard_login === 'true') {
             var account = {
                 email: legalforms.standard_email,
-                password: legalforms.standard_password
-            }
-            sendToFlow(account);
+                password: legalforms.standard_password,
+            };
+            sendToFlow(account, false);
         } else {
             $('#doc-wizard').hide();
             $('#doc-wizard-register').show();
@@ -209,7 +215,6 @@ var decodeEntities = (function() {
         sendToFlow(account, true);
     });
 
-
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
         if (!document.getElementById('form-login').checkValidity()) return;
 
@@ -220,6 +225,16 @@ var decodeEntities = (function() {
         sendToFlow(account, false);
     });
 
+    $(document).on('click', '#doc-wizard-email button[data-step="done"]', function() {
+        if (!document.getElementById('form-email').checkValidity()) return;
+
+        var account = {
+            email: legalforms.standard_email,
+            password: legalforms.standard_password,
+            user_email: $('#doc-wizard-email [name="account.user_email"]').val(),
+        }
+        sendToFlow(account, false);
+    });
 
     $(document).on('click', '#doc-wizard-login button[data-step="previous"], \
             #doc-wizard-register button[data-step="previous"]', function() {
@@ -229,6 +244,8 @@ var decodeEntities = (function() {
     })
 
     $(document).on('click', '#doc-wizard-forgot button[data-step="forgot"]', function() {
+        if (!document.getElementById('form-forgot').checkValidity()) return;
+
         sendForgotPassword($('#doc-wizard-forgot [name="account.email"]').val());
 
         $('#doc-wizard-forgot').hide();
