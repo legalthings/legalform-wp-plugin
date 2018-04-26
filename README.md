@@ -31,7 +31,7 @@ Als er algemene voorwaarden geaccepteerd moeten worden bij het registreren van e
 De volledige shortcode ziet er als volgt uit:
 
 ```
-[legalforms template="template_ref" flow="flow_ref" material="false" standard_login="false" done_url="https://mywebsite.com/" alias_key="key" alias_value="value" step_through="false"]
+[legalforms template="template_ref" flow="flow_ref" material="false" standard_login="false" ask_email="false" done_url="https://mywebsite.com/" alias_key="key" alias_value="value" step_through="false"]
 ```
 
 Opties:
@@ -41,9 +41,11 @@ Opties:
 - **Flow :**
 De referentie van de WorkFlow scenario waar de de gegevens van het formulier heen gestuurd moeten worden.
 - **Material :**
-Of de plugin Bootstrap Material Design moet gebruiken of gewone Bootstrap. Is standaard ‘true’.
+Of de plugin Bootstrap Material Design moet gebruiken of gewone Bootstrap. Is standaard `true`.
 - **Standard login :**
-Of de gebruiker inloggegevens moet invullen zodat de WorkFlow wordt aangemaakt voor zijn account aan of dat een standaard account wordt gebruikt. Is standaard ‘false’ .
+Of de gebruiker inloggegevens moet invullen zodat de WorkFlow wordt aangemaakt voor zijn account aan of dat een standaard account wordt gebruikt. Is standaard `false` .
+- **Ask email:**
+Of de gebruiker zijn e-mailadres moet invullen als er gebruik wordt gemaakt van standaard login. Hierdoor kan bijvoorbeeld wel een document gestuurd worden in de Workflow. Is standaard `false`.
 - **Done URL :**
 De URL waar de gebruiker heen wordt gestuurd als hij of zij klaar is met het invullen van het formulier. Als deze leeg is wordt de gebruiker naar de pagina van de aangemaakte WorkFlow gestuurd.
 - **Alias key :**
