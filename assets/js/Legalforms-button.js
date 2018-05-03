@@ -45,19 +45,51 @@ jQuery(document).ready(function($) {
                                   text: 'Yes',
                               },
                               {
+                                  type: 'checkbox',
+                                  name: 'askEmail',
+                                  id: 'askEmail',
+                                  label: 'Ask email when using the standard login credentials?',
+                                  text: 'Yes',
+                              },
+                              {
                                   type: 'textbox',
                                   name: 'doneUrl',
                                   id: 'doneUrl',
                                   label: 'Optional URL to go to after form submission:',
                                   multiline: false
-                              }
+                              },
+                              {
+                                 type: 'textbox',
+                                  name: 'aliasKey',
+                                  id: 'aliasKey',
+                                  label: 'Optional alias key for WorkFlow',
+                                  multiline: false
+                             },
+                             {
+                                type: 'textbox',
+                                 name: 'aliasValue',
+                                 id: 'aliasValue',
+                                 label: 'Optional alias value for WorkFlow',
+                                 multiline: false
+                            },
+                            {
+                                type: 'checkbox',
+                                name: 'stepThrough',
+                                id: 'stepThrough',
+                                label: 'Step through Legaldocx step?',
+                                text: 'Yes',
+                            }
                           ],
                           onsubmit: function( e ) {
                               ed.insertContent('[legalforms template="' + e.data.template
                                  + '"  flow="' + e.data.flow
                                  + '" material="' + e.data.useMaterial
                                  + '" standard_login="' + e.data.standardLogin
+                                 + '" ask_email="' + e.data.askEmail
                                  + '" done_url="' + e.data.doneUrl
+                                 + '" alias_key="' + e.data.aliasKey
+                                 + '" alias_value="' + e.data.aliasValue
+                                 + '" step_through="' + e.data.stepThrough
                                  + '"]');
                           }
                       });
