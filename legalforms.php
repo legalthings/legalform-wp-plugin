@@ -400,7 +400,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
 
-            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through']) {
+            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through'] === 'true') {
                 $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
             }
 
