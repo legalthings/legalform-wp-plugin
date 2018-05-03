@@ -131,6 +131,7 @@ var decodeEntities = (function() {
             type: 'post',
             data: {
                 action: 'process_legalform',
+                _wpnonce: legalforms.nonce,
                 account: account,
                 legalforms: legalforms,
                 values: getValues(),
@@ -158,6 +159,7 @@ var decodeEntities = (function() {
             type: 'post',
             data: {
                 action: 'forgot_password',
+                _wpnonce: legalforms.nonce,
                 email: email,
                 legalforms: legalforms
             }

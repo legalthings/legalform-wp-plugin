@@ -223,7 +223,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'definition'            => $form->definition,
                 'legalform_respond_url' => '10',
                 'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-                'dir_url'               => plugin_dir_url(__FILE__)
+                'dir_url'               => plugin_dir_url(__FILE__),
+                'nonce'                 => wp_create_nonce()
             );
 
             foreach ($this->config as $key => $value) {
@@ -379,6 +380,8 @@ if (!class_exists('LegalThingsLegalForms')) {
 
         public function process_legalform()
         {
+            check_ajax_referer();
+
             if ($_POST['register'] === 'true') {
                 $this->create_user($_POST['legalforms']['base_url'], $_POST['account']);
             }
@@ -422,6 +425,8 @@ if (!class_exists('LegalThingsLegalForms')) {
         }
 
         public function forgot_password() {
+            check_ajax_referer();
+
             $response = wp_remote_post(
                 $_POST['legalforms']['base_url'] . '/service/iam/sessions',
                 array(
