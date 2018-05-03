@@ -411,8 +411,9 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             $process = $this->create_process($_POST['legalforms']['base_url'], $session, $flow_data);
 
-            if ($process['current']['definition'] === 'legaldocx' && $_POST['legalforms']['step_through']) {
-                $return = $this->step_through($_POST['legalforms']['base_url'], $session, $process);
+            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through'] === 'true') {
+                $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
+
             }
 
             if ($_POST['legalforms']['done_url']) {
