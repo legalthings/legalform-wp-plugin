@@ -127,15 +127,15 @@ var decodeEntities = (function() {
         $('.loader').removeClass('hidden d-none');
 
         $.ajax({
-            url: legalforms.dir_url + '/process_legalform.php',
+            url: legalforms.ajaxurl,
             type: 'post',
-            contentType: 'application/json',
-            data: JSON.stringify({
+            data: {
+                action: 'process_legalform',
                 account: account,
                 legalforms: legalforms,
                 values: getValues(),
                 register: register
-            })
+            }
         }).done(function(url) {
             window.top.location.href = url;
         }).fail(function(xhr, textStatus) {
@@ -154,13 +154,13 @@ var decodeEntities = (function() {
 
     function sendForgotPassword(email) {
         $.ajax({
-            url: legalforms.dir_url + '/process_forgot.php',
+            url: legalforms.ajaxurl,
             type: 'post',
-            contentType: 'application/json',
-            data: JSON.stringify({
+            data: {
+                action: 'forgot_password',
                 email: email,
                 legalforms: legalforms
-            })
+            }
         }).done(function() {
                 $('#doc-email-send').removeClass('hidden d-none');
         }).fail(function(xhr, textStatus) {

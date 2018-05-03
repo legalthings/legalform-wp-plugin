@@ -34,6 +34,14 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             add_action('admin_menu', array($this, 'addAdminMenu'));
             add_action('admin_init', array($this, 'initTinyMCEButton'));
+
+            add_action('wp_ajax_process_legalform', array($this, 'process_legalform'));
+            add_action('wp_ajax_nopriv_process_legalform', array($this, 'process_legalform'));
+
+            add_action('wp_ajax_forgot_password', array($this, 'forgot_password'));
+            add_action('wp_ajax_nopriv_forgot_password', array($this, 'forgot_password'));
+
+
             add_shortcode(LT_LFP, array($this, 'doLegalformShortcode'));
         }
 
@@ -369,72 +377,74 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
         }
 
-        public function process_legalform($data)
+        public function process_legalform()
         {
-            if ($data['register']) {
-                $this->create_user($data['legalforms']['base_url'], $data['account']);
+            if ($_POST['register'] === 'true') {
+                $this->create_user($_POST['legalforms']['base_url'], $_POST['account']);
             }
 
-            $session = $this->create_session($data['legalforms']['base_url'], $data['account']);
+            $session = $this->create_session($_POST['legalforms']['base_url'], $_POST['account']);
 
             $flow_data = array(
-                'scenario' => $data['legalforms']['flow'],
+                'scenario' => $_POST['legalforms']['flow'],
                 'data' => array(
-                    'values' => $data['values'],
-                    'template' => $data['legalforms']['template'],
-                    'name' => $data['legalforms']['name'],
+                    'values' => $_POST['values'],
+                    'template' => $_POST['legalforms']['template'],
+                    'name' => $_POST['legalforms']['name'],
                     'organization' => $session['user']['employment'][0]['organization']['id']
                 )
             );
 
-            if ($data['account']['user_email']) {
-                $flow_data['data']['user_email'] = $data['account']['user_email'];
+            if (isset($_POST['account']['user_email'])) {
+                $flow_data['data']['user_email'] = $_POST['account']['user_email'];
             }
 
-            if ($data['legalforms']['alias_key'] && $data['legalforms']['alias_value']) {
+            if (($_POST['legalforms']['alias_key']) && $_POST['legalforms']['alias_value']) {
                 $flow_data['data']['alias'] = array(
-                    'key' => $data['legalforms']['alias_key'],
-                    'value' => $data['legalforms']['alias_value']
+                    'key' => $_POST['legalforms']['alias_key'],
+                    'value' => $_POST['legalforms']['alias_value']
                 );
             }
 
-            $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
+            $process = $this->create_process($_POST['legalforms']['base_url'], $session, $flow_data);
 
-            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through']) {
-                $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
+            if ($process['current']['definition'] === 'legaldocx' && $_POST['legalforms']['step_through']) {
+                $return = $this->step_through($_POST['legalforms']['base_url'], $session, $process);
             }
 
-            if ($data['legalforms']['done_url'] != '') {
-                echo $data['legalforms']['done_url'];
+            if ($_POST['legalforms']['done_url']) {
+                echo $_POST['legalforms']['done_url'];
             } else {
-                echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
+                echo $_POST['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
             }
+
+            wp_die();
         }
 
-        public function forgot_password($data) {
-          $response = wp_remote_post(
-              $data['legalforms']['base_url'] . '/service/iam/sessions',
-              array(
+        public function forgot_password() {
+            $response = wp_remote_post(
+                $_POST['legalforms']['base_url'] . '/service/iam/sessions',
+                array(
                   'timeout' => 15,
                   'body' => array(
-                    'email' => $data['email'],
+                    'email' => $_POST['email'],
                     'forgotpassword' => true
                   )
-              )
-          );
+                )
+            );
 
-          if (is_wp_error($response)) {
-              header('HTTP/1.1 500 Internal Server Error');
-              $error_message = $response->get_error_message();
-              echo 'Something went wrong: ' . $error_message;
-              die();
-          } else if ($response['response']['code'] === 400) {
-              header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-              echo 'Something went wrong: ' . $response['body'];
-              die();
-          } else {
-              echo $response['body'];
-          }
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] === 400) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            } else {
+                echo $response['body'];
+            }
         }
     }
 }
@@ -443,3 +453,6 @@ global $legalforms;
 $legalforms = new LegalThingsLegalForms();
 register_activation_hook(__FILE__, array($legalforms, 'activate_plugin'));
 register_deactivation_hook(__FILE__, array($legalforms, 'deactivate_plugin'));
+
+// add_action('wp_ajax_process_legalform', array($legalforms, 'process_legalform'));
+// add_action('wp_ajax_nopriv_process_legalform', array($legalforms, 'process_legalform'));
