@@ -32,8 +32,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 $this->config = $this->defaults;
             }
 
-            add_action('admin_menu', array($this, 'addAdminMenu'));
-            add_action('admin_init', array($this, 'initTinyMCEButton'));
+            add_action('admin_menu', array($this, 'add_admin_menu'));
+            add_action('admin_init', array($this, 'init_tinyMCE_button'));
 
             add_action('wp_ajax_process_legalform', array($this, 'process_legalform'));
             add_action('wp_ajax_nopriv_process_legalform', array($this, 'process_legalform'));
@@ -42,16 +42,16 @@ if (!class_exists('LegalThingsLegalForms')) {
             add_action('wp_ajax_nopriv_forgot_password', array($this, 'forgot_password'));
 
 
-            add_shortcode(LT_LFP, array($this, 'doLegalformShortcode'));
+            add_shortcode(LT_LFP, array($this, 'do_legalform_shortcode'));
         }
 
-        public function activatePlugin()
+        public function activate_plugin()
         {
             //Add new options ids
             add_option(LT_LFP, $this->defaults, '', 'yes');
         }
 
-        public function deactivatePlugin()
+        public function deactivate_plugin()
         {
             //remove mysql ids
             delete_option(LT_LFP);
@@ -60,9 +60,9 @@ if (!class_exists('LegalThingsLegalForms')) {
         /**
          * Functions in admin page
          */
-        public function addAdminMenu()
+        public function add_admin_menu()
         {
-            add_options_page(__('Legalthings LegalForms configuration page', LT_LFP), __('LegalForms', LT_LFP), 'manage_options', LT_LFP, [$this, 'configPage']);
+            add_options_page(__('Legalthings LegalForms configuration page', LT_LFP), __('LegalForms', LT_LFP), 'manage_options', LT_LFP, [$this, 'config_page']);
         }
 
         /**
@@ -70,7 +70,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          *
          * @return [strin] output of config page
          */
-        public function configPage()
+        public function config_page()
         {
 
             if (isset($_POST) && !empty($_POST)) {
@@ -105,7 +105,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          * @param  [string] inside text of shortcut
          * @return [string] final output of form shortcode
          */
-        public function doLegalformShortcode($attrs, $content = null)
+        public function do_legalform_shortcode($attrs, $content = null)
         {
             $attrs = shortcode_atts(array(
                 'template' => '',
@@ -128,7 +128,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
 
             $form = json_decode(wp_remote_retrieve_body($response));
-            $this->appendAssets($attrs, $form);
+            $this->append_assets($attrs, $form);
             ob_start();
             include LT_LFP_PATH.'legalforms-shortcode-html.php';
             $output = ob_get_clean();
@@ -140,7 +140,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          *
          * @param  [object]
          */
-        public function appendAssets($attrs, $form)
+        public function append_assets($attrs, $form)
         {
             // Add bootstrap to the page
             if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done')) &&
@@ -249,7 +249,7 @@ if (!class_exists('LegalThingsLegalForms')) {
         /**
          * Add shorcode button to the TinyMCE text editor
          */
-        public function initTinyMCEButton()
+        public function init_tinyMCE_button()
         {
             //Abort early if the user will never see TinyMCE
             if (!current_user_can('edit_posts') && !current_user_can('edit_pages') && get_user_option('rich_editing') == 'true') {
@@ -257,19 +257,19 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
 
             //Add a callback to regiser our tinymce plugin
-            add_filter("mce_external_plugins", array($this, "registerMCEPlugin"));
+            add_filter("mce_external_plugins", array($this, "register_MCE_plugin"));
 
             // Add a callback to add our button to the TinyMCE toolbar
-            add_filter('mce_buttons', array($this, 'addButtonTinyMCE'));
+            add_filter('mce_buttons', array($this, 'add_button_tinyMCE'));
         }
 
-        public function registerMCEPlugin($plugin_array)
+        public function register_MCE_plugin($plugin_array)
         {
             $plugin_array['legalforms_button'] = plugins_url('/assets/js/Legalforms-button.js', __FILE__);
             return $plugin_array;
         }
 
-        public function addButtonTinyMCE($buttons)
+        public function add_button_tinyMCE($buttons)
         {
             $buttons[] = 'legalforms_button';
             return $buttons;
@@ -458,6 +458,3 @@ global $legalforms;
 $legalforms = new LegalThingsLegalForms();
 register_activation_hook(__FILE__, array($legalforms, 'activate_plugin'));
 register_deactivation_hook(__FILE__, array($legalforms, 'deactivate_plugin'));
-
-// add_action('wp_ajax_process_legalform', array($legalforms, 'process_legalform'));
-// add_action('wp_ajax_nopriv_process_legalform', array($legalforms, 'process_legalform'));
