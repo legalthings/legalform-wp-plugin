@@ -32,18 +32,26 @@ if (!class_exists('LegalThingsLegalForms')) {
                 $this->config = $this->defaults;
             }
 
-            add_action('admin_menu', array($this, 'addAdminMenu'));
-            add_action('admin_init', array($this, 'initTinyMCEButton'));
-            add_shortcode(LT_LFP, array($this, 'doLegalformShortcode'));
+            add_action('admin_menu', array($this, 'add_admin_menu'));
+            add_action('admin_init', array($this, 'init_tinyMCE_button'));
+
+            add_action('wp_ajax_process_legalform', array($this, 'process_legalform'));
+            add_action('wp_ajax_nopriv_process_legalform', array($this, 'process_legalform'));
+
+            add_action('wp_ajax_forgot_password', array($this, 'forgot_password'));
+            add_action('wp_ajax_nopriv_forgot_password', array($this, 'forgot_password'));
+
+
+            add_shortcode(LT_LFP, array($this, 'do_legalform_shortcode'));
         }
 
-        public function activatePlugin()
+        public function activate_plugin()
         {
             //Add new options ids
             add_option(LT_LFP, $this->defaults, '', 'yes');
         }
 
-        public function deactivatePlugin()
+        public function deactivate_plugin()
         {
             //remove mysql ids
             delete_option(LT_LFP);
@@ -52,9 +60,9 @@ if (!class_exists('LegalThingsLegalForms')) {
         /**
          * Functions in admin page
          */
-        public function addAdminMenu()
+        public function add_admin_menu()
         {
-            add_options_page(__('Legalthings LegalForms configuration page', LT_LFP), __('LegalForms', LT_LFP), 'manage_options', LT_LFP, [$this, 'configPage']);
+            add_options_page(__('Legalthings LegalForms configuration page', LT_LFP), __('LegalForms', LT_LFP), 'manage_options', LT_LFP, [$this, 'config_page']);
         }
 
         /**
@@ -62,7 +70,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          *
          * @return [strin] output of config page
          */
-        public function configPage()
+        public function config_page()
         {
 
             if (isset($_POST) && !empty($_POST)) {
@@ -97,7 +105,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          * @param  [string] inside text of shortcut
          * @return [string] final output of form shortcode
          */
-        public function doLegalformShortcode($attrs, $content = null)
+        public function do_legalform_shortcode($attrs, $content = null)
         {
             $attrs = shortcode_atts(array(
                 'template' => '',
@@ -120,7 +128,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
 
             $form = json_decode(wp_remote_retrieve_body($response));
-            $this->appendAssets($attrs, $form);
+            $this->append_assets($attrs, $form);
             ob_start();
             include LT_LFP_PATH.'legalforms-shortcode-html.php';
             $output = ob_get_clean();
@@ -132,7 +140,7 @@ if (!class_exists('LegalThingsLegalForms')) {
          *
          * @param  [object]
          */
-        public function appendAssets($attrs, $form)
+        public function append_assets($attrs, $form)
         {
             // Add bootstrap to the page
             if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done')) &&
@@ -215,7 +223,8 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'definition'            => $form->definition,
                 'legalform_respond_url' => '10',
                 'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-                'dir_url'               => plugin_dir_url(__FILE__)
+                'dir_url'               => plugin_dir_url(__FILE__),
+                'nonce'                 => wp_create_nonce()
             );
 
             foreach ($this->config as $key => $value) {
@@ -240,7 +249,7 @@ if (!class_exists('LegalThingsLegalForms')) {
         /**
          * Add shorcode button to the TinyMCE text editor
          */
-        public function initTinyMCEButton()
+        public function init_tinyMCE_button()
         {
             //Abort early if the user will never see TinyMCE
             if (!current_user_can('edit_posts') && !current_user_can('edit_pages') && get_user_option('rich_editing') == 'true') {
@@ -248,19 +257,19 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
 
             //Add a callback to regiser our tinymce plugin
-            add_filter("mce_external_plugins", array($this, "registerMCEPlugin"));
+            add_filter("mce_external_plugins", array($this, "register_MCE_plugin"));
 
             // Add a callback to add our button to the TinyMCE toolbar
-            add_filter('mce_buttons', array($this, 'addButtonTinyMCE'));
+            add_filter('mce_buttons', array($this, 'add_button_tinyMCE'));
         }
 
-        public function registerMCEPlugin($plugin_array)
+        public function register_MCE_plugin($plugin_array)
         {
             $plugin_array['legalforms_button'] = plugins_url('/assets/js/Legalforms-button.js', __FILE__);
             return $plugin_array;
         }
 
-        public function addButtonTinyMCE($buttons)
+        public function add_button_tinyMCE($buttons)
         {
             $buttons[] = 'legalforms_button';
             return $buttons;
@@ -369,72 +378,79 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
         }
 
-        public function process_legalform($data)
+        public function process_legalform()
         {
-            if ($data['register']) {
-                $this->create_user($data['legalforms']['base_url'], $data['account']);
+            check_ajax_referer();
+
+            if ($_POST['register'] === 'true') {
+                $this->create_user($_POST['legalforms']['base_url'], $_POST['account']);
             }
 
-            $session = $this->create_session($data['legalforms']['base_url'], $data['account']);
+            $session = $this->create_session($_POST['legalforms']['base_url'], $_POST['account']);
 
             $flow_data = array(
-                'scenario' => $data['legalforms']['flow'],
+                'scenario' => $_POST['legalforms']['flow'],
                 'data' => array(
-                    'values' => $data['values'],
-                    'template' => $data['legalforms']['template'],
-                    'name' => $data['legalforms']['name'],
+                    'values' => $_POST['values'],
+                    'template' => $_POST['legalforms']['template'],
+                    'name' => $_POST['legalforms']['name'],
                     'organization' => $session['user']['employment'][0]['organization']['id']
                 )
             );
 
-            if ($data['account']['user_email']) {
-                $flow_data['data']['user_email'] = $data['account']['user_email'];
+            if (isset($_POST['account']['user_email'])) {
+                $flow_data['data']['user_email'] = $_POST['account']['user_email'];
             }
 
-            if ($data['legalforms']['alias_key'] && $data['legalforms']['alias_value']) {
+            if (($_POST['legalforms']['alias_key']) && $_POST['legalforms']['alias_value']) {
                 $flow_data['data']['alias'] = array(
-                    'key' => $data['legalforms']['alias_key'],
-                    'value' => $data['legalforms']['alias_value']
+                    'key' => $_POST['legalforms']['alias_key'],
+                    'value' => $_POST['legalforms']['alias_value']
                 );
             }
 
-            $process = $this->create_process($data['legalforms']['base_url'], $session, $flow_data);
+            $process = $this->create_process($_POST['legalforms']['base_url'], $session, $flow_data);
 
             if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through'] === 'true') {
                 $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
+
             }
 
-            if ($data['legalforms']['done_url'] != '') {
-                echo $data['legalforms']['done_url'];
+            if ($_POST['legalforms']['done_url']) {
+                echo $_POST['legalforms']['done_url'];
             } else {
-                echo $data['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
+                echo $_POST['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
             }
+
+            wp_die();
         }
 
-        public function forgot_password($data) {
-          $response = wp_remote_post(
-              $data['legalforms']['base_url'] . '/service/iam/sessions',
-              array(
+        public function forgot_password() {
+            check_ajax_referer();
+
+            $response = wp_remote_post(
+                $_POST['legalforms']['base_url'] . '/service/iam/sessions',
+                array(
                   'timeout' => 15,
                   'body' => array(
-                    'email' => $data['email'],
+                    'email' => $_POST['email'],
                     'forgotpassword' => true
                   )
-              )
-          );
+                )
+            );
 
-          if (is_wp_error($response)) {
-              header('HTTP/1.1 500 Internal Server Error');
-              $error_message = $response->get_error_message();
-              echo 'Something went wrong: ' . $error_message;
-              die();
-          } else if ($response['response']['code'] === 400) {
-              header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-              echo 'Something went wrong: ' . $response['body'];
-              die();
-          } else {
-              echo $response['body'];
-          }
+            if (is_wp_error($response)) {
+                header('HTTP/1.1 500 Internal Server Error');
+                $error_message = $response->get_error_message();
+                echo 'Something went wrong: ' . $error_message;
+                die();
+            } else if ($response['response']['code'] === 400) {
+                header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
+                echo 'Something went wrong: ' . $response['body'];
+                die();
+            } else {
+                echo $response['body'];
+            }
         }
     }
 }
