@@ -111,8 +111,15 @@
         </div>
         <div id="doc-wizard-email" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
             <div class="wizard-step active">
-                <h3>Geef uw e-mailadres op</h3>
+                <h3>Geef uw contactgegevens op</h3>
                 <form id="form-email" class="form navmenu-form" novalidate="true">
+                    <div class="form-group" data-role="wrapper">
+                        <label for="field:account.user_name">
+                            Naam
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" class="form-control" name="account.user_name" required="" id="field:account.user_name" value="">
+                    </div>
                     <div class="form-group" data-role="wrapper">
                         <label for="field:account.user_email">
                             E-mailadres

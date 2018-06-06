@@ -234,6 +234,7 @@ var decodeEntities = (function() {
             email: legalforms.standard_email,
             password: legalforms.standard_password,
             user_email: $('#doc-wizard-email [name="account.user_email"]').val(),
+            user_name: $('#doc-wizard-email [name="account.user_name"]').val()
         }
         sendToFlow(account, false);
     });

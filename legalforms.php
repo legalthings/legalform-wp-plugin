@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.4
+ *   Version: 1.4.1
  *   Author: LegalThings
  */
 
@@ -400,6 +400,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             if (isset($_POST['account']['user_email'])) {
                 $flow_data['data']['user_email'] = $_POST['account']['user_email'];
+                $flow_data['data']['user_name'] = $_POST['account']['user_name'];
             }
 
             if (($_POST['legalforms']['alias_key']) && $_POST['legalforms']['alias_value']) {
