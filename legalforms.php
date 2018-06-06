@@ -400,6 +400,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             if (isset($_POST['account']['user_email'])) {
                 $flow_data['data']['user_email'] = $_POST['account']['user_email'];
+                $flow_data['data']['user_name'] = $_POST['account']['user_name'];
             }
 
             if (($_POST['legalforms']['alias_key']) && $_POST['legalforms']['alias_value']) {
