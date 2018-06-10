@@ -126,6 +126,8 @@ var decodeEntities = (function() {
 
         $('.loader').removeClass('hidden d-none');
 
+        delete legalforms.definition;
+
         $.ajax({
             url: legalforms.ajaxurl,
             type: 'post',
@@ -154,6 +156,8 @@ var decodeEntities = (function() {
     }
 
     function sendForgotPassword(email) {
+        delete legalforms.definition;
+
         $.ajax({
             url: legalforms.ajaxurl,
             type: 'post',
