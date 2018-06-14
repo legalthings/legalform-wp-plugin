@@ -288,11 +288,11 @@ if (!class_exists('LegalThingsLegalForms')) {
             if (is_wp_error($response)) {
                 header('HTTP/1.1 500 Internal Server Error');
                 $error_message = $response->get_error_message();
-                echo 'Something went wrong: ' . $error_message;
+                echo 'Something went wrong (create_user): ' . $error_message;
                 die();
             } else if ($response['response']['code'] !== 201) {
                 header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-                echo 'Something went wrong: ' . $response['body'];
+                echo 'Something went wrong (create_user): ' . $response['body'];
                 die();
             }
         }
@@ -310,11 +310,11 @@ if (!class_exists('LegalThingsLegalForms')) {
             if (is_wp_error($response)) {
                 header('HTTP/1.1 500 Internal Server Error');
                 $error_message = $response->get_error_message();
-                echo 'Something went wrong: ' . $error_message;
+                echo 'Something went wrong (create_session): ' . $error_message;
                 die();
             } else if ($response['response']['code'] !== 201) {
                 header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-                echo 'Something went wrong: ' . $response['body'];
+                echo 'Something went wrong (create_session): ' . $response['body'];
                 die();
             } else {
                 return json_decode($response['body'], true);
@@ -337,11 +337,11 @@ if (!class_exists('LegalThingsLegalForms')) {
             if (is_wp_error($response)) {
                 header('HTTP/1.1 500 Internal Server Error');
                 $error_message = $response->get_error_message();
-                echo 'Something went wrong: ' . $error_message;
+                echo 'Something went wrong (create_process): ' . $error_message;
                 die();
             } else if ($response['response']['code'] !== 201) {
                 header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-                echo 'Something went wrong: ' . $response['body'];
+                echo 'Something went wrong (create_process): ' . $response['body'];
                 die();
             } else {
                 return json_decode($response['body'], true);
@@ -367,11 +367,11 @@ if (!class_exists('LegalThingsLegalForms')) {
             if (is_wp_error($response)) {
                 header('HTTP/1.1 500 Internal Server Error');
                 $error_message = $response->get_error_message();
-                echo 'Something went wrong: ' . $error_message;
+                echo 'Something went wrong (step_through): ' . $error_message;
                 die();
             } else if ($response['response']['code'] !== 200) {
                 header('HTTP/1.1 ' . $response['response']['code'] . ' ' . $response['response']['message']);
-                echo 'Something went wrong: ' . $response['body'];
+                echo 'Something went wrong (step_through): ' . $response['body'];
                 die();
             } else {
                 return json_decode($response['body'], true);
