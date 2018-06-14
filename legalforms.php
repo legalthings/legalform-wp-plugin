@@ -78,7 +78,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                     switch ($key) {
                         case 'base_url':
                         case 'terms_url':
-                            $this->config[sanitize_key($key)] = (string) esc_url_raw($value);
+                            $this->config[sanitize_key($key)] = rtrim((string) esc_url_raw($value), '/');
                             break;
                         default:
                             $this->config[sanitize_key($key)] = (string) sanitize_text_field($value);
@@ -119,7 +119,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'ask_email' => false
             ), $attrs);
 
-            $url = trim($this->config['base_url'], '/') . '/service/docx/templates/' . $attrs['template'] . '/forms';
+            $url = $this->config['base_url'] . '/service/docx/templates/' . $attrs['template'] . '/forms';
             $response = wp_remote_get($url, array('timeout' => 10));
 
             if (wp_remote_retrieve_response_code($response) !== 200 ||
@@ -412,9 +412,8 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             $process = $this->create_process($_POST['legalforms']['base_url'], $session, $flow_data);
 
-            if ($process['current']['definition'] === 'legaldocx' && $data['legalforms']['step_through'] === 'true') {
-                $return = $this->step_through($data['legalforms']['base_url'], $session, $process);
-
+            if ($process['current']['definition'] === 'legaldocx' && $_POST['legalforms']['step_through'] === 'true') {
+                $return = $this->step_through($_POST['legalforms']['base_url'], $session, $process);
             }
 
             if ($_POST['legalforms']['done_url']) {
