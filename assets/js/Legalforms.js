@@ -147,7 +147,7 @@ var decodeEntities = (function() {
 
             if (xhr.status === 409) {
                 $('#doc-email-exists').removeClass('hidden d-none');
-            } else if (xhr.status === 401) {
+            } else if (xhr.status === 404 || xhr.status === 403 || xhr.status === 401) {
                 $('#doc-email-error').removeClass('hidden d-none');
             } else {
                 $('#doc-error').removeClass('hidden d-none');
