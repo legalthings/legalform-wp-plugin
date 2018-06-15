@@ -884,7 +884,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 function ltriToUrl(url) {
     if (url.match(/^https?:\/\//)) return url;
 
-    var base = $('head base').attr('href') || '/';
+    var base = jQuery('head base').attr('href') || '/';
     var scheme = window.location.protocol + '//';
     var host = window.location.host;
 
@@ -1891,7 +1891,6 @@ function ltriToUrl(url) {
  */
 (function($) {
     $.fn.toMaterial = function() {
-        console.log('materializing');
         var $docWizard = $(this);
 
         // Add class to the material design to prevent another styles for it.
@@ -1911,7 +1910,6 @@ function ltriToUrl(url) {
 
         // Change checkboxes to the bootstrap material
         $docWizard.find('.form-group .option').each(function() {
-            console.log('checkbox');
             var $div = $(this);
             var type = 'radio';
             $div.addClass($div.find('input').attr('type'));
@@ -1920,7 +1918,6 @@ function ltriToUrl(url) {
 
         // Change likert-view on bootstrap material
         $docWizard.find('.likert-answer').each(function(){
-            console.log('likert');
             if (!$(this).children('.radio').length) {
                 var $div = $('<div>').appendTo(this).addClass('radio');
                 var $label = $('<label>').appendTo($div);
