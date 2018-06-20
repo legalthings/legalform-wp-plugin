@@ -227,9 +227,6 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'nonce'                 => wp_create_nonce()
             );
 
-            foreach ($this->config as $key => $value) {
-                $form_array[sanitize_key($key)] = (string) sanitize_text_field($value);
-            }
             foreach ($attrs as $key => $value) {
                 switch ($key) {
                     case 'done_url':
@@ -383,10 +380,20 @@ if (!class_exists('LegalThingsLegalForms')) {
             check_ajax_referer();
 
             if ($_POST['register'] === 'true') {
-                $this->create_user($_POST['legalforms']['base_url'], $_POST['account']);
+                $this->create_user($this->config['base_url'], $_POST['account']);
             }
 
-            $session = $this->create_session($_POST['legalforms']['base_url'], $_POST['account']);
+            if ($_POST['legalforms']['standard_login'] === 'true') {
+                $account = array(
+                    'email' => $this->config['standard_email'],
+                    'password' => $this->config['standard_password']
+                );
+
+                $session = $this->create_session($this->config['base_url'], $account);
+            } else {
+                $session = $this->create_session($this->config['base_url'], $_POST['account']);
+            }
+
 
             $flow_data = array(
                 'scenario' => $_POST['legalforms']['flow'],
@@ -410,16 +417,16 @@ if (!class_exists('LegalThingsLegalForms')) {
                 );
             }
 
-            $process = $this->create_process($_POST['legalforms']['base_url'], $session, $flow_data);
+            $process = $this->create_process($this->config['base_url'], $session, $flow_data);
 
             if ($process['current']['definition'] === 'legaldocx' && $_POST['legalforms']['step_through'] === 'true') {
-                $return = $this->step_through($_POST['legalforms']['base_url'], $session, $process);
+                $return = $this->step_through($this->config['base_url'], $session, $process);
             }
 
             if ($_POST['legalforms']['done_url']) {
                 echo $_POST['legalforms']['done_url'];
             } else {
-                echo $_POST['legalforms']['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
+                echo $this->config['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
             }
 
             wp_die();
@@ -429,7 +436,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             check_ajax_referer();
 
             $response = wp_remote_post(
-                $_POST['legalforms']['base_url'] . '/service/iam/sessions',
+                $this->config['base_url'] . '/service/iam/sessions',
                 array(
                   'timeout' => 15,
                   'body' => array(
