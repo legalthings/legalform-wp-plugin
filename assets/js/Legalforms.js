@@ -186,10 +186,6 @@ var decodeEntities = (function() {
                 scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
             }, 500);
         } else if (legalforms.standard_login === 'true') {
-            var account = {
-                email: legalforms.standard_email,
-                password: legalforms.standard_password,
-            };
             sendToFlow(account, false);
         } else {
             $('#doc-wizard').hide();
