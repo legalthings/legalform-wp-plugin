@@ -5,7 +5,7 @@ Tags:
 License: MIT
 License URI: https://raw.githubusercontent.com/legalthings/legalform-wp-plugin/master/LICENSE
 Requires at least: 3.5
-Stable tag: 1.4.4
+Stable tag: 1.5
 Tested up to: 4.9.5
 
 LegalForms plugin
@@ -32,6 +32,9 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 
 == Changelog ==
+= 1.5 =
+- Automatically open modals when landing in LegalThings
+
 = 1.4.4 =
 - Bug fixes
 

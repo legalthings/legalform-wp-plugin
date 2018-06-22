@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.4.4
+ *   Version: 1.5
  *   Author: LegalThings
  */
 
@@ -426,7 +426,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             if ($_POST['legalforms']['done_url']) {
                 echo $_POST['legalforms']['done_url'];
             } else {
-                echo $this->config['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'];
+                echo $this->config['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'] . '&auto_open=true';
             }
 
             wp_die();
