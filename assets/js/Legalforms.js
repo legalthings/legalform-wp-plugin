@@ -186,7 +186,7 @@ var decodeEntities = (function() {
                 scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
             }, 500);
         } else if (legalforms.standard_login === 'true') {
-            sendToFlow(account, false);
+            sendToFlow({}, false);
         } else {
             $('#doc-wizard').hide();
             $('#doc-wizard-register').show();
@@ -231,8 +231,6 @@ var decodeEntities = (function() {
         if (!document.getElementById('form-email').checkValidity()) return;
 
         var account = {
-            email: legalforms.standard_email,
-            password: legalforms.standard_password,
             user_email: $('#doc-wizard-email [name="account.user_email"]').val(),
             user_name: $('#doc-wizard-email [name="account.user_name"]').val()
         }
