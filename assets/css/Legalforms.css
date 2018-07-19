@@ -76,3 +76,13 @@
 #legalforms-plugin .modal-dialog {
     top: 33%;
 }
+
+#legalforms-plugin .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#legalforms-plugin .progress {
+    height: 8px;
+
+}
