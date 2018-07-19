@@ -1,6 +1,9 @@
-<div id="legalforms-plugin">
+<div id="legalforms-plugin" class="container-fluid container">
     <div class="row" id="doc-form">
         <h1 id="legalforms-name"></h1>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-error">Er is iets fout gegaan</div>

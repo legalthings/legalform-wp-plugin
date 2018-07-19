@@ -68,6 +68,12 @@ var decodeEntities = (function() {
         setTimeout(useSaved, 2000);
     }
 
+    var totalSections = jQuery('#legalforms-plugin #doc-wizard .wizard-step').length;
+    if (legalforms.standard_login !== 'true' ||
+            (legalforms.standard_login === 'true' && legalforms.ask_email === 'true')) {
+        totalSections += 1;
+    }
+
     function useSaved() {
         $('#doc-saved-modal').modal({
             backdrop: true
@@ -152,6 +158,8 @@ var decodeEntities = (function() {
             } else {
                 $('#doc-error').removeClass('hidden d-none');
             }
+
+            updateProgress();
         });
     }
 
@@ -178,6 +186,24 @@ var decodeEntities = (function() {
         });
     }
 
+    function updateProgress() {
+        if (loading) {
+            var currentNumber = totalSections;
+        }
+        else if ($('#legalforms-plugin #doc-wizard-login .wizard-step.active, \
+               #legalforms-plugin #doc-wizard-register .wizard-step.active, \
+               #legalforms-plugin #doc-wizard-email .wizard-step.active').length) {
+            var currentNumber = totalSections - 1;
+       } else {
+           var currentSection = $('#legalforms-plugin #doc-wizard .wizard-step.active');
+           var currentNumber = $('#legalforms-plugin #doc-wizard .wizard-step').index(currentSection);
+       }
+
+        console.log(currentNumber / totalSections * 100);
+
+        $('#legalforms-plugin .progress-bar').width(currentNumber / totalSections * 100 + '%');
+    }
+
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         if (legalforms.standard_login === 'true' && legalforms.ask_email === 'true') {
             $('#doc-wizard').hide();
@@ -198,6 +224,8 @@ var decodeEntities = (function() {
                 scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
             }, 500);
         }
+
+        updateProgress();
     });
 
     $(document).on('click', '#switch-login', function() {
@@ -223,6 +251,7 @@ var decodeEntities = (function() {
             password: $('#doc-wizard-register [name="account.password"]').val(),
         }
         sendToFlow(account, true);
+        updateProgress();
     });
 
     $(document).on('click', '#doc-wizard-login button[data-step="login"]', function() {
@@ -233,6 +262,7 @@ var decodeEntities = (function() {
             password: $('#doc-wizard-login [name="account.password"]').val(),
         }
         sendToFlow(account, false);
+        updateProgress();
     });
 
     $(document).on('click', '#doc-wizard-email button[data-step="done"]', function() {
@@ -243,6 +273,7 @@ var decodeEntities = (function() {
             user_name: $('#doc-wizard-email [name="account.user_name"]').val()
         }
         sendToFlow(account, false);
+        updateProgress();
     });
 
     $(document).on('click', '#doc-wizard-login button[data-step="previous"], \
@@ -285,9 +316,10 @@ var decodeEntities = (function() {
     });
 
     $(document).on('click', 'button[data-step=next], button[data-step=prev]', function() {
-      $('html, body').animate({
-          scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
-      }, 500);
+        updateProgress();
+        $('html, body').animate({
+            scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
+        }, 500);
     });
 
     $(document).on('keyup', function(e) {
