@@ -199,8 +199,6 @@ var decodeEntities = (function() {
            var currentNumber = $('#legalforms-plugin #doc-wizard .wizard-step').index(currentSection);
        }
 
-        console.log(currentNumber / totalSections * 100);
-
         $('#legalforms-plugin .progress-bar').width(currentNumber / totalSections * 100 + '%');
     }
 
@@ -284,6 +282,7 @@ var decodeEntities = (function() {
         $('#doc-wizard-login .wizard-step').removeClass('active');
         $('#doc-wizard .wizard-step:last').addClass('active');
         $('#doc-wizard').show();
+        updateProgress();
     })
 
     $(document).on('click', '#doc-wizard-forgot button[data-step="forgot"]', function() {
