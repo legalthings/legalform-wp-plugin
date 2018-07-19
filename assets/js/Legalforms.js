@@ -181,6 +181,8 @@ var decodeEntities = (function() {
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
         if (legalforms.standard_login === 'true' && legalforms.ask_email === 'true') {
             $('#doc-wizard').hide();
+            $('#doc-wizard .wizard-step').removeClass('active');
+            $('#doc-wizard-email .wizard-step').addClass('active');
             $('#doc-wizard-email').show();
             $('html, body').animate({
                 scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
@@ -189,6 +191,8 @@ var decodeEntities = (function() {
             sendToFlow({}, false);
         } else {
             $('#doc-wizard').hide();
+            $('#doc-wizard .wizard-step').removeClass('active');
+            $('#doc-wizard-register .wizard-step').addClass('active');
             $('#doc-wizard-register').show();
             $('html, body').animate({
                 scrollTop: $('#doc-wizard').siblings('h1').offset().top - getHeaderHeight() - 10
@@ -198,11 +202,15 @@ var decodeEntities = (function() {
 
     $(document).on('click', '#switch-login', function() {
         $('#doc-wizard-register').hide();
+        $('#doc-wizard-register .wizard-step').removeClass('active');
+        $('#doc-wizard-login .wizard-step').addClass('active');
         $('#doc-wizard-login').show();
     });
 
     $(document).on('click', '#switch-forgot', function() {
         $('#doc-wizard-login').hide();
+        $('#doc-wizard-login .wizard-step').removeClass('active');
+        $('#doc-wizard-forgot .wizard-step').addClass('active');
         $('#doc-wizard-forgot').show();
     });
 
@@ -241,6 +249,9 @@ var decodeEntities = (function() {
             #doc-wizard-register button[data-step="previous"]', function() {
         $('#doc-wizard-register').hide();
         $('#doc-wizard-login').hide();
+        $('#doc-wizard-register .wizard-step').removeClass('active');
+        $('#doc-wizard-login .wizard-step').removeClass('active');
+        $('#doc-wizard .wizard-step:last').addClass('active');
         $('#doc-wizard').show();
     })
 
@@ -250,6 +261,8 @@ var decodeEntities = (function() {
         sendForgotPassword($('#doc-wizard-forgot [name="account.email"]').val());
 
         $('#doc-wizard-forgot').hide();
+        $('#doc-wizard-forgot .wizard-step').removeClass('active');
+        $('#doc-wizard-login .wizard-step').addClass('active');
         $('#doc-wizard-login').show();
     });
 
@@ -276,4 +289,16 @@ var decodeEntities = (function() {
           scrollTop: $('.wizard-step.active').offset().top - getHeaderHeight() - 10
       }, 500);
     });
+
+    $(document).on('keyup', function(e) {
+        if (e.which == 13) {
+            jQuery('.wizard-step.active .wizards-actions button[data-step="next"].in, \
+                    .wizard-step.active .wizards-actions button[data-step="done"].in, \
+                    #doc-wizard-register .wizard-step.active .wizards-actions button[data-step="register"], \
+                    #doc-wizard-login .wizard-step.active .wizards-actions button[data-step="login"], \
+                    #doc-wizard-email .wizard-step.active .wizards-actions button[data-step="done"], \
+                    #doc-wizard-forgot .wizard-step.active .wizards-actions button[data-step="forgot"]').click();
+        }
+        return false;
+    })
 })(jQuery);

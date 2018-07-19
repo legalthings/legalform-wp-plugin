@@ -9,9 +9,9 @@
         <div id="doc-wizard" class="wizard"></div>
 
         <div id="doc-wizard-register" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
-            <div class="wizard-step active">
+            <div class="wizard-step">
                 <h3>Maak gratis account aan</h3>
-                <form id="form-register" class="form navmenu-form" novalidate="true">
+                <form id="form-register" class="form navmenu-form" novalidate="true" action="javascript:void(0);">
                     <div class="form-group" data-role="wrapper">
                         <label for="field:account.name">
                             Naam
@@ -57,9 +57,9 @@
             </div>
         </div>
         <div id="doc-wizard-login" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
-            <div class="wizard-step active">
+            <div class="wizard-step">
                 <h3>Login</h3>
-                <form id="form-login" class="form navmenu-form" novalidate="true">
+                <form id="form-login" class="form navmenu-form" novalidate="true" action="javascript:void(0);">
                     <div class="form-group" data-role="wrapper">
                         <label for="field:account.email">
                             E-mailadres
@@ -90,15 +90,15 @@
             </div>
         </div>
         <div id="doc-wizard-forgot" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
-            <div class="wizard-step active">
+            <div class="wizard-step">
                 <h3>Wachtwoord vergeten</h3>
-                <form id="form-forgot" class="form navmenu-form" novalidate="true">
+                <form id="form-forgot" class="form navmenu-form" novalidate="true" action="javascript:void(0);">
                     <div class="form-group" data-role="wrapper">
-                        <label for="field:account.email">
+                        <label for="field:account.forgot_email">
                             E-mailadres
                             <span class="required">*</span>
                         </label>
-                        <input type="email" class="form-control" name="account.email" required="" id="field:account.email" value="">
+                        <input type="email" class="form-control" name="account.email" required="" id="field:account.forgot_email" value="">
                     </div>
                 </form>
                 <div class="wizards-actions">
@@ -110,9 +110,9 @@
             </div>
         </div>
         <div id="doc-wizard-email" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
-            <div class="wizard-step active">
+            <div class="wizard-step">
                 <h3>Geef uw contactgegevens op</h3>
-                <form id="form-email" class="form navmenu-form" novalidate="true">
+                <form id="form-email" class="form navmenu-form" novalidate="true" action="javascript:void(0);">
                     <div class="form-group" data-role="wrapper">
                         <label for="field:account.user_name">
                             Naam
