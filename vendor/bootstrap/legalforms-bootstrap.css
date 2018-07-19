@@ -5214,7 +5214,7 @@
   background-clip: padding-box;
   outline: 0;
 }
-#legalforms-plugin .modal-backdrop {
+.modal-backdrop {
   position: fixed;
   top: 0;
   right: 0;
@@ -5223,11 +5223,11 @@
   z-index: 1040;
   background-color: #000;
 }
-#legalforms-plugin .modal-backdrop.fade {
+.modal-backdrop.fade {
   opacity: 0;
   filter: alpha(opacity=0);
 }
-#legalforms-plugin .modal-backdrop.in {
+.modal-backdrop.in {
   opacity: .5;
   filter: alpha(opacity=50);
 }

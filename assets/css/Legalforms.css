@@ -72,3 +72,7 @@
         transform: rotate(360deg);
     }
 }
+
+#legalforms-plugin .modal-dialog {
+    top: 33%;
+}

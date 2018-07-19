@@ -256,15 +256,19 @@ var decodeEntities = (function() {
     $(document).on('click', '.doc-save', function() {
         var values = getValues();
         localStorage.setItem('values', JSON.stringify(values));
-        $('#doc-wizard .wizard-step.active .wizards-actions').after([
-            '<div class="clearfix"></div>',
-            '<div class="alert alert-info" id="doc-save-alert">',
-            '    Voortgang succesvol opgeslagen',
-            '</div>'
-        ].join(''));
-        setTimeout(function () {
-          $('#doc-save-alert').fadeOut();
-      }, (5000));
+        if (!jQuery('#doc-save-alert').length) {
+            $('#doc-wizard .wizard-step.active .wizards-actions').after([
+                '<div class="clearfix"></div>',
+                '<div class="alert alert-info" id="doc-save-alert">',
+                '    Voortgang succesvol opgeslagen',
+                '</div>'
+            ].join(''));
+            setTimeout(function () {
+                $('#doc-save-alert').fadeOut('normal', function() {
+                    $(this).remove();
+                });
+            }, (5000));
+        }
     });
 
     $(document).on('click', 'button[data-step=next], button[data-step=prev]', function() {
