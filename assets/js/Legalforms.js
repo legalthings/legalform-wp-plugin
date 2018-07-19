@@ -60,6 +60,9 @@ var decodeEntities = (function() {
         '</button>'
     ].join(''));
 
+    var doneText = $('#doc-wizard button[data-step=done]').html();
+    $('#doc-wizard button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');
+
     window.ractive = ractive;
 
     var storedValues = localStorage.getItem('values');
