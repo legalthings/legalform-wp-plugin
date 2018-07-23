@@ -71,11 +71,12 @@ var decodeEntities = (function() {
         setTimeout(useSaved, 2000);
     }
 
-    var totalSections = jQuery('#legalforms-plugin #doc-wizard .wizard-step').length;
+    var totalSections = jQuery('#legalforms-plugin #doc-wizard .wizard-step').length + 1;
     if (legalforms.standard_login !== 'true' ||
             (legalforms.standard_login === 'true' && legalforms.ask_email === 'true')) {
         totalSections += 1;
     }
+    updateProgress();
 
     function useSaved() {
         $('#doc-saved-modal').modal({
@@ -197,11 +198,12 @@ var decodeEntities = (function() {
                #legalforms-plugin #doc-wizard-register .wizard-step.active, \
                #legalforms-plugin #doc-wizard-email .wizard-step.active').length) {
             var currentNumber = totalSections - 1;
-       } else {
+        } else {
            var currentSection = $('#legalforms-plugin #doc-wizard .wizard-step.active');
-           var currentNumber = $('#legalforms-plugin #doc-wizard .wizard-step').index(currentSection);
-       }
+           var currentNumber = Math.max($('#legalforms-plugin #doc-wizard .wizard-step').index(currentSection), 0) + 1;
+        }
 
+        $('#legalforms-plugin .progress-bar').text(Math.round(currentNumber / totalSections * 100) + '%');
         $('#legalforms-plugin .progress-bar').width(currentNumber / totalSections * 100 + '%');
     }
 

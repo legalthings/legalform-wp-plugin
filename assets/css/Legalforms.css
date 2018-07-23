@@ -83,6 +83,6 @@
 }
 
 #legalforms-plugin .progress {
-    height: 8px;
-
+    height: 20px;
+    border-radius: 5px;
 }
