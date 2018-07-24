@@ -425,6 +425,8 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             if ($_POST['legalforms']['done_url']) {
                 echo $_POST['legalforms']['done_url'];
+            } else if ($_POST['legalforms']['standard_login'] === 'true') {
+                echo $this->config['base_url'] . '/processes/' . $process['id'];
             } else {
                 echo $this->config['base_url'] . '/processes/' . $process['id'] . '?hash=' . $session['id'] . '&auto_open=true';
             }
