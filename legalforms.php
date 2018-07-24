@@ -277,7 +277,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             $response = wp_remote_post(
                 $base_url . '/service/iam/users',
                 array(
-                    'timeout' => 15,
+                    'timeout' => 30,
                     'body' => $account
                 )
             );
@@ -299,7 +299,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             $response = wp_remote_post(
                 $base_url . '/service/iam/sessions',
                 array(
-                    'timeout' => 15,
+                    'timeout' => 30,
                     'body' => $account
                 )
             );
@@ -326,7 +326,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                     'headers' => array(
                         'X-Session' => $session['id']
                     ),
-                    'timeout' => 15,
+                    'timeout' => 30,
                     'body' => $flow_data
                 )
             );
@@ -353,7 +353,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                     'headers' => array(
                         'X-Session' => $session['id']
                     ),
-                    'timeout' => 15,
+                    'timeout' => 30,
                     'body' => array(
                         'response' => 'ok',
                         'action' => $process['current']['key']
