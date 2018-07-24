@@ -385,7 +385,7 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             if ($_POST['legalforms']['standard_login'] === 'true') {
                 $account = array(
-                    'email' => $this->config['standard_email'],
+                    'email' => strtolower($this->config['standard_email']),
                     'password' => $this->config['standard_password']
                 );
 
@@ -406,7 +406,7 @@ if (!class_exists('LegalThingsLegalForms')) {
             );
 
             if (isset($_POST['account']['user_email'])) {
-                $flow_data['data']['user_email'] = $_POST['account']['user_email'];
+                $flow_data['data']['user_email'] = strtolower($_POST['account']['user_email']);
                 $flow_data['data']['user_name'] = $_POST['account']['user_name'];
             }
 
