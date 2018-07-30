@@ -86,3 +86,7 @@
     height: 20px;
     border-radius: 5px;
 }
+
+#legalforms-plugin .progress-bar {
+    opacity: 0;
+}
