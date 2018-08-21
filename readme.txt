@@ -32,6 +32,9 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 
 == Changelog ==
+= 1.6.4 =
+- Bugfixes
+
 = 1.6.3 =
 - Improved progess bar
 
