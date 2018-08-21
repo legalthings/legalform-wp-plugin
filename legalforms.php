@@ -223,8 +223,7 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'definition'            => $form->definition,
                 'legalform_respond_url' => '10',
                 'ajaxurl'               => admin_url( 'admin-ajax.php' ),
-                'dir_url'               => plugin_dir_url(__FILE__),
-                'nonce'                 => wp_create_nonce()
+                'dir_url'               => plugin_dir_url(__FILE__)
             );
 
             foreach ($attrs as $key => $value) {
