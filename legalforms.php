@@ -293,16 +293,16 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
         }
 
-        public function create_session($base_url, $account)
-        {
+        public function create_session($base_url, $payload)
+        {    
             $response = wp_remote_post(
                 $base_url . '/service/iam/sessions',
                 array(
                     'timeout' => 30,
-                    'body' => $account
+                    'body' => $payload,
                 )
             );
-
+            
             if (is_wp_error($response)) {
                 header('HTTP/1.1 500 Internal Server Error');
                 $error_message = $response->get_error_message();
@@ -381,12 +381,13 @@ if (!class_exists('LegalThingsLegalForms')) {
             }
 
             if ($_POST['legalforms']['standard_login'] === 'true') {
-                $account = array(
+                $payload = array(
                     'email' => strtolower($this->config['standard_email']),
-                    'password' => $this->config['standard_password']
+                    'password' => $this->config['standard_password'],
+                    'ttl' => 600
                 );
 
-                $session = $this->create_session($this->config['base_url'], $account);
+                $session = $this->create_session($this->config['base_url'], $payload);
             } else {
                 $session = $this->create_session($this->config['base_url'], $_POST['account']);
             }
