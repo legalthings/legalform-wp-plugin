@@ -891,8 +891,11 @@ function ltriToUrl(url) {
     if (!base.match(/^(https?:)?\/\//)) {
         base = host + '/' + base.replace(/^\//, '');
     }
-
-    url = url.replace('lt:', '');
+    
+    if (url.match('lt:')) {
+        url = url.replace('lt:', '');
+        host = legalforms.base_url.replace(/https?:\/\//, '');
+    }
 
     var auth = url.match(/^[^:\/@]+:[^:\/@]+@/);
     if (auth) {
