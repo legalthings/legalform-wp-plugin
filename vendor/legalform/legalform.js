@@ -296,6 +296,7 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 
 function LegalForm($) {
     var self = this;
+    var computedRegexp = /("(?:[^"\\]+|\\.)*"|'(?:[^'\\]+|\\.)*')|(^|[^\w\.\)\]\"\'])(\.?)(\w*[a-zA-z]\w*(?:[\.\w]+(?=[^\w(]|$))?)/g;
     var globals = [
         'Array', 'Date', 'JSON', 'Math', 'NaN', 'RegExp', 'decodeURI', 'decodeURIComponent', 'true', 'false',
         'encodeURI', 'encodeURIComponent', 'isFinite', 'isNaN', 'null', 'parseFloat', 'parseInt', 'undefined'
@@ -446,14 +447,22 @@ function LegalForm($) {
 
         $.each(definition, function(i, step) {
             $.each(step.fields, function(key, field) {
-                if (field.type === 'amount') {
-                    addAmountDefaults(data, step.group, field);
-                } else if (field.type === 'select' && !field.external_source) {
-                    addGroupedData(data, step.group, field.name, '');
-                } else if (field.type === 'group' && field.multiple) {
-                    addGroupedData(data, step.group, field.name, []);
-                } else {
-                    addGroupedData(data, step.group, field.name, field.value);
+                var type = field.type;
+                var value = field.value;
+                var isComputed = typeof(value) === 'string' && value.indexOf('{{') !== -1;
+
+                if (type === 'amount') {
+                    addAmountDefaults(data, step.group, field, isComputed);
+                } else if (!isComputed) {
+                    if (value === null) {
+                        value = ''; //prevent evaluating expressions like 'null null undefined', if it's members are empty
+                    }
+                    
+                    if (type === 'group' && field.multiple) {
+                        value = typeof(value) !== 'undefined' ? [value] : [];
+                    }
+
+                    addGroupedData(data, step.group, field.name, value);
                 }
             });
         });
@@ -481,6 +490,11 @@ function LegalForm($) {
                     setComputedForExpression(name, step, field, data);
                 } else if (field.type === 'external_data' || field.external_source) {
                     setComputedForExternalUrls(name, step, field, data);
+                }
+
+                //Computed default value
+                if (field.value && field.value.indexOf('{{') !== -1) {
+                    setComputedForDefaults(name, step, field, data);
                 }
 
                 setComputedForConditions(name, step, field, data);
@@ -663,6 +677,7 @@ function LegalForm($) {
 
         var keys = data.optionText || [data.text];
         var values = data.optionValue;
+        var defaultValue = typeof data.value !== 'undefined' ? data.value : null;
 
         if (data.optionsText && mode === 'use') data.name = data.value;
 
@@ -677,10 +692,32 @@ function LegalForm($) {
             if (!key) continue;
 
             if (type === 'option') {
-                lines.push(strbind('<option value="%s">%s</option>', value, key));
+                var selected = defaultValue !== null && defaultValue === value;
+                lines.push(strbind('<option value="%s" ' + (selected ? 'selected' : '') + '>%s</option>', value, key));
             } else {
-                var attr = $.extend({type: type}, mode === 'use' ? (value === null ? {checked: data.value} : {name: data.value, value: value}) : {name: data.name});
-                lines.push(strbind('<div class="option"><label><input data-id="%s" %s %s %s/> %s</label></div>', data.name, attrString(data, 'id;name;value;type'), attrString(attr, false), attrString(extra, false), key));
+                var attrs = {type: type};
+
+                if (mode === 'use') {
+                    var more = value === null ? {checked: data.value} : {name: data.value, value: value};
+                    attrs = $.extend(attrs, more);
+                } else {
+                    attrs = $.extend(attrs, {name: data.name});
+
+                    if (data.type === 'group' && defaultValue !== null && defaultValue === value) {
+                        attrs.checked = 'checked';
+                    }
+                }
+
+                var option = strbind(
+                    '<div class="option"><label><input data-id="%s" %s %s %s/> %s</label></div>',
+                    data.name,
+                    attrString(data, 'id;name;value;type'),
+                    attrString(attrs, false),
+                    attrString(extra, false),
+                    key
+                );
+
+                lines.push(option);
             }
         }
 
@@ -736,7 +773,7 @@ function LegalForm($) {
      */
     function expandCondition(condition, group, isCalculated) {
         // Convert expression to computed
-        return condition.replace(/("(?:[^"\\]+|\\.)*"|'(?:[^'\\]+|\\.)*')|(^|[^\w\.\)\]\"\'])(\.?)(\w*[a-zA-z]\w*(?:[\.\w]+(?=[^\w(]|$))?)/g, function(match, str, prefix, scoped, keypath) {
+        return condition.replace(computedRegexp, function(match, str, prefix, scoped, keypath) {
             if (str) return match; // Just a string
             if (!scoped && globals.indexOf(keypath) !== -1) return match; // A global, not a keypath
 
@@ -749,6 +786,30 @@ function LegalForm($) {
     }
 
     /**
+     * Get computed vars for 'value' field (e.g. default value)
+     * @param {string} name   Field name
+     * @param {object} step   Step data
+     * @param {object} field  Field data
+     * @param {object} data   Object to save result to
+     */
+    function setComputedForDefaults(name, step, field, data) {
+        var value = field.value;
+        if (typeof(value) !== 'string') return;
+
+        var computed = value.replace(/("(?:[^"\\]+|\\.)*"|'(?:[^'\\]+|\\.)*')|(^|[^\w\.\)\]\"\']){{\s*(\.?)(\w[^}]*)\s*}}/g, function(match, str, prefix, scoped, keypath) {
+                if (str) return match; // Just a string
+                if (!scoped && globals.indexOf(keypath) > 0) return match; // A global, not a keypath
+                return prefix + '${' + (scoped && step.group ? step.group + '.' : '') + keypath.trim() + '}';
+            }
+        );
+
+        if (field.trim) computed = 'new String(' + computed + ').trim()';
+
+        var key = name + '-default';
+        data[key] = computed;
+    }
+
+    /**
      * Get computed vars for 'expression' field
      * @param {string} name   Field name
      * @param {object} step   Step data
@@ -756,9 +817,7 @@ function LegalForm($) {
      * @param {object} data   Object to save result to
      */
     function setComputedForExpression(name, step, field, data) {
-        var computed = field.expression.replace(
-            /("(?:[^"\\]+|\\.)*"|'(?:[^'\\]+|\\.)*')|(^|[^\w\.\)\]\"\'])(\.?)(\w*[a-zA-z]\w*(?:[\.\w]+(?=[^\w(]|$))?)/g,
-            function(match, str, prefix, scoped, keypath) {
+        var computed = field.expression.replace(computedRegexp, function(match, str, prefix, scoped, keypath) {
                 if (str) return match; // Just a string
                 if (!scoped && globals.indexOf(keypath) > 0) return match; // A global, not a keypath
                 return prefix + '${' + (scoped && step.group ? step.group + '.' : '') + keypath + '}';
@@ -825,9 +884,12 @@ function LegalForm($) {
      * @param {string} group  Group name
      * @param {object} field  Field data
      */
-    function addAmountDefaults(data, group, field) {
+    function addAmountDefaults(data, group, field, isComputed) {
+        var value = isComputed ? "" :  //Real value will be set from calculated default field,
+            (field.value !== '' ? field.value : "");
+
         var fielddata = {
-            amount: field.value !== '' ? field.value : "",
+            amount: value,
             unit: field.value == 1 ? field.optionValue[0] : field.optionText[0]
         };
 
@@ -940,6 +1002,7 @@ function ltriToUrl(url) {
         suffix: {
             conditions: '-conditions',
             expression: '-expression',
+            defaults: '-default',
             amount: '.amount'
         },
 
@@ -1002,15 +1065,21 @@ function ltriToUrl(url) {
          * @param {string} keypath
          */
         onChangeLegalForm: function (newValue, oldValue, keypath) {
+            if (newValue === oldValue) {
+                return;
+            }
+
             if (this.isCondition(keypath)) {
                 this.onChangeCondition(newValue, oldValue, keypath);
 
                 if ($(this.el).hasClass('material')) {
                     $(this.el).toMaterial();
                 }
+            } else if (this.isDefault(keypath)) {
+                this.onChangeComputedDefault(newValue, oldValue, keypath);
+            } else if (this.isExpression(keypath)) {
+                this.updateExpressions(newValue, oldValue, keypath);
             }
-
-            this.updateExpressions(newValue, oldValue, keypath);
 
             setTimeout($.proxy(this.rebuildWizard, this), 200);
             setTimeout($.proxy(this.refreshLikerts, this), 0);
@@ -1053,6 +1122,29 @@ function ltriToUrl(url) {
         },
 
         /**
+         * If default value of field is presented as calculated expression, use it to update real field value
+         *
+         * @param  {mixed} newValue
+         * @param  {mixed} oldValue
+         * @param  {string} keypath
+         */
+        onChangeComputedDefault: function(newValue, oldValue, keypath) {
+            var ractive = this;
+            var name = unescapeDots(keypath.replace(this.suffix.defaults, ''));
+            var isAmount = this.get(name + this.suffix.amount) !== undefined;
+            var setName = isAmount ? name + this.suffix.amount : name;
+
+            //We loaded document with initialy set values (for ex. in case when editing existing document)
+            if ((Number.isNaN(oldValue) || oldValue === undefined) && this.get(setName)) return;
+            if (Number.isNaN(newValue)) newValue = null;
+
+            //Use timeout because of some ractive bug: expressions, that depend on setting key, may be not updated, or can even cause an error
+            setTimeout(function() {
+                ractive.set(setName, newValue);
+            }, 10);
+        },
+
+        /**
          * We do not use computed for expression field itself, to avoid escaping dots in template,
          * because in computed properties dots are just parts of name, and do not represent nested objects.
          * We use additional computed field, with another name.
@@ -1063,8 +1155,6 @@ function ltriToUrl(url) {
          * @param  {string} keypath
          */
         updateExpressions: function(newValue, oldValue, keypath) {
-            if (!this.isExpression(keypath)) return;
-
             var ractive = this;
             var name = unescapeDots(keypath.replace(this.suffix.expression, ''));
 
@@ -1198,21 +1288,27 @@ function ltriToUrl(url) {
          * @param {object} meta
          */
         initAmountField: function (key, meta) {
-            var amount = this.get(key);
-            if (!amount) return;
+            var value = this.get(key);
+            if (!value) return;
+
+            if (value.amount === '') {
+                //Set default value
+                var defaultValue = this.get(key + this.suffix.defaults);
+                if (typeof defaultValue !== 'undefined') {
+                    var units = this.get('meta.' + key + '.' + (defaultValue == 1 ? 'singular' : 'plural'));
+                    this.set(key + this.suffix.amount, defaultValue);
+                    this.set(key + '.unit', units[0]);
+
+                    value.amount = defaultValue;
+                }
+            }
 
             var toString = function() {
                 return (this.amount !== '' && this.amount !== null) ? this.amount + ' ' + this.unit : '';
             };
 
-            defineProperty(amount, 'toString', toString);
+            defineProperty(value, 'toString', toString);
             this.update(key);
-
-            var defaultValue = getByKeyPath(this.defaults, key, undefined);
-            if (!defaultValue) return;
-
-            defineProperty(defaultValue, 'toString', toString);
-            setByKeyPath(this.defaults, key, defaultValue);
         },
 
         /**
@@ -1732,6 +1828,15 @@ function ltriToUrl(url) {
         isExpression: function(keypath) {
             return endsWith(keypath, this.suffix.expression);
         },
+
+        /**
+         * Determine if keypath belongs to default variable
+         * @param  {string}  keypath
+         * @return {Boolean}
+         */
+        isDefault: function(keypath) {
+            return endsWith(keypath, this.suffix.defaults);
+        }
     });
 
     /**
