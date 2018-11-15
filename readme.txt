@@ -5,7 +5,7 @@ Tags:
 License: MIT
 License URI: https://raw.githubusercontent.com/legalthings/legalform-wp-plugin/master/LICENSE
 Requires at least: 3.5
-Stable tag: 1.6.6
+Stable tag: 1.6.8
 Tested up to: 4.9.5
 
 LegalForms plugin
@@ -32,6 +32,12 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 
 == Changelog ==
+= 1.6.8 =
+- Bugfixes
+
+= 1.6.7 =
+- Add default value parsing
+
 = 1.6.6 =
 - Bugfixes & improvements
 
