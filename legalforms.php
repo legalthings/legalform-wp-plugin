@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.6.6
+ *   Version: 1.6.7
  *   Author: LegalThings
  */
 

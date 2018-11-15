@@ -32,6 +32,9 @@ Upload the LegalForms plugin to your blog, activate it, then enter your LegalThi
 
 
 == Changelog ==
+= 1.6.7 =
+- Add default value parsing
+
 = 1.6.6 =
 - Bugfixes & improvements
 
