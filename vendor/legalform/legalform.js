@@ -393,7 +393,7 @@ function LegalForm($) {
         input = buildFieldInput(data, mode);
         if (!input) return null;
 
-        if (data.label) {
+        if (data.label && field.type !== 'checkbox') {
             label = (mode === 'build' ? '<label>' : '<label for="' + data.id + '">') + data.label + '' + (data.required ? ' <span class="required">*</span>' : '') + '</label>';
         }
 
@@ -675,8 +675,8 @@ function LegalForm($) {
     function buildOption(type, data, extra, mode) {
         var lines = [];
 
-        var keys = data.optionText || [data.text];
-        var values = data.optionValue;
+        var keys = data.optionText || [data.label] || [data.text];
+        var values = data.optionValue || [data.value];
         var defaultValue = typeof data.value !== 'undefined' ? data.value : null;
 
         if (data.optionsText && mode === 'use') data.name = data.value;
@@ -689,7 +689,7 @@ function LegalForm($) {
             var key = $.trim(keys[i]);
             var value = values ? $.trim(values[i]) : null;
 
-            if (!key) continue;
+            if (!key && type !== 'checkbox') continue;
 
             if (type === 'option') {
                 var selected = defaultValue !== null && defaultValue === value;
@@ -709,12 +709,13 @@ function LegalForm($) {
                 }
 
                 var option = strbind(
-                    '<div class="option"><label><input data-id="%s" %s %s %s/> %s</label></div>',
+                    '<div class="option"><label><input data-id="%s" %s %s %s/> %s %s</label></div>',
                     data.name,
                     attrString(data, 'id;name;value;type'),
                     attrString(attrs, false),
                     attrString(extra, false),
-                    key
+                    key,
+                    data.required && type === 'checkbox' ? ' <span class="required">*</span>' : ''
                 );
 
                 lines.push(option);
