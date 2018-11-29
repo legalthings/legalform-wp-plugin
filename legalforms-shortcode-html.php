@@ -4,12 +4,22 @@
         <div class="progress">
             <div class="progress-bar"></div>
         </div>
+        <div id="doc">
+            <div id="doc-help">
+            </div>
+        </div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
         <div class="alert alert-danger hidden d-none" role="alert" id="doc-error">Er is iets fout gegaan</div>
         <div class="alert alert-success hidden d-none" role="alert" id="doc-email-send">E-mail verzonden</div>
 
         <div id="doc-wizard" class="wizard"></div>
+
+        <div id="doc-wizard-actions" class="wizards-actions">
+            <button data-target="#doc-wizard" data-toggle="wizard" data-step="prev" class="btn btn-default pull-left wizard-hide">Vorige</button>
+            <button data-target="#doc-wizard" data-toggle="wizard" data-step="next" class="btn btn-primary btn-rounded btn-outline pull-right wizard-hide">Volgende</button>
+            <button data-target="#doc-wizard" data-toggle="wizard" data-step="done" class="btn btn-success btn-rounded btn-outline pull-right wizard-hide">Voltooien</button>
+        </div>
 
         <div id="doc-wizard-register" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
             <div class="wizard-step">

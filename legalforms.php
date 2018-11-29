@@ -3,7 +3,7 @@
 /*
  *   Plugin Name: LegalThings Legalforms
  *   Description: This plugin can automatically create a LegalThings LegalForm in a page by some shortcode
- *   Version: 1.6.8
+ *   Version: 1.7
  *   Author: LegalThings
  */
 
@@ -151,6 +151,10 @@ if (!class_exists('LegalThingsLegalForms')) {
                 wp_enqueue_script('bootstrap');
             }
 
+            // Add inputmask
+            wp_register_script('inputmask', plugins_url('/vendor/inputmask/inputmask.js', __FILE__));
+            wp_enqueue_script('inputmask');
+
             // Add selectize
             wp_register_script('selectize', plugins_url('/vendor/selectize/selectize.js', __FILE__));
             wp_enqueue_script('selectize');
@@ -193,8 +197,8 @@ if (!class_exists('LegalThingsLegalForms')) {
             wp_register_script('validator', plugins_url('/vendor/validator/validator.js', __FILE__));
             wp_enqueue_script('validator');
 
-            wp_register_script('jespath', plugins_url('/vendor/jmespath/jmespath.js', __FILE__));
-            wp_enqueue_script('jespath');
+            wp_register_script('jmespath', plugins_url('/vendor/jmespath/jmespath.js', __FILE__));
+            wp_enqueue_script('jmespath');
 
             //Add Datetimepicker
             wp_register_style('datepicker', plugins_url('/vendor/datepicker/datepicker.css', __FILE__));
@@ -215,6 +219,9 @@ if (!class_exists('LegalThingsLegalForms')) {
 
             wp_register_script(LT_LFP, plugins_url('/assets/js/Legalforms.js', __FILE__), array('jquery', 'ractive'), false, true);
             wp_register_style(LT_LFP, plugins_url('/assets/css/Legalforms.css', __FILE__));
+
+            wp_register_script('es6-shim', plugins_url('/vendor/es6-shim/es6-shim.js', __FILE__));
+            wp_enqueue_script('es6-shim');
 
             // Localize the script with new data
             $form_array = array(
