@@ -221,6 +221,8 @@ var decodeEntities = (function() {
     }
 
     $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
+        if (!$('#doc-wizard form').get(0).checkValidity()) return;
+
         if (legalforms.standard_login === 'true' && legalforms.ask_email === 'true') {
             $('#doc-wizard').hide();
             $('#doc-wizard .wizard-step').removeClass('active');
