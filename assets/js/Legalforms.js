@@ -57,7 +57,7 @@ var decodeEntities = (function() {
     helptext = decodeEntities(helptext);
 
     new Ractive({
-        el: $('#doc-help-'+legalforms.id)[0],
+        el: $('#doc-help')[0],
         template: helptext
     });
 
@@ -74,8 +74,8 @@ var decodeEntities = (function() {
         '</button>'
     ].join(''));
 
-    var doneText = $('#doc-wizard button[data-step=done]').html();
-    $('#doc-wizard button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');
+    var doneText = $('.wizards-actions button[data-step=done]').html();
+    $('.wizards-actions button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');
 
     window.ractive = ractive;
 
@@ -120,7 +120,8 @@ var decodeEntities = (function() {
         delete values.vandaag;
         delete values.meta;
         for (var key in values) {
-            if (key.indexOf('\\') > -1) {
+            if (key.indexOf('\\') > -1 || key.indexOf('-conditions') > -1 ||
+                key.indexOf('-expression') > -1 || key.indexOf('-default') > -1) {
                 delete values[key];
             }
         }
@@ -220,7 +221,7 @@ var decodeEntities = (function() {
         $('#legalforms-plugin .progress-bar').width(currentNumber / totalSections * 100 + '%');
     }
 
-    $(document).on('click', '#doc-wizard button[data-step="done"]', function() {
+    $(document).on('click', '.wizards-actions button[data-step="done"]', function() {
         if (!$('#doc-wizard form').get().every(function (form) {
             return form.checkValidity();
         })) {
@@ -229,6 +230,7 @@ var decodeEntities = (function() {
 
         if (legalforms.standard_login === 'true' && legalforms.ask_email === 'true') {
             $('#doc-wizard').hide();
+            $('#doc-wizard-actions').hide();
             $('#doc-wizard .wizard-step').removeClass('active');
             $('#doc-wizard-email .wizard-step').addClass('active');
             $('#doc-wizard-email').show();
@@ -239,6 +241,7 @@ var decodeEntities = (function() {
             sendToFlow({}, false);
         } else {
             $('#doc-wizard').hide();
+            $('#doc-wizard-actions').hide();
             $('#doc-wizard .wizard-step').removeClass('active');
             $('#doc-wizard-register .wizard-step').addClass('active');
             $('#doc-wizard-register').show();
@@ -306,6 +309,7 @@ var decodeEntities = (function() {
         $('#doc-wizard-login .wizard-step').removeClass('active');
         $('#doc-wizard .wizard-step:last').addClass('active');
         $('#doc-wizard').show();
+        $('#doc-wizard-actions').show();
         updateProgress();
     })
 
