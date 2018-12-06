@@ -116,18 +116,25 @@ if (!class_exists('LegalThingsLegalForms')) {
                 'alias_key' => '',
                 'alias_value' => '',
                 'step_through' => false,
-                'ask_email' => false
+                'ask_email' => false,
+                'test_mode' => false
             ), $attrs);
-
-            $url = $this->config['base_url'] . '/service/docx/templates/' . $attrs['template'] . '/forms';
-            $response = wp_remote_get($url, array('timeout' => 10));
-
-            if (wp_remote_retrieve_response_code($response) !== 200 ||
+                        
+            if ($attrs['test_mode'] == 'true') {
+                $url = plugins_url('/test_form.json', __FILE__);
+                $form = json_decode(file_get_contents($url));
+            } else {
+                $url = $this->config['base_url'] . '/service/docx/templates/' . $attrs['template'] . '/forms';
+                
+                $response = wp_remote_get($url, array('timeout' => 10));
+                
+                if (wp_remote_retrieve_response_code($response) !== 200 ||
                 wp_remote_retrieve_header($response, 'content-type') !== 'application/json') {
-                return sprintf(__('Can not load form with reference: <a href="%s">%s</a>', LT_LFP), $url, $attrs['template']);
+                    return sprintf(__('Can not load form with reference: <a href="%s">%s</a>', LT_LFP), $url, $attrs['template']);
+                }
+                
+                $form = json_decode(wp_remote_retrieve_body($response));
             }
-
-            $form = json_decode(wp_remote_retrieve_body($response));
             $this->append_assets($attrs, $form);
             ob_start();
             include LT_LFP_PATH.'legalforms-shortcode-html.php';
