@@ -135,100 +135,144 @@ if (!class_exists('LegalThingsLegalForms')) {
                 
                 $form = json_decode(wp_remote_retrieve_body($response));
             }
+            
+            $this->append_vendor_styles($attrs);
+            $this->append_vendor_scripts($attrs);
             $this->append_assets($attrs, $form);
             ob_start();
             include LT_LFP_PATH.'legalforms-shortcode-html.php';
             $output = ob_get_clean();
             return $output;
         }
+        
+        /**
+         *  Function to append vendor styling to the page with form
+         *
+         * @param  [object]
+         */
+        public function append_vendor_styles($attrs)
+        {   
+            wp_register_style('datepicker', plugins_url('/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.css', __FILE__));
+            wp_enqueue_style('datepicker');
+            
+            if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done')) &&
+                $this->config['load_bootstrap']) {
+                wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/legalforms-bootstrap.css', __FILE__));
+                wp_enqueue_style('bootstrap');
+            }
+            
+            wp_register_style('jquery-ui', plugins_url('/vendor/jquery-ui/jquery-ui.min.css', __FILE__));
+            wp_enqueue_style('jquery-ui');
 
+            wp_register_style('jasny-bootstrap', plugins_url('/vendor/jasny-bootstrap/jasny-bootstrap.css', __FILE__));
+            wp_enqueue_style('jasny-bootstrap');
+            
+            if ($attrs['material'] !== 'false') {
+                wp_register_style('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/legalforms-bootstrap-material-design.css', __FILE__));
+                wp_enqueue_style('bootstrap-material-design');
+                if (!wp_style_is( 'material-icons', 'enqueued' )) {
+                    wp_register_style('material-icons', plugins_url('/vendor/material-icons/material-icons.css', __FILE__));
+                    wp_enqueue_style('material-icons');
+                }
+            } else {
+                wp_register_style('selectize', plugins_url('/vendor/selectize/selectize.css', __FILE__));
+                wp_enqueue_style('selectize');
+            }
+
+            if (!wp_style_is( 'fontawesome', 'enqueued' )) {
+                wp_register_style('fontawesome', plugins_url('/vendor/fontawesome/fontawesome.min.css', __FILE__));
+                wp_enqueue_style('fontawesome');
+                wp_register_style('fontawesome-solid', plugins_url('/vendor/fontawesome/solid.min.css', __FILE__));
+                wp_enqueue_style('fontawesome-solid');
+            }
+            
+            wp_register_style('bootstrap-wizard', plugins_url('/vendor/bootstrap-wizard/bootstrap-wizard.min.css', __FILE__));
+            wp_enqueue_style('bootstrap-wizard');
+
+            wp_register_style('perfect-scrollbar', plugins_url('/vendor/perfect-scrollbar/perfect-scrollbar.css', __FILE__));
+            wp_enqueue_style('perfect-scrollbar');
+            
+            wp_register_style('bootstrap-editable', plugins_url('/vendor/bootstrap-editable/bootstrap-editable.css', __FILE__));
+            wp_enqueue_style('bootstrap-editable');
+            
+            wp_register_style('bootstrap-switch', plugins_url('/vendor/bootstrap-switch/bootstrap-switch.css', __FILE__));
+            wp_enqueue_style('bootstrap-switch');
+            
+            wp_register_style('selectize-bootstrap', plugins_url('/vendor/selectize/selectize-bootstrap.css', __FILE__));
+            wp_enqueue_style('selectize-bootstrap');
+            
+            wp_register_style('legalform-css', plugins_url('/vendor/legalform/legalforms-legalform.css', __FILE__));
+            wp_enqueue_style('legalform-css');
+        }
+        
+        /**
+         *  Function to append vendor scripts to the page with form
+         *
+         * @param  [object]
+         */
+        public function append_vendor_scripts($attrs)
+        {   
+            wp_register_script('moment', plugins_url('/vendor/moment/moment.js', __FILE__));
+            wp_enqueue_script('moment');
+            wp_register_script('moment-nl', plugins_url('/vendor/moment/locale/nl.js', __FILE__));
+            wp_enqueue_script('moment-nl');
+            wp_register_script('moment-en', plugins_url('/vendor/moment/locale/en-gb.js', __FILE__));
+            wp_enqueue_script('moment-en');
+            
+            wp_register_script('jquery-ui', plugins_url('/vendor/jquery-ui/jquery-ui.min.js', __FILE__), array('jquery'));
+            wp_enqueue_script('jquery-ui');
+            
+            wp_register_script('inputmask', plugins_url('/vendor/inputmask/jquery.inputmask.bundle.js', __FILE__));
+            wp_enqueue_script('inputmask');
+
+            wp_register_script('bootstrap', plugins_url('/vendor/bootstrap/bootstrap.js', __FILE__), array('jquery', 'jquery-ui'));
+            wp_enqueue_script('bootstrap');
+            
+            wp_register_script('jasny-bootstrap', plugins_url('/vendor/jasny-bootstrap/jasny-bootstrap.js', __FILE__));
+            wp_enqueue_script('jasny-bootstrap');
+            
+            wp_register_script('bootstrap-datetimepicker', plugins_url('/vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js', __FILE__));
+            wp_enqueue_script('bootstrap-datetimepicker');
+
+            wp_register_script('bootstrap-wizard', plugins_url('/vendor/bootstrap-wizard/bootstrap-wizard.js', __FILE__));
+            wp_enqueue_script('bootstrap-wizard');
+
+            wp_register_script('validator', plugins_url('/vendor/validator/validator.js', __FILE__));
+            wp_enqueue_script('validator');
+
+            wp_register_script('selectize', plugins_url('/vendor/selectize/selectize.js', __FILE__));
+            wp_enqueue_script('selectize');
+            
+            wp_register_script('perfect-scrollbar', plugins_url('/vendor/perfect-scrollbar/perfect-scrollbar.js', __FILE__));
+            wp_enqueue_script('perfect-scrollbar');
+
+            wp_register_script('es6-shim', plugins_url('/vendor/es6-shim/es6-shim.js', __FILE__), array('jquery'));
+            wp_enqueue_script('es6-shim');
+            
+            wp_register_script('ractive', plugins_url('/vendor/ractive/ractive.js', __FILE__), array('jquery'));
+            wp_enqueue_script('ractive');
+
+            wp_register_script('jmespath', plugins_url('/vendor/jmespath/jmespath.js', __FILE__), array('jquery'));
+            wp_enqueue_script('jmespath');
+            
+            if ($attrs['material'] !== 'false') {
+                wp_register_script('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.js', __FILE__));
+                wp_enqueue_script('bootstrap-material-design');
+            }
+            
+            wp_register_script('legalform-js', plugins_url('/vendor/legalform/legalform.js', __FILE__), array('jquery', 'ractive'));
+            wp_enqueue_script('legalform-js');
+        }
+        
         /**
          *  Function to append legalform-js assets to the page with form
          *
          * @param  [object]
          */
         public function append_assets($attrs, $form)
-        {
-            // Add bootstrap to the page
-            if( (!wp_style_is('bootstrap', 'queue')) && (!wp_style_is('bootstrap', 'done')) &&
-                $this->config['load_bootstrap']) {
-                wp_register_style('bootstrap', plugins_url('/vendor/bootstrap/legalforms-bootstrap.css', __FILE__));
-                wp_enqueue_style('bootstrap');
-                wp_register_script('bootstrap', plugins_url('/vendor/bootstrap/bootstrap.js', __FILE__));
-                wp_enqueue_script('bootstrap');
-            }
-
-            // Add inputmask
-            wp_register_script('inputmask', plugins_url('/vendor/inputmask/inputmask.js', __FILE__));
-            wp_enqueue_script('inputmask');
-
-            // Add selectize
-            wp_register_script('selectize', plugins_url('/vendor/selectize/selectize.js', __FILE__));
-            wp_enqueue_script('selectize');
-
-            // Added material design if need
-            if ($attrs['material'] !== 'false') {
-                wp_register_style('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/legalforms-bootstrap-material-design.css', __FILE__));
-                wp_enqueue_style('bootstrap-material-design');
-                wp_register_script('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.js', __FILE__));
-                wp_enqueue_script('bootstrap-material-design');
-            } else {
-                wp_register_style('selectize', plugins_url('/vendor/selectize/selectize.css', __FILE__));
-                wp_enqueue_style('selectize');
-                wp_register_style('selectize-bootstrap', plugins_url('/vendor/selectize/selectize-bootstrap.css', __FILE__));
-                wp_enqueue_style('selectize-bootstrap');
-            }
-
-            // Added font awensome fonts for labels
-            wp_register_style('font-awesome', plugins_url('/vendor/bootstrap/font-awesome.css', __FILE__));
-            wp_enqueue_style('font-awesome');
-
-            // Add moment-js to the form
-            wp_register_script('moment', plugins_url('/vendor/moment//moment.js', __FILE__));
-            wp_enqueue_script('moment');
-            wp_register_script('moment-nl', plugins_url('/vendor/moment/locale/nl.js', __FILE__));
-            wp_enqueue_script('moment-nl');
-            wp_register_script('moment-en', plugins_url('/vendor/moment/locale/en-gb.js', __FILE__));
-            wp_enqueue_script('moment-en');
-
-            // Add Ractive for form
-            wp_register_script('ractive', plugins_url('/vendor/ractive/ractive.js', __FILE__));
-            wp_enqueue_script('ractive');
-
-            // Add perfect Scrollbar to form
-            wp_register_style('perfect-scrollbar', plugins_url('/vendor/perfect-scrollbar/perfect-scrollbar.css', __FILE__));
-            wp_enqueue_style('perfect-scrollbar');
-            wp_register_script('perfect-scrollbar', plugins_url('/vendor/perfect-scrollbar/perfect-scrollbar.js', __FILE__));
-            wp_enqueue_script('perfect-scrollbar');
-
-            wp_register_script('validator', plugins_url('/vendor/validator/validator.js', __FILE__));
-            wp_enqueue_script('validator');
-
-            wp_register_script('jmespath', plugins_url('/vendor/jmespath/jmespath.js', __FILE__));
-            wp_enqueue_script('jmespath');
-
-            //Add Datetimepicker
-            wp_register_style('datepicker', plugins_url('/vendor/datepicker/datepicker.css', __FILE__));
-            wp_enqueue_style('datepicker');
-            wp_register_script('datepicker', plugins_url('/vendor/datepicker/datepicker.js', __FILE__));
-            wp_enqueue_script('datepicker');
-
-            //Legalthings scripts and styles
-            wp_register_style('legalform-wizard', plugins_url('/vendor/legalform-wizard/legalforms-legalform-wizard.css', __FILE__));
-            wp_enqueue_style('legalform-wizard');
-            wp_register_script('legalform-wizard', plugins_url('/vendor/legalform-wizard/legalform-wizard.js', __FILE__));
-            wp_enqueue_script('legalform-wizard');
-
-            wp_register_style('legalform-css', plugins_url('/vendor/legalform/legalforms-legalform.css', __FILE__));
-            wp_enqueue_style('legalform-css');
-            wp_register_script('legalform-js', plugins_url('/vendor/legalform/legalform.js', __FILE__), array('jquery', 'ractive'));
-            wp_enqueue_script('legalform-js');
-
+        {                        
             wp_register_script(LT_LFP, plugins_url('/assets/js/Legalforms.js', __FILE__), array('jquery', 'ractive'), false, true);
             wp_register_style(LT_LFP, plugins_url('/assets/css/Legalforms.css', __FILE__));
-
-            wp_register_script('es6-shim', plugins_url('/vendor/es6-shim/es6-shim.js', __FILE__));
-            wp_enqueue_script('es6-shim');
 
             // Localize the script with new data
             $form_array = array(
