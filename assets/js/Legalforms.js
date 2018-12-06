@@ -63,16 +63,10 @@ var decodeEntities = (function() {
 
     if (legalforms.material !== 'false') {
         $('#doc-wizard').toMaterial();
-        $('#doc-wizard .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
+        $('#doc-wizard-actions .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
     } else {
-        $('#doc-wizard .btn-default').addClass('btn-secondary');
+        $('#doc-wizard-actions .btn-default').addClass('btn-secondary');
     }
-
-    $('button[data-step=done]').after([
-        '<button class="btn btn-default btn-raised doc-save pull-right">',
-        'Bewaar voor later',
-        '</button>'
-    ].join(''));
 
     var doneText = $('.wizards-actions button[data-step=done]').html();
     $('.wizards-actions button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');

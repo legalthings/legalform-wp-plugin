@@ -16,9 +16,10 @@
         <div id="doc-wizard" class="wizard"></div>
 
         <div id="doc-wizard-actions" class="wizards-actions">
-            <button data-target="#doc-wizard" data-toggle="wizard" data-step="prev" class="btn btn-default pull-left wizard-hide">Vorige</button>
+            <button data-target="#doc-wizard" data-toggle="wizard" data-step="prev" class="btn btn-default btn-rounded btn-outline pull-left wizard-hide">Vorige</button>
             <button data-target="#doc-wizard" data-toggle="wizard" data-step="next" class="btn btn-primary btn-rounded btn-outline pull-right wizard-hide">Volgende</button>
             <button data-target="#doc-wizard" data-toggle="wizard" data-step="done" class="btn btn-success btn-rounded btn-outline pull-right wizard-hide">Voltooien</button>
+            <button class="btn btn-default btn-rounded btn-outline doc-save pull-right">Bewaar voor later</button>
         </div>
 
         <div id="doc-wizard-register" class="wizard <?php if ($attrs['material'] !== 'false') { echo 'material'; }?>" style="display:none">
