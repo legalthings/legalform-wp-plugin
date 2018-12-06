@@ -43,7 +43,7 @@ var decodeEntities = (function() {
     var options = builder.calc(legalforms.definition);
 
     var ractive = new RactiveLegalForm({
-        el: $('#doc-wizard'),
+        el: $('#doc-wizard').get(0),
         template: template,
         validation: new LegalFormValidation(),
         defaults: options.defaults,
