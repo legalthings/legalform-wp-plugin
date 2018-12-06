@@ -357,8 +357,8 @@ var decodeEntities = (function() {
 
     $(document).on('keyup', function(e) {
         if (e.which == 13) {
-            jQuery('.wizard-step.active .wizards-actions button[data-step="next"].in, \
-                    .wizard-step.active .wizards-actions button[data-step="done"].in, \
+            jQuery('#doc-wizard-actions button[data-step="next"].in, \
+                    #doc-wizard-actions button[data-step="done"].in, \
                     #doc-wizard-register .wizard-step.active .wizards-actions button[data-step="register"], \
                     #doc-wizard-login .wizard-step.active .wizards-actions button[data-step="login"], \
                     #doc-wizard-email .wizard-step.active .wizards-actions button[data-step="done"], \
