@@ -43,7 +43,7 @@ var decodeEntities = (function() {
     var options = builder.calc(legalforms.definition);
 
     var ractive = new RactiveLegalForm({
-        el: $('#doc-wizard'),
+        el: $('#doc-wizard').get(0),
         template: template,
         validation: new LegalFormValidation(),
         defaults: options.defaults,
@@ -63,16 +63,13 @@ var decodeEntities = (function() {
 
     if (legalforms.material !== 'false') {
         $('#doc-wizard').toMaterial();
+        $('#doc-wizard').bootstrapMaterialDesign({ autofill: false });
         $('#doc-wizard .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
+        $('.progress').remove();
+        $('#doc').remove();
     } else {
         $('#doc-wizard .btn-default').addClass('btn-secondary');
     }
-
-    $('button[data-step=done]').after([
-        '<button class="btn btn-default btn-raised doc-save pull-right">',
-        'Bewaar voor later',
-        '</button>'
-    ].join(''));
 
     var doneText = $('.wizards-actions button[data-step=done]').html();
     $('.wizards-actions button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');
@@ -249,6 +246,8 @@ var decodeEntities = (function() {
                 scrollTop: $('#legalforms-plugin').offset().top - getHeaderHeight() - 10
             }, 500);
         }
+        
+        $('#doc').hide();
 
         updateProgress();
     });
@@ -310,6 +309,7 @@ var decodeEntities = (function() {
         $('#doc-wizard .wizard-step:last').addClass('active');
         $('#doc-wizard').show();
         $('#doc-wizard-actions').show();
+        $('#doc').show();
         updateProgress();
     })
 
@@ -357,8 +357,8 @@ var decodeEntities = (function() {
 
     $(document).on('keyup', function(e) {
         if (e.which == 13) {
-            jQuery('.wizard-step.active .wizards-actions button[data-step="next"].in, \
-                    .wizard-step.active .wizards-actions button[data-step="done"].in, \
+            jQuery('#doc-wizard-actions button[data-step="next"].in, \
+                    #doc-wizard-actions button[data-step="done"].in, \
                     #doc-wizard-register .wizard-step.active .wizards-actions button[data-step="register"], \
                     #doc-wizard-login .wizard-step.active .wizards-actions button[data-step="login"], \
                     #doc-wizard-email .wizard-step.active .wizards-actions button[data-step="done"], \

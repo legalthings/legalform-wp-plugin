@@ -1,3 +1,7 @@
+#legalforms-plugin {
+    background-color: initial;
+}
+
 #legalforms-plugin .wizard.material input[type="text"],
 #legalforms-plugin .wizard.material input[type="password"],
 #legalforms-plugin .wizard.material input[type="email"],
@@ -32,6 +36,20 @@
 .material .wizard-step.active > .wizards-actions {
     padding: 10px 50px;
     display: block;
+}
+
+#legalforms-plugin .material .wizard-step:before {
+    font-family: "Font Awesome 5 Free";
+}
+
+#legalforms-plugin .material .radio,
+#legalforms-plugin .material .checkbox {
+    padding-left: 0;
+}
+
+#legalforms-plugin .material .likert .bmd-radio, 
+#legalforms-plugin .material .checkbox label .checkbox-decorator {
+    top: 0;
 }
 
 #legalforms-plugin #doc-wizard-login .btn-success,
@@ -89,4 +107,45 @@
 
 #legalforms-plugin .progress-bar {
     opacity: 0;
+}
+
+#legalforms-plugin .likert {
+    border: none;
+}
+
+#legalforms-plugin .likert td {
+    border: none;
+    width: 40px;
+}
+
+#legalforms-plugin #doc-wizard-register.material .wizard-step::before, 
+#legalforms-plugin #doc-wizard-login.material .wizard-step::before,
+#legalforms-plugin #doc-wizard-forgot.material .wizard-step::before,
+#legalforms-plugin #doc-wizard-email.material .wizard-step::before {
+    display: none;
+}
+
+#legalforms-plugin #doc-wizard-register.material .wizard-step::after, 
+#legalforms-plugin #doc-wizard-login.material .wizard-step::after,
+#legalforms-plugin #doc-wizard-forgot.material .wizard-step::after,
+#legalforms-plugin #doc-wizard-email.material .wizard-step::after {
+    display: none;
+}
+
+#legalforms-plugin #doc-wizard-register.material h3, 
+#legalforms-plugin #doc-wizard-login.material h3,
+#legalforms-plugin #doc-wizard-forgot.material h3,
+#legalforms-plugin #doc-wizard-email.material h3 {
+    padding: 10px;
+}
+
+#legalforms-plugin #doc-wizard-register.material form, 
+#legalforms-plugin #doc-wizard-login.material form,
+#legalforms-plugin #doc-wizard-forgot.material form,
+#legalforms-plugin #doc-wizard-email.material form {
+    padding: 10px;
+}
+
+#legalforms-plugin #doc-wizard + #doc-wizard-actions {
+    display: none !important;
 }
