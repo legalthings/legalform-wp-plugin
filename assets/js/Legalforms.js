@@ -63,9 +63,12 @@ var decodeEntities = (function() {
 
     if (legalforms.material !== 'false') {
         $('#doc-wizard').toMaterial();
-        $('#doc-wizard-actions .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
+        $('#doc-wizard').bootstrapMaterialDesign({ autofill: false });
+        $('#doc-wizard .btn').addClass('btn-raised').removeClass('btn-outline').removeClass('btn-rounded');
+        $('.progress').remove();
+        $('#doc').remove();
     } else {
-        $('#doc-wizard-actions .btn-default').addClass('btn-secondary');
+        $('#doc-wizard .btn-default').addClass('btn-secondary');
     }
 
     var doneText = $('.wizards-actions button[data-step=done]').html();
@@ -243,6 +246,8 @@ var decodeEntities = (function() {
                 scrollTop: $('#legalforms-plugin').offset().top - getHeaderHeight() - 10
             }, 500);
         }
+        
+        $('#doc').hide();
 
         updateProgress();
     });
@@ -304,6 +309,7 @@ var decodeEntities = (function() {
         $('#doc-wizard .wizard-step:last').addClass('active');
         $('#doc-wizard').show();
         $('#doc-wizard-actions').show();
+        $('#doc').show();
         updateProgress();
     })
 

@@ -1337,6 +1337,7 @@ function LegalFormHtml($) {
          */
         this.initShowTooltip = function () {
             $(this.elWizard).on('mouseover click', '[rel=tooltip]', $.proxy(function(e) {
+                console.log('mouseover tooltip');
                 this.initTooltip(e.target);
             }, this));
         }
@@ -1558,6 +1559,7 @@ function LegalFormHtml($) {
 
         //Init and show tooltip for the first time
         this.initTooltip = function(element, show) {
+            console.log(element);
             var inited = $(element).data('bs.tooltip');
             if (!inited) {
                 $(element).tooltip({

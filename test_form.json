@@ -100,12 +100,28 @@
                     "optionValue" : [
                         "1",
                         "2",
-                        "3"
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
                     ],
                     "optionText" : [
                         "one",
                         "two",
-                        "three"
+                        "three",
+                        "four",
+                        "five",
+                        "six",
+                        "seven",
+                        "eight",
+                        "nine",
+                        "ten",
+                        "eleven"
                     ],
                     "helptext" : "",
                     "conditions" : "",
@@ -263,10 +279,10 @@
                     "validation" : ""
                 },
                 {
-                    "type" : "select",
-                    "label" : "Select",
-                    "name" : "select",
-                    "url" : "",
+                    "type" : "group",
+                    "label" : "Option group",
+                    "name" : "option_group",
+                    "value" : "3",
                     "optionValue" : [
                         "1",
                         "2",
@@ -276,6 +292,41 @@
                         "one",
                         "two",
                         "three"
+                    ],
+                    "helptext" : "",
+                    "conditions" : "",
+                    "validation" : ""
+                },
+                {
+                    "type" : "select",
+                    "label" : "Select",
+                    "name" : "select",
+                    "url" : "",
+                    "optionValue" : [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11"
+                    ],
+                    "optionText" : [
+                        "one",
+                        "two",
+                        "three",
+                        "four",
+                        "five",
+                        "six",
+                        "seven",
+                        "eight",
+                        "nine",
+                        "ten",
+                        "eleven"
                     ],
                     "helptext" : "",
                     "conditions" : "",
@@ -295,25 +346,6 @@
                             "label" : "three"
                         }
                     ]
-                },
-                {
-                    "type" : "group",
-                    "label" : "Option group",
-                    "name" : "option_group",
-                    "value" : "3",
-                    "optionValue" : [
-                        "1",
-                        "2",
-                        "3"
-                    ],
-                    "optionText" : [
-                        "one",
-                        "two",
-                        "three"
-                    ],
-                    "helptext" : "",
-                    "conditions" : "",
-                    "validation" : ""
                 }
             ],
             "label" : "Fields with default values",

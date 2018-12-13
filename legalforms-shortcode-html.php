@@ -15,7 +15,7 @@
 
         <div id="doc-wizard" class="wizard"></div>
 
-        <div id="doc-wizard-actions" class="wizards-actions">
+        <div id="doc-wizard-actions" class="wizards-actions template">
             <button data-target="#doc-wizard" data-toggle="wizard" data-step="prev" class="btn btn-default btn-rounded btn-outline pull-left wizard-hide">Vorige</button>
             <button data-target="#doc-wizard" data-toggle="wizard" data-step="next" class="btn btn-primary btn-rounded btn-outline pull-right wizard-hide">Volgende</button>
             <button data-target="#doc-wizard" data-toggle="wizard" data-step="done" class="btn btn-success btn-rounded btn-outline pull-right wizard-hide">Voltooien</button>
@@ -57,7 +57,7 @@
                     <?php endif; ?>
                 </form>
                 <div class="wizards-actions">
-                    <button class="btn btn-default btn-secondary pull-left" data-target="#doc-wizard-register" data-toggle="wizard" data-step="previous">
+                    <button class="btn btn-default btn-raised pull-left" data-target="#doc-wizard-register" data-toggle="wizard" data-step="previous">
                         Vorige
                     </button>
                     <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-register" data-toggle="wizard" data-step="register">
@@ -90,7 +90,7 @@
                     </div>
                 </form>
                 <div class="wizards-actions">
-                    <button class="btn btn-default btn-secondary pull-left" data-target="#doc-wizard-login" data-toggle="wizard" data-step="previous">
+                    <button class="btn btn-default btn-raised pull-left" data-target="#doc-wizard-login" data-toggle="wizard" data-step="previous">
                         Vorige
                     </button>
                     <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-login" data-toggle="wizard" data-step="login">

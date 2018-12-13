@@ -256,7 +256,10 @@ if (!class_exists('LegalThingsLegalForms')) {
             wp_enqueue_script('jmespath');
             
             if ($attrs['material'] !== 'false') {
-                wp_register_script('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.js', __FILE__));
+                wp_register_script('popper', plugins_url('/vendor/popper/popper.min.js', __FILE__));
+                wp_enqueue_script('popper');
+                
+                wp_register_script('bootstrap-material-design', plugins_url('/vendor/bootstrap-material-design/bootstrap-material-design.min.js', __FILE__), array('popper'));
                 wp_enqueue_script('bootstrap-material-design');
             }
             
