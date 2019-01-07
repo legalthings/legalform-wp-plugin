@@ -149,3 +149,13 @@
 #legalforms-plugin #doc-wizard + #doc-wizard-actions {
     display: none !important;
 }
+
+#legalforms-plugin #doc-wizard-register .help.password-toggle {
+    right: 5px;
+    font-size: 1.2rem;
+    padding-top: 3px;
+}
+
+#legalforms-plugin #doc-wizard-register.material .help.password-toggle {
+    padding-top: 20px;
+}

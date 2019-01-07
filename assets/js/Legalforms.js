@@ -366,4 +366,18 @@ var decodeEntities = (function() {
         }
         return false;
     })
+    
+    $(document).on('click', '#doc-wizard-register .password-toggle', function() {
+        let input = $('#doc-wizard-register input[name="account.password"]');
+        let eye = $('#doc-wizard-register .password-toggle i');
+        if (input.prop('type') === 'password') {
+            input.prop('type', 'text');
+            eye.removeClass('fa-eye');
+            eye.addClass('fa-eye-slash')
+        } else {
+            input.prop('type', 'password');
+            eye.removeClass('fa-eye-slash');
+            eye.addClass('fa-eye')
+        }
+    });
 })(jQuery);
