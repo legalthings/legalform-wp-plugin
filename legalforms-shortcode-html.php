@@ -46,6 +46,7 @@
                             <span class="required">*</span>
                         </label>
                         <input type="password" class="form-control" name="account.password" required="" id="field:account.password" value="">
+                        <span class="help password-toggle"><i class="fas fa-eye"></i></span>
                     </div>
                     <?php if ($this->config['terms_url']): ?>
                         <div class="checkbox form-check">
