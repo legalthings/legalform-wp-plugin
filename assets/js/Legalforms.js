@@ -112,6 +112,21 @@ var decodeEntities = (function() {
     function getValues() {
         ractive.refreshListItems('remove');
         var values = ractive.get();
+        
+        var amountInputs = findAmountKeys(values, values['meta']);
+        amountInputs.forEach(input => {
+            values[input] = values[input] = values[input]['amount'] + ' ' + values[input]['unit'];
+        });
+        
+        for (const key of Object.keys(values)) {
+            if (key !== 'meta' && typeof values[key] === 'object') {
+                amountInputs = findAmountKeys(values[key], values['meta'][key]);
+                amountInputs.forEach(input => {
+                    values[key][input] = values[key][input] = values[key][input]['amount'] + ' ' + values[key][input]['unit'];
+                });
+            }
+        }
+        
         delete values.$;
         delete values.today;
         delete values.vandaag;
@@ -124,7 +139,11 @@ var decodeEntities = (function() {
         }
         return values;
     }
-
+    
+    function findAmountKeys(object, meta) {
+        return Object.keys(object).filter(key => typeof meta[key] === 'object' && meta[key].type  === 'amount');
+    }
+    
     function getHeaderHeight() {
       var headerHight = $('header').outerHeight(true);
       if (!headerHight) {
