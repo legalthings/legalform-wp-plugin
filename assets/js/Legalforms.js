@@ -71,7 +71,12 @@ var decodeEntities = (function() {
         $('#doc-wizard .btn-default').addClass('btn-secondary');
     }
 
-    var doneText = $('.wizards-actions button[data-step=done]').html();
+    
+    if (legalforms.standard_login && !legalforms.ask_email) {
+        var doneText = $('.wizards-actions button[data-step=done]').html();
+    } else {
+        var doneText = $('.wizards-actions button[data-step=next]').html();
+    }
     $('.wizards-actions button[data-step=done]').html(doneText + '<div class="loader hidden d-none"></div>');
 
     window.ractive = ractive;
