@@ -8,10 +8,10 @@
             <div id="doc-help">
             </div>
         </div>
-        <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
-        <div class="alert alert-danger hidden d-none" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
-        <div class="alert alert-danger hidden d-none" role="alert" id="doc-error">Er is iets fout gegaan</div>
-        <div class="alert alert-success hidden d-none" role="alert" id="doc-email-send">E-mail verzonden</div>
+        <div class="alert alert-danger" style="display:none" role="alert" id="doc-email-error">Ongeldige inloggegevens</div>
+        <div class="alert alert-danger" style="display:none" role="alert" id="doc-email-exists">E-mailadres bestaat al</div>
+        <div class="alert alert-danger" style="display:none" role="alert" id="doc-error">Er is iets fout gegaan</div>
+        <div class="alert alert-success" style="display:none" role="alert" id="doc-email-send">E-mail verzonden</div>
 
         <div id="doc-wizard" class="wizard"></div>
 

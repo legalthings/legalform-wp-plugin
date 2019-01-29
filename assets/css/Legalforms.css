@@ -159,3 +159,7 @@
 #legalforms-plugin #doc-wizard-register.material .help.password-toggle {
     padding-top: 20px;
 }
+
+#legalforms-plugin #legalforms-name {
+    width: 100%;
+}
