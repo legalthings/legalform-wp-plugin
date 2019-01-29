@@ -231,6 +231,7 @@ var decodeEntities = (function() {
             $('#doc-wizard .wizard-step').removeClass('active');
             $('#doc-wizard-email .wizard-step').addClass('active');
             $('#doc-wizard-email').show();
+            $('#doc-wizard-actions button[data-step="done"]').removeClass('in');
             $('html, body').animate({
                 scrollTop: $('#legalforms-plugin').offset().top - getHeaderHeight() - 10
             }, 500);
@@ -242,6 +243,7 @@ var decodeEntities = (function() {
             $('#doc-wizard .wizard-step').removeClass('active');
             $('#doc-wizard-register .wizard-step').addClass('active');
             $('#doc-wizard-register').show();
+            $('#doc-wizard-actions button[data-step="done"]').removeClass('in');
             $('html, body').animate({
                 scrollTop: $('#legalforms-plugin').offset().top - getHeaderHeight() - 10
             }, 500);
@@ -312,6 +314,7 @@ var decodeEntities = (function() {
         $('#doc-wizard').show();
         $('#doc-wizard-actions').show();
         $('#doc').show();
+        $('#doc-wizard-actions button[data-step="done"]').addClass('in');
         updateProgress();
     })
 
