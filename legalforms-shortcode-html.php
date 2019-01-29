@@ -62,7 +62,7 @@
                         Vorige
                     </button>
                     <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-register" data-toggle="wizard" data-step="register">
-                        Ga door
+                        Voltooien
                         <div class="loader hidden d-none"></div>
                     </button>
                     <button class="btn btn-info btn-raised btn-outline pull-right" id="switch-login">
@@ -145,7 +145,7 @@
                 </form>
                 <div class="wizards-actions">
                     <button class="btn btn-success btn-raised pull-right" data-target="#doc-wizard-email" data-toggle="wizard" data-step="done">
-                        Verstuur
+                        Voltooien
                         <div class="loader hidden d-none"></div>
                     </button>
                 </div>
