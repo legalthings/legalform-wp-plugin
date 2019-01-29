@@ -160,11 +160,11 @@ var decodeEntities = (function() {
             $('.loader').addClass('hidden d-none');
 
             if (xhr.status === 409) {
-                $('#doc-email-exists').removeClass('hidden d-none');
+                $('#doc-email-exists').css('display', 'block');
             } else if (xhr.status === 404 || xhr.status === 403 || xhr.status === 401) {
-                $('#doc-email-error').removeClass('hidden d-none');
+                $('#doc-email-error').css('display', 'block');
             } else {
-                $('#doc-error').removeClass('hidden d-none');
+                $('#doc-error').css('display', 'block');
             }
 
             updateProgress();
@@ -183,12 +183,12 @@ var decodeEntities = (function() {
                 legalforms: legalforms
             }
         }).done(function() {
-                $('#doc-email-send').removeClass('hidden d-none');
+                $('#doc-email-send').css('display', 'block');
         }).fail(function(xhr, textStatus) {
             if (xhr.status === 400) {
-                $('#doc-email-error').removeClass('hidden d-none');
+                $('#doc-email-error').css('display', 'block');
             } else {
-                $('#doc-error').removeClass('hidden d-none');
+                $('#doc-error').css('display', 'block');
             }
         });
     }
@@ -256,6 +256,7 @@ var decodeEntities = (function() {
         $('#doc-wizard-register').hide();
         $('#doc-wizard-register .wizard-step').removeClass('active');
         $('#doc-wizard-login .wizard-step').addClass('active');
+        $('#legalforms-plugin .alert.alert-danger').css('display', 'none');
         $('#doc-wizard-login').show();
     });
 
@@ -263,6 +264,7 @@ var decodeEntities = (function() {
         $('#doc-wizard-login').hide();
         $('#doc-wizard-login .wizard-step').removeClass('active');
         $('#doc-wizard-forgot .wizard-step').addClass('active');
+        $('#legalforms-plugin .alert.alert-danger').css('display', 'none');
         $('#doc-wizard-forgot').show();
     });
 
